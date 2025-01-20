@@ -245,7 +245,7 @@ Observamos que \textbf{B} es de 4x2 y \textbf{A} es de 4x4, entonces no podremos
 
 \pagebreak
 
-\begin{problem}{II} 
+\begin{problem}{2} 
 En los siguientes sistemas de ecuaciones lineales determinar las matrices \textbf{A}, \textbf{X}, \textbf{C} para poder
 expresarlas como \textbf{AX} $=$ \textbf{C}. \\
 \begin{align*}
@@ -425,6 +425,146 @@ w
 
 \end{sol}
 
+\pagebreak
+
+\begin{problem}{3}
+Verificar las siguientes afirmaciones:\\
+a) Si \textbf{A} = 
+$
+\begin{bmatrix} 
+2 & 5 \\
+4 & 8 
+\end{bmatrix} 
+\rightarrow 
+\mathbf{A}^{-1} = 
+\begin{bmatrix}
+-2 & 1.25 \\ 
+1 & -0.5
+\end{bmatrix}
+$
+\\ \\
+b) Si \textbf{B}=
+$
+\begin{bmatrix}
+2&4&0\\
+-3&5&2\\
+8&0&-2
+\end{bmatrix}
+\rightarrow
+\mathbf{B}^{-1}=
+\begin{bmatrix}
+-0.5 & 0.4 & 0.4\\
+0.5 & -0.2 & -0.2\\
+-2 & 1.6 & 1.1
+\end{bmatrix}
+$
+\\ \\
+c) Si \textbf{C}=
+$
+\begin{bmatrix}
+0&0&0&-5\\
+1&1&1&0\\
+0&2&0&1\\
+6&0&1&1
+\end{bmatrix}
+\rightarrow
+\mathbf{C}^{-1}=
+\begin{bmatrix}
+0.06 & -0.2 & 0.1 & 0.2\\
+0.1 & 0 & 0.5&0\\
+-0.16 & 1.2 & -0.6 & -0.2 \\
+-0.2 & 0 & 0 & 0
+\end{bmatrix}
+$
+\end{problem}
+\begin{sol}
+Para verificar si esas matrices son las inversas, usaremos la propiedad que nos dice:
+$\mathbf{AA^{-1}}$= $\mathbf{A^{-1}A}$ = \textbf{I}, donde \textbf{I} es la matriz identidad.\\ \\
+a) 
+\begin{align*}
+\mathbf{AA^{-1}} &= 
+\begin{bmatrix} 
+2 & 5 \\
+4 & 8 
+\end{bmatrix} 
+\begin{bmatrix}
+-2 & 1.25 \\ 
+1 & -0.5
+\end{bmatrix}\\
+&= 
+\begin{bmatrix}
+-4 + 5 & 2.5 - 2.5 \\
+-8 + 8 & 5 - 4
+\end{bmatrix}\\
+&= 
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}\\
+&= \mathbf{I}
+\end{align*}
+Debido a que el resultado del producto nos da la matriz identidad, entonces la afirmación a) es correcta. \\ \\ 
+b)
+\begin{align*}
+\mathbf{AA^{-1}} &= 
+\begin{bmatrix}
+2&4&0\\
+-3&5&2\\
+8&0&-2
+\end{bmatrix}
+\begin{bmatrix}
+-0.5 & 0.4 & 0.4\\
+0.5 & -0.2 & -0.2\\
+-2 & 1.6 & 1.1
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+-1 + 2 + 0 & 0.8 - 0.8 + 0 & 0.8 - 0.8 + 0 \\
+1.5 + 2.5 - 4 & -1.2 - 1 + 3.2 & -1.2 - 1 + 2.2 \\
+-4 + 0 + 4 & 3.2 + 0 - 3.2 & 3.2 + 0 - 2.2
+\end{bmatrix}
+\\ &=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}\\
+&= \mathbf{I}
+\end{align*}
+Debido a que el resultado del producto nos da la matriz identidad, entonces la afirmación b) es correcta. \\ \\ 
+c)
+\begin{align*}
+\mathbf{AA^{-1}} &= 
+\begin{bmatrix}
+0&0&0&-5\\
+1&1&1&0\\
+0&2&0&1\\
+6&0&1&1
+\end{bmatrix}
+\begin{bmatrix}
+0.06 & -0.2 & 0.1 & 0.2\\
+0.1 & 0 & 0.5&0\\
+-0.16 & 1.2 & -0.6 & -0.2 \\
+-0.2 & 0 & 0 & 0
+\end{bmatrix} \\
+&= 
+\begin{bmatrix}
+(-5)(-0.2) & 0 & 0 & 0 \\
+0.06 + 0.1 -0.16 & -0.2 +  1.2  & 0.1 + 0.5 -0.6 & 0.2 -0.2  \\
+(2)(0.1) -0.2 & 0 &  (2)(0.5) & 0 \\
+(6)(0.06) -0.16 -0.2 & (6)(-0.2) +  1.2  & (6)(0.1) -0.6 & (6)(0.2) -0.2 
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}\\
+&= \mathbf{I}
+\end{align*}
+Debido a que el resultado del producto nos da la matriz identidad, entonces la afirmación c) es correcta. \\ \\ 
+\end{sol}
 
 
 
