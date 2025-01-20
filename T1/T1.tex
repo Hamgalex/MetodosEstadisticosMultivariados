@@ -629,12 +629,50 @@ Debido a que el resultado del producto nos da la matriz identidad, entonces $\ma
 \pagebreak
 
 \begin{problem}{5}
-
+Verificar que la matriz
+\begin{align*}
+\mathbf{C} = 
+\begin{bmatrix}
+2 & -2 & -4 \\
+-1 & 3 & 4 \\
+1 & -2 & -3 
+\end{bmatrix}
+\end{align*}
+Es idempotente $(\mathbf{C^2}=\mathbf{CC}=\mathbf{C})$
 \end{problem}
 \begin{sol}
-
+Haremos la multiplicación $\mathbf{CC}$ y si nos da el resultado igual a $\mathbf{C}$ entonces es idempotente:
+\begin{align*}
+\mathbf{CC} &= 
+\begin{bmatrix}
+2 & -2 & -4 \\
+-1 & 3 & 4 \\
+1 & -2 & -3 
+\end{bmatrix}
+\begin{bmatrix}
+2 & -2 & -4 \\
+-1 & 3 & 4 \\
+1 & -2 & -3 
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+4 + 2 - 4 & -4 - 6 + 8 & -8 - 8 + 12 \\
+-2 - 3 + 4 & 2 + 9 - 8 & 4 + 12 - 12 \\
+2 + 2 - 3 & -2 - 6 + 6 & -4 - 8 + 9
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+2 & -2 & -4 \\
+-1 & 3 & 4 \\
+1 & -2 & -3 
+\end{bmatrix}\\
+&=
+\mathbf{C}
+\end{align*}
+Debido a que $\mathbf{CC}=\mathbf{C}$ entonces $\mathbf{C}$ es idempotente.
 \end{sol}
 
+\pagebreak
 
 
 
