@@ -674,6 +674,81 @@ Debido a que $\mathbf{CC}=\mathbf{C}$ entonces $\mathbf{C}$ es idempotente.
 
 \pagebreak
 
+\begin{problem}{6}
+Dar ejemplo de una matriz \textbf{A} de orden 2x2 que no sea matriz cero ( no todos los elementos son ceros) y $\mathbf{A^2}=\mathbf{0}$ ( donde \textbf{0} es la matriz cero).
+\end{problem}
+
+\begin{sol}
+Expresaremos $\mathbf{A^2}=\mathbf{0}$ con matrices:
+\begin{align*}
+\mathbf{A^2}=\mathbf{AA} &= \mathbf{0} \\
+\begin{bmatrix}
+a & b \\
+c & d \\
+\end{bmatrix}
+\begin{bmatrix}
+a & b \\
+c & d \\
+\end{bmatrix}
+&=
+\begin{bmatrix}
+0 & 0 \\
+0 & 0 \\
+\end{bmatrix}\\
+\begin{bmatrix}
+a^2+bc & ab+bd \\
+ca+cd & bc + d^2
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+0 & 0 \\
+0 & 0
+\end{bmatrix}
+\end{align*}
+De esta igualdad obtenemos el siguiente sistema de ecuaciones:
+\begin{align*}
+(1) \quad a^2+bc &=0 \\
+(2) \quad ab+bd &= 0\\
+(3) \quad ca+cd &= 0\\
+(4) \quad bc + d^2 &= 0
+\end{align*}
+Entonces $\mathbf{A^2}=\mathbf{0}$ se va a cumplir si sus entradas satisfacen ese sistema de ecuaciones.\\
+Digamos que $c=0$ entonces:
+\begin{align*}
+a^2 &=0 \\
+ab+bd &= 0\\
+d^2 &= 0
+\end{align*}
+$a=0 , d=0 $ y $b$ puede ser cualquier número real, por tanto, una matriz de forma:
+\begin{align*}
+\begin{bmatrix}
+0 & b \\
+0 & 0
+\end{bmatrix}
+\end{align*}
+Cumplirá el enunciado, por ejemplo, si $b=1$:
+\begin{align*}
+\mathbf{A^2}=\mathbf{AA}=
+\begin{bmatrix}
+0 & 1 \\
+0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+0 & 1 \\
+0 & 0
+\end{bmatrix}
+&=\begin{bmatrix}
+0 & 0 \\
+0 & 0
+\end{bmatrix}
+\\
+&= \mathbf{0}
+\end{align*}
+
+\end{sol}
+
+\pagebreak
+
 
 
 
