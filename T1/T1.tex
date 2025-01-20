@@ -566,6 +566,76 @@ c)
 Debido a que el resultado del producto nos da la matriz identidad, entonces la afirmación c) es correcta. \\ \\ 
 \end{sol}
 
+\pagebreak
+
+\begin{problem}{4}
+Sea \textbf{A} una matriz tal que:
+\begin{align*}
+\mathbf{A}=
+\begin{bmatrix}
+a_{11} & 0 & 0 & 0 \\
+0 & a_{22} & 0 & 0 \\
+0 & 0 & a_{33} & 0 \\
+0 & 0 & 0 & a_{44} \\
+\end{bmatrix}
+\end{align*}
+Con $a_{ii}\neq 0$ para todo $i$, verificar que:
+\begin{align*}
+\mathbf{A}^{-1}=
+\begin{bmatrix}
+\frac{1}{a_{11}} & 0 & 0 & 0 \\
+0 & \frac{1}{a_{22}} & 0 & 0 \\
+0 & 0 & \frac{1}{a_{33}} & 0 \\
+0 & 0 & 0 & \frac{1}{a_{44}} \\
+\end{bmatrix}
+\end{align*}
+\end{problem}
+\begin{sol}
+Para verificar si esta matriz es la inversa, usaremos la propiedad que nos dice:
+$\mathbf{AA^{-1}}$= $\mathbf{A^{-1}A}$ = \textbf{I}, donde \textbf{I} es la matriz identidad.\\ \\
+\begin{align*}
+\mathbf{AA^{-1}} &=
+\begin{bmatrix}
+a_{11} & 0 & 0 & 0 \\
+0 & a_{22} & 0 & 0 \\
+0 & 0 & a_{33} & 0 \\
+0 & 0 & 0 & a_{44} \\
+\end{bmatrix}
+\begin{bmatrix}
+\frac{1}{a_{11}} & 0 & 0 & 0 \\
+0 & \frac{1}{a_{22}} & 0 & 0 \\
+0 & 0 & \frac{1}{a_{33}} & 0 \\
+0 & 0 & 0 & \frac{1}{a_{44}} \\
+\end{bmatrix} \\
+&= 
+\begin{bmatrix}
+a_{11} \cdot \frac{1}{a_{11}} & 0 & 0 & 0 \\
+0 & a_{22} \cdot\frac{1}{a_{22}} & 0 & 0 \\
+0 & 0 & a_{33} \cdot\frac{1}{a_{33}} & 0 \\
+0 & 0 & 0 & a_{44} \cdot\frac{1}{a_{44}} \\
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+\end{bmatrix} \\
+&= \mathbf{I}
+\end{align*}
+Debido a que el resultado del producto nos da la matriz identidad, entonces $\mathbf{A}^{-1}$ es la inversa de \textbf{A} 
+\end{sol}
+
+\pagebreak
+
+\begin{problem}{5}
+
+\end{problem}
+\begin{sol}
+
+\end{sol}
+
+
 
 
 
