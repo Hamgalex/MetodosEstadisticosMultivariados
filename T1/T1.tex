@@ -749,9 +749,48 @@ Cumplirá el enunciado, por ejemplo, si $b=1$:
 
 \pagebreak
 
+\begin{problem}{7}
+Determina el valor de $x$ para que la matriz 
+$\begin{bmatrix}
+	x & x+1 \\
+	2 & x+3 
+\end{bmatrix}$ sea singular, sea no singular.
+\end{problem}
+
+\begin{sol}
+Para que la matriz sea singular su determinante tiene que ser igual a cero, le llamaremos \textbf{A} a la matriz del enunciado.
+\begin{align*}
+\mathbf{A}&=
+\begin{bmatrix}
+	x & x+1 \\
+	2 & x+3 
+\end{bmatrix}\\
+|\mathbf{A}| &= 
+x(x+3) -[ 2(x+1)] = 0 \\
+&= x^2+3x -2x-2 = 0 \\
+&= x^2 +x -2 =0\\
+&= (x+2)(x-1)=0\\
+x&=-2\\
+x&=1
+\end{align*}
+Por tanto, la matriz será singular si $x=-2$ ó $x=1$ y NO será singular si es cualquier número real excepto $-2$ y $1$.
+\end{sol}
+
+\pagebreak
+
+\begin{problem}{8}
+Obtener la norma de los siguientes vectores: $a)\quad\mathbf{v}=[2,-5]' \in \mathbb{R}^2$,\\
+ $b)\quad\mathbf{w}=[1,-2,8]' \in \mathbb{R}^3$, $\quad c) \quad\mathbf{c}=[2,5,-3,1,-1]' \in \mathbb{R}^5$
+\end{problem}
+\begin{sol}
+\begin{align*}
+||\mathbf{v}|| &= \sqrt{2^2+(-5)^2}=\sqrt{4+25}=\sqrt{29}\approx  5.3851\\
+||\mathbf{w}|| &= \sqrt{1^2+(-2)^2+8^2} = \sqrt{1+4+64} = \sqrt{69} \approx 8.3066 \\
+||\mathbf{c}|| &=  \sqrt{2^2+5^2+(-3)^2+1^2+(-1)^2} = \sqrt{4+25+9+1+1} = \sqrt{40} = 2\sqrt{10} \approx 6.3245
+\end{align*}
 
 
-
+\end{sol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
