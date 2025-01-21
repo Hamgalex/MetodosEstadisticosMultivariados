@@ -61,7 +61,7 @@ Considera las matrices: $\textbf{A}=
 Calcular: a)\textbf{B'A}\:b)\textbf{2A+5B} \: c)\textbf{3BC+4A} \: d)\textbf{5C'-6B} \: e)\textbf{BA}
 \end{problem}
 \begin{sol}\\ \\
-a)\textbf{B'A} \\
+a)\textbf{B'A}
 
 \begin{align*}
 \textbf{B'} &=
@@ -96,6 +96,11 @@ Debido a que \textbf{B'} es de 2x4 y \textbf{A} es de 4x4 entonces si es posible
 	\end{bmatrix}\\
 	&=
 	\begin{bmatrix}
+		4-30 & -20+42 & 14-30+54 & 16+10+12 \\
+		18-12 & 12+63-10 & 18+81-8 & -6+18+16
+	\end{bmatrix}\\
+	&=
+	\begin{bmatrix}
 		-26 & 22 & 38 & 38 \\
 		6 & 65 & 91 & 28
 	\end{bmatrix}
@@ -116,6 +121,12 @@ Primero calcularemos 3\textbf{BC} en donde \textbf{B} es de 4x2 y \textbf{C} es 
 		3 & -3 & 6 & 9 \\
 		4 & 0 & -2 & 0
 	\end{bmatrix} \\
+	&= \begin{bmatrix}
+		6 & 6 & 12 & 18 \\
+		-15+12 & 15 & -30-6 & -45 \\
+		18+36 & -18 & 36-18 & 54 \\
+		-8 & 0 & 4 & 0
+	\end{bmatrix}\\
 	&= \begin{bmatrix}
 		6 & -6 & 12 & 18 \\
 		-3 & 15 & -36 & -45 \\
@@ -506,7 +517,7 @@ a)
 Debido a que el resultado del producto nos da la matriz identidad, entonces la afirmación a) es correcta. \\ \\ 
 b)
 \begin{align*}
-\mathbf{AA^{-1}} &= 
+\mathbf{BB^{-1}} &= 
 \begin{bmatrix}
 2&4&0\\
 -3&5&2\\
@@ -534,7 +545,7 @@ b)
 Debido a que el resultado del producto nos da la matriz identidad, entonces la afirmación b) es correcta. \\ \\ 
 c)
 \begin{align*}
-\mathbf{AA^{-1}} &= 
+\mathbf{CC^{-1}} &= 
 \begin{bmatrix}
 0&0&0&-5\\
 1&1&1&0\\
@@ -779,8 +790,8 @@ Por tanto, la matriz será singular si $x=-2$ ó $x=1$ y NO será singular si es
 \pagebreak
 
 \begin{problem}{8}
-Obtener la norma de los siguientes vectores: $a)\quad\mathbf{v}=[2,-5]' \in \mathbb{R}^2$,\\
- $b)\quad\mathbf{w}=[1,-2,8]' \in \mathbb{R}^3$, $\quad c) \quad\mathbf{c}=[2,5,-3,1,-1]' \in \mathbb{R}^5$
+Obtener la norma de los siguientes vectores: $a)\quad\mathbf{v}=[2,-5]' \in \Re^2$,\\
+ $b)\quad\mathbf{w}=[1,-2,8]' \in \Re^3$, $\quad c) \quad\mathbf{c}=[2,5,-3,1,-1]' \in \Re^5$
 \end{problem}
 \begin{sol}
 \begin{align*}
@@ -790,6 +801,234 @@ Obtener la norma de los siguientes vectores: $a)\quad\mathbf{v}=[2,-5]' \in \mat
 \end{align*}
 
 
+\end{sol}
+
+\pagebreak
+
+\begin{problem}{9}
+Leer el documento “derivadas y eigen analisis.pdf” y analizar los ejemplos de Eigenvalor y Eigenvector,
+después obtener los valores y vectores característicos de la matriz indicada.
+\begin{align*}
+a)\quad \textbf{A} &=
+\begin{bmatrix}
+1&2 \\
+3&0
+\end{bmatrix} \\
+b) \quad \textbf{A} &= 
+\begin{bmatrix}
+2 & 0 & 0\\
+0 & 3 & 0 \\
+0 & 0 & 5 
+\end{bmatrix}
+\end{align*}
+\end{problem}
+\begin{sol}\\
+a)\\
+1) Tenemos que:
+\begin{align*}
+\mathbf{A}-\lambda\mathbf{I} &= 
+\begin{bmatrix}
+1 & 2\\
+3 & 0
+\end{bmatrix}
+-
+\begin{bmatrix}
+\lambda & 0 \\
+0 & \lambda
+\end{bmatrix}
+=
+\begin{bmatrix}
+1-\lambda & 2 \\
+3 & -\lambda
+\end{bmatrix}
+\end{align*}
+Luego:
+\begin{align*}
+p(\lambda)=det(\mathbf{A}-\lambda\mathbf{I}) &= 
+(1-\lambda)(-\lambda) -6  \\
+&= -\lambda + \lambda^2 -6 \\
+&= \lambda^2 - \lambda -6
+\end{align*}
+2) Entonces $p(\lambda)= \lambda^2 - \lambda -6$, y sus raíces se obtienen resolviendo $\lambda^2 - \lambda -6 = 0$. Luego $(\lambda-3)(\lambda+2)= 0$ y los eigenvalores son: $\lambda_1 = 3,\lambda_2=-2$.\\ \\
+3) Se resuelve el sistema homogéneo $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ para $\lambda_1=3$.
+\begin{align*}
+\begin{bmatrix}
+1-3 & 2 \\
+3 & -3
+\end{bmatrix}
+\begin{bmatrix}
+x\\y
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+-2 & 2 \\
+3 & -3
+\end{bmatrix}
+\begin{bmatrix}
+x\\y
+\end{bmatrix} =
+\begin{bmatrix}
+-2x+2y\\3x-3y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\0
+\end{bmatrix}
+\end{align*}
+Esto es equivalente a la ecuación $-2x+2y=x-y=0$. Por tanto $x=y$. Haciendo $x=1$ tenemos que $y=1$ y el eigenvector correspondiente a $\lambda_1=3$ es $(1,1)$.\\\\
+Ahora se resuelve el sistema homogéneo $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ para $\lambda_2=-2$.
+\begin{align*}
+\begin{bmatrix}
+1+2 & 2 \\
+3 & 2
+\end{bmatrix}
+\begin{bmatrix}
+x\\y
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+3 & 2 \\
+3 & 2
+\end{bmatrix}
+\begin{bmatrix}
+x\\y
+\end{bmatrix} =
+\begin{bmatrix}
+3x+2y\\3x+2y
+\end{bmatrix}=
+\begin{bmatrix}
+0\\0
+\end{bmatrix}
+\end{align*}
+Esto es equivalente a la ecuación $3x+2y=0$. Por tanto $y=-\frac{3x}{2}$. Haciendo $x=1$ tenemos que $y=-\frac{3}{2}$ y el eigenvector correspondiente a $\lambda_2=2$ es $(1,-\frac{3}{2})$.\\
+Por tanto, los valores característicos son $\lambda_1=3,\lambda_2=-2$ y sus vectores característicos son:
+\begin{align*}\mathbf{v_1}=
+\begin{bmatrix}
+1\\1
+\end{bmatrix},\mathbf{v_2}=
+\begin{bmatrix}
+1 \\ -\frac{3}{2}
+\end{bmatrix}
+\end{align*} \\ \\
+b)\\
+\begin{align*}
+\mathbf{A}-\lambda\mathbf{I} &= 
+\begin{bmatrix}
+2 & 0 & 0\\
+0 & 3 & 0 \\
+0 & 0 & 5 
+\end{bmatrix}
+-
+\begin{bmatrix}
+\lambda & 0 & 0 \\
+0 & \lambda & 0 \\
+0 & 0 & \lambda
+\end{bmatrix} 
+=
+\begin{bmatrix}
+2-\lambda & 0 & 0\\
+0 & 3-\lambda & 0 \\
+0 & 0 & 5-\lambda
+\end{bmatrix}
+\end{align*}
+Luego:
+\begin{align*}
+p(\lambda)=det(\mathbf{A}-\lambda\mathbf{I}) &= 
+(2-\lambda) ( 3-\lambda) (5-\lambda).
+\end{align*}
+2) Entonces $p(\lambda)= (2-\lambda) ( 3-\lambda) (5-\lambda)$, y sus raíces se obtienen resolviendo $(2-\lambda) ( 3-\lambda) (5-\lambda) = 0$ y los eigenvalores son: $\lambda_1 = 2,\lambda_2=3,\lambda_3=5$.\\ \\
+3) Se resuelve el sistema homogéneo $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ para $\lambda_1=2$.
+\begin{align*}
+\begin{bmatrix}
+2-2 & 0 & 0\\
+0 & 3-2 & 0 \\
+0 & 0 & 5-2
+\end{bmatrix}
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+0 & 0 & 0\\
+0 & 1 & 0 \\
+0 & 0 & 3
+\end{bmatrix}
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix} =
+\begin{bmatrix}
+0\\y\\3z
+\end{bmatrix}=
+\begin{bmatrix}
+0\\0\\0
+\end{bmatrix}
+\end{align*}
+Esto es equivalente a la igualdad $y=z=0$. Haciendo $x=1$ tenemos que $y=0,z=0$ y el eigenvector correspondiente a $\lambda_1=2$ es $(1,0,0)$.\\\\
+Ahora se resuelve el sistema homogéneo $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ para $\lambda_2=3$.
+\begin{align*}
+\begin{bmatrix}
+2-3 & 0 & 0\\
+0 & 3-3 & 0 \\
+0 & 0 & 5-3
+\end{bmatrix}
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+-1 & 0 & 0\\
+0 & 0 & 0 \\
+0 & 0 & 2
+\end{bmatrix}
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix} =
+\begin{bmatrix}
+-x\\0\\2z
+\end{bmatrix}=
+\begin{bmatrix}
+0\\0\\0
+\end{bmatrix}
+\end{align*}
+Esto es equivalente a la igualdad $x=z=0$. Haciendo $y=1$ tenemos que $x=0,z=0$ y el eigenvector correspondiente a $\lambda_2=3$ es $(0,1,0)$.\\\\
+Ahora se resuelve el sistema homogéneo $(\mathbf{A}-\lambda\mathbf{I})\mathbf{v}=\mathbf{0}$ para $\lambda_3=5$.
+\begin{align*}
+\begin{bmatrix}
+2-5 & 0 & 0\\
+0 & 3-5 & 0 \\
+0 & 0 & 5-5
+\end{bmatrix}
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}
+&= 
+\begin{bmatrix}
+-3 & 0 & 0\\
+0 & -2 & 0 \\
+0 & 0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix} =
+\begin{bmatrix}
+-3x\\-2y\\0
+\end{bmatrix}=
+\begin{bmatrix}
+0\\0\\0
+\end{bmatrix}
+\end{align*}
+Esto es equivalente a la igualdad $x=y=0$. Haciendo $z=1$ tenemos que $x=0,y=0$ y el eigenvector correspondiente a $\lambda_3=5$ es $(0,0,1)$.\\\\
+Por tanto, los valores característicos son $\lambda_1=2,\lambda_2=3,\lambda_3=5$ y sus vectores característicos son:
+\begin{align*}\mathbf{v_1}=
+\begin{bmatrix}
+1\\0\\0
+\end{bmatrix},\mathbf{v_2}=
+\begin{bmatrix}
+0\\1\\0
+\end{bmatrix},\mathbf{v_3}=
+\begin{bmatrix}
+0\\0\\1
+\end{bmatrix}
+\end{align*} \\ \\
 \end{sol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
