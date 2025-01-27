@@ -1,0 +1,46 @@
+\begin{problem}{6}
+Considera las matrices de covarianzas del problema 1. Para cada una obtener su varianza generalizada.
+\end{problem}
+\begin{sol}
+Sabemos que la varianza generalizada es su determinante, entonces, para A) del ejercicio 1 donde $\mathbf{\Sigma} =
+\begin{bmatrix}
+4&3&-2\\
+3&6&2\\
+-2&2&5
+\end{bmatrix}$ calcularemos con R el determinante:
+\begin{verbatim}
+Sigma <- matrix(c(4, 3, -2,
+                  3, 6,  2,
+                  -2, 2,  5), 
+                nrow = 3, byrow = TRUE)
+det_Sigma <- det(Sigma)
+\end{verbatim}
+Donde nos resulta:
+\[
+\det(\mathbf{\Sigma}) = 
+\begin{vmatrix}
+4 & 3 & -2 \\
+3 & 6 & 2 \\
+-2 & 2 & 5
+\end{vmatrix}=11
+\]
+Ahora para B) usaremos el siguiente código:
+\begin{verbatim}
+Sigma <- matrix(c(10, -3, -1, 5,
+                  -3,  8,  3, 0,
+                  -1,  3, 15, 1,
+                  5,  0,  1, 4), 
+                nrow = 4, byrow = TRUE)
+det_Sigma <- det(Sigma)
+\end{verbatim}
+
+\[
+\det(\mathbf{\Sigma}) = 
+\begin{vmatrix}
+10 & -3 & -1 & 5 \\
+-3 & 8 & 3 & 0 \\
+-1 & 3 & 15 & 1 \\
+5 & 0 & 1 & 4
+\end{vmatrix}=1104
+\]
+\end{sol}
