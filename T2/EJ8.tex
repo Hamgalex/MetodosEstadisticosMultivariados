@@ -1,0 +1,36 @@
+\begin{problem}{8}
+Considera la muestra aleatoria del excel. Obtener $\mathbf{\bar{X}}$ y $\mathbf{S}$. Interpreta los valores obtenidos.
+\end{problem}
+\begin{sol}
+Para esto usaremos R para leer los datos, y de ahí usar funciones para obtener el vector de medias muestrales y la matriz de covarianza muestral:
+\begin{verbatim}
+datos <- read_excel("C:/Users/hamga/Downloads/datos_tarea2.xlsx")
+media_muestral <- colMeans(datos)
+matriz_covarianzas <- cov(datos) 
+\end{verbatim}
+Esto nos arroja los siguientes resultados:
+\begin{align*}
+\mathbf{\bar{X}} &= 
+\begin{pmatrix}
+91.218 \\
+101.9279\\
+149.2095 \\
+300.4512 \\
+501.207
+\end{pmatrix} \\
+\mathbf{S} &=
+\begin{pmatrix}
+27.08847 & 43.02910 & 26.50251 & 13.00336 & 17.40344 \\
+43.02910 & 109.93837 & 35.67109 & 49.54382 & 53.91932 \\
+26.50251 & 35.67109 & 103.32817 & 33.26684 & 36.49187 \\
+13.00336 & 49.54382 & 33.26684 & 80.25960 & 22.00554 \\
+17.40344 & 53.91932 & 36.49187 & 22.00554 & 70.95242
+\end{pmatrix}
+\end{align*}
+De estos resultados podemos concluir varias cosas:
+\begin{itemize}
+\item La variable que mas varía es la $X_2$ pues su varianza de $109.9383$ es la mayor en toda la matriz.
+\item La relación más débil es entre las variables $X_4$ y $X_5$, pues es de $22.0055$
+\item La relación mas fuerte es entre las variables $X_2$ y $X_5$ pues es de $53.9193$
+\end{itemize}
+\end{sol}
