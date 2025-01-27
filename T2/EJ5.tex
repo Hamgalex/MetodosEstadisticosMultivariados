@@ -1,0 +1,215 @@
+\begin{problem}{5}
+Considera la matriz $\Sigma$ del problema 4. Obtener la distancia estadística entre los dos puntos A,B dados. 
+\begin{itemize}
+\item A) A$(3,-4,5)$ y B$(1,3,-2)$
+\item B) A$(4,-8,9)$ y B$(6,9,10)$
+\item C) A$(10,4,15)$ y el origen
+\end{itemize}
+\end{problem}
+\begin{sol}
+Usaremos la fórmula que nos dice:
+\begin{align*}
+d^2(PQ) = (\mathbf{x}-\mathbf{y})' \Sigma^{-1} (\mathbf{x}-\mathbf{y})
+\end{align*}
+Para esto hallaremos la inversa de $\mathbf{\Sigma}$ mediante un código en RStudio:
+\begin{verbatim}
+SIGMA <- matrix(c(12, 5, 12, 5, 16, 15, 12, 15, 20), nrow = 3, byrow = TRUE)
+SIGMAINVERSA <- solve(SIGMA)
+\end{verbatim}
+\begin{align*}
+\mathbf{\Sigma^{-1}} =
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\end{align*}
+Ahora solo tendremos que hacer las operaciones pertinentes, para A):
+\begin{align*}
+d^2(AB) &= (\mathbf{x}-\mathbf{y})' \Sigma^{-1} (\mathbf{x}-\mathbf{y})\\
+&= 
+\left( \begin{pmatrix}
+3 \\ -4 \\ 5
+\end{pmatrix}- 
+\begin{pmatrix}
+1\\3\\-2
+\end{pmatrix} \right)'
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\left( \begin{pmatrix}
+3 \\ -4 \\ 5
+\end{pmatrix}- 
+\begin{pmatrix}
+1\\3\\-2
+\end{pmatrix} \right)\\
+&= 
+\begin{pmatrix}
+2&-7&7
+\end{pmatrix}
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\begin{pmatrix}
+2\\-7\\7
+\end{pmatrix}\\
+\end{align*}
+Usando el código en R:
+\begin{verbatim}
+XMENOSYTRANSPUESTA <- matrix(c(2, -7, 7), nrow = 1)  
+SIGMA <- matrix(c(12, 5, 12, 5, 16, 15, 12, 15, 20), nrow = 3, byrow = TRUE)
+SIGMAINVERSA <- solve(SIGMA)
+XMENOSY <- matrix(c(2, -7, 7), nrow = 3)
+
+RESULTADO1 <- XMENOSYTRANSPUESTA %*% SIGMAINVERSA
+RESULTADO <- RESULTADO1 %*% XMENOSY
+\end{verbatim}
+\begin{align*}d^2(AB) &=
+\begin{pmatrix}
+2&-7&7\end{pmatrix}
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\begin{pmatrix}
+2\\-7\\7
+\end{pmatrix}\\
+&= \begin{pmatrix}
+-8.7426 & -9.9411 & 13.0514
+\end{pmatrix}\begin{pmatrix}
+2\\-7\\7
+\end{pmatrix}\\
+&= (143.4632)\\
+d(AB) &= \sqrt{143.4632}=11.9776
+\end{align*}
+Por tanto la distancia estadística entre A y B es de $7.6614$\\
+Para B):
+\begin{align*}
+d^2(AB) &= (\mathbf{x}-\mathbf{y})' \Sigma^{-1} (\mathbf{x}-\mathbf{y})\\
+&= 
+\left( \begin{pmatrix}
+4 \\ -8 \\ 9
+\end{pmatrix}- 
+\begin{pmatrix}
+6\\9\\10
+\end{pmatrix} \right)'
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\left( \begin{pmatrix}
+4 \\ -8 \\ 9
+\end{pmatrix}- 
+\begin{pmatrix}
+6\\9\\10
+\end{pmatrix} \right)\\
+&= 
+\begin{pmatrix}
+-2&-17&-1
+\end{pmatrix}
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\begin{pmatrix}
+-2\\-17\\-1
+\end{pmatrix}\\
+\end{align*}
+Usando el código en R:
+\begin{verbatim}
+XMENOSYTRANSPUESTA <- matrix(c(-2, -17, -1), nrow = 1)  
+SIGMA <- matrix(c(12, 5, 12, 5, 16, 15, 12, 15, 20), nrow = 3, byrow = TRUE)
+SIGMAINVERSA <- solve(SIGMA)
+XMENOSY <- matrix(c(-2, -17, -1), nrow = 3)
+
+RESULTADO1 <- XMENOSYTRANSPUESTA %*% SIGMAINVERSA
+RESULTADO <- RESULTADO1 %*% XMENOSY
+\end{verbatim}
+\begin{align*}d^2(AB) &=
+\begin{pmatrix}
+-2&-17&-1
+\end{pmatrix}
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\begin{pmatrix}
+-2\\-17\\-1
+\end{pmatrix}\\
+&= \begin{pmatrix}
+-10.5367 & -12.2941 & 15.4926
+\end{pmatrix}\begin{pmatrix}
+2\\-7\\7
+\end{pmatrix}\\
+&= (214.5809)\\
+d(AB) &= \sqrt{214.5809}=14.6485
+\end{align*}
+\pagebreak
+
+Para C):
+\begin{align*}
+d^2(AO) &= \mathbf{x}' \Sigma^{-1} \mathbf{x})\\
+&= 
+\begin{pmatrix}
+10 \\ 4 \\ 15
+\end{pmatrix}'
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\begin{pmatrix}
+10 \\ 4 \\ 15
+\end{pmatrix}\\
+&= 
+\begin{pmatrix}
+10&4&15
+\end{pmatrix}
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\begin{pmatrix}
+10\\4\\15
+\end{pmatrix}\\
+\end{align*}
+Usando el código en R:
+\begin{verbatim}
+XMENOSYTRANSPUESTA <- matrix(c(10,4,15), nrow = 1)  
+SIGMA <- matrix(c(12, 5, 12, 5, 16, 15, 12, 15, 20), nrow = 3, byrow = TRUE)
+SIGMAINVERSA <- solve(SIGMA)
+XMENOSY <- matrix(c(10,4,15), nrow = 3)
+
+RESULTADO1 <- XMENOSYTRANSPUESTA %*% SIGMAINVERSA
+RESULTADO <- RESULTADO1 %*% XMENOSY
+\end{verbatim}
+\begin{align*}d^2(AO) &=
+\begin{pmatrix}
+-2&-17&-1
+\end{pmatrix}
+\begin{pmatrix}
+0.6985 &  0.5882 & -0.8602 \\
+0.5882 & 0.7058 & -0.8823  \\
+-0.8602 & -0.8823 & 1.2279
+\end{pmatrix}
+\begin{pmatrix}
+-2\\-17\\-1
+\end{pmatrix}\\
+&= \begin{pmatrix}
+-4.5661 & -4.5294 & 6.2867
+\end{pmatrix}\begin{pmatrix}
+2\\-7\\7
+\end{pmatrix}\\
+&= (40.5220)\\
+d(AO) &= \sqrt{40.5220}=6.3656
+\end{align*}
+\end{sol}
