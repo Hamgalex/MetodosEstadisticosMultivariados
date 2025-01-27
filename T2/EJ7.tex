@@ -1,0 +1,52 @@
+\begin{problem}{7}
+Sea \textbf{X} un vector aleatorio con distribución $N_5(\mathbf{\mu,\Sigma})$, obtener:
+\begin{itemize}
+\item A) P\{$\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}>3$ \}
+\item B) P\{$4<\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<6$ \}
+\item C) P\{$\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<2$ \}
+\item D) Obtener el valor de $w$ tal que P\{$\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<w$ \} $=0.85$
+\end{itemize}
+\end{problem}
+\begin{sol}
+\begin{itemize}
+\item A) Las propiedades de la distribución normal multivariada $N_p(\mathbf{\mu,\Sigma})$ nos dicen que la variable aleatoria $\mathbf{(x-\mu)'\Sigma (x-\mu)}$ tiene una distribución $\chi_p^2$, en este caso, $p=5$, por lo que calcularemos:
+\begin{align*}
+ P\{\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}>3 \} = P \{\chi_5^2>3\} = 1 - P \{\chi_5^2<3 \}
+\end{align*}
+Usando la función de distribución acumulativa de chi cuadrada en R:
+\begin{verbatim}
+1 - pchisq(3, 5)
+\end{verbatim}
+Nos resulta $ P\{\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}>3 \} = 1 - P \{\chi_5^2<3 \}=0.6999$
+\item B)
+\begin{align*}
+P\{4<\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<6 \} =  P\{4<\chi_5^2<6 \}
+\end{align*}
+Usando la función en R:
+\begin{verbatim}
+pchisq(6, 5) - pchisq (4,5)
+\end{verbatim}
+Nos queda:
+\begin{align*}
+P\{4<\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<6 \} =  P\{4<\chi_5^2<6 \} = 0.2431
+\end{align*}
+\item C)
+\begin{align*}
+P\{\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<2 \} = P\{\chi_5^2<2 \}
+\end{align*}
+Usando R:
+\begin{verbatim}
+pchisq(2, 5)
+\end{verbatim}
+Nos queda:
+\begin{align*}
+P\{\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<2 \} = P\{\chi_5^2<2 \} = 0.1508
+\end{align*}
+\item D)
+Para este inciso usaremos una función en R la cual calcula el cuantil de la distribución chi cuadrada para cierta probabilidad. Esto es:
+\begin{verbatim}
+qchisq(0.85, 5)
+\end{verbatim}
+Por tanto, si queremos que se cumpla que P\{$\mathbf{(X-\mu)'\Sigma^{-1}(X-\mu)}<w$ \} $=$ P\{$\chi_5^2<w$\}$=0.85$ entonces $w=8.1151$
+\end{itemize}
+\end{sol}
