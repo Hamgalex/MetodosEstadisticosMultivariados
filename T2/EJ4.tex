@@ -1,0 +1,177 @@
+\begin{problem}{4}
+Considera que $\mathbf{\Sigma}= \begin{bmatrix}
+12&5&12\\
+5&16&15\\
+12&15&20
+\end{bmatrix}$. Obtener la matriz de covarianzas del vector aleatorio \textbf{Z} donde:\\
+A) $Z_1=3X_1-2X_2+5X_3, Z_2=9X_1+6X_2-8X_3,Z_3=4X_1+X_2-X_3$\\
+B) $Z_1=5X_1-2X_2+9X_3, Z_2=X_1+X_2-X_3,Z_3=3X_1+X_2-2X_3,Z_4=4X_1+X_2$
+\end{problem}
+\begin{sol}
+Para A) tenemos:
+\begin{align*}
+\mathbf{Z}=\begin{pmatrix}
+3X_1-2X_2+5X_3\\
+9X_1+6X_2-8X_3\\
+4X_1+X_2-X_3
+\end{pmatrix} =
+\begin{pmatrix}
+3 & -2 & 5\\
+9 & 6 & -8 \\
+4 & 1 &-1
+\end{pmatrix}
+\begin{pmatrix}
+X_1\\X_2\\X_3
+\end{pmatrix} = \mathbf{CX}
+\end{align*}
+Sabemos que Cov$(\mathbf{Z}) = \mathbf{C \Sigma_X C'}$ esto es:
+\begin{align*}
+\mathbf{C \Sigma_X C'} &= \begin{pmatrix}
+3 & -2 & 5\\
+9 & 6 & -8 \\
+4 & 1 &-1
+\end{pmatrix}
+\begin{pmatrix}
+12&5&12\\
+5&16&15\\
+12&15&20
+\end{pmatrix}
+\begin{pmatrix}
+3 & 9 & 4\\
+-2 & 6 & 1 \\
+5 & -8 &-1
+\end{pmatrix}\\
+\end{align*}
+Usando el siguiente código de multiplicación de matrices en RStudio:
+\begin{verbatim}
+C <- matrix(c(3, -2, 5, 9, 6, -8, 4, 1, -1), nrow = 3, byrow = TRUE)
+SIGMA <- matrix(c(12, 5, 12, 5, 16, 15, 12, 15, 20), nrow = 3, byrow = TRUE)
+CT <- matrix(c(3, 9, 4, -2, 6, 1, 5, -8, -1), nrow = 3, byrow = TRUE)
+
+resultado_CSIGMA <- C %*% SIGMA
+resultado <- resultado_CSIGMA %*% CT
+\end{verbatim}
+Nos resulta:
+\begin{align*}
+\mathbf{C \Sigma_X C'} &= \begin{pmatrix}
+3 & -2 & 5\\
+9 & 6 & -8 \\
+4 & 1 &-1
+\end{pmatrix}
+\begin{pmatrix}
+12&5&12\\
+5&16&15\\
+12&15&20
+\end{pmatrix}
+\begin{pmatrix}
+3 & 9 & 4\\
+-2 & 6 & 1 \\
+5 & -8 &-1
+\end{pmatrix}\\
+&= 
+\begin{pmatrix}
+86 & 58 & 106 \\
+42 & 21 & 38 \\
+41 & 21 & 43
+\end{pmatrix}
+\begin{pmatrix}
+3 & 9 & 4\\
+-2 & 6 & 1 \\
+5 & -8 &-1
+\end{pmatrix} \\
+\text{Cov}(\mathbf{Z})&= 
+\begin{pmatrix}
+672 & 274 & 296 \\
+274 & 200 &151 \\
+296 &151 & 142
+\end{pmatrix}
+\end{align*}
+\pagebreak
+
+Para B) tenemos:
+\begin{align*}
+\mathbf{Z}=\begin{pmatrix}
+5X_1-2X_2+9X_3\\
+X_1+X_2-X_3\\
+3X_1+X_2-2X_3\\
+4X_1+X_2
+\end{pmatrix}=
+\begin{pmatrix}
+5 &-2 &9 \\
+1 & 1 &-1\\
+3 & 1 &-2\\
+4 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+X_1\\X_2\\X_3
+\end{pmatrix}
+= \mathbf{CX}
+\end{align*}
+Sabemos que Cov$(\mathbf{Z}) = \mathbf{C \Sigma_X C'}$ esto es:
+\begin{align*}
+\mathbf{C \Sigma_X C'} &=
+\begin{pmatrix}
+5 &-2 &9 \\
+1 & 1 &-1\\
+3 & 1 &-2\\
+4 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+12&5&12\\
+5&16&15\\
+12&15&20
+\end{pmatrix}
+\begin{pmatrix}
+5 & 1&3 &4\\
+-2& 1&1&1\\
+9 &-1 & -2 &0
+\end{pmatrix}
+\end{align*}
+Usando el siguiente código de multiplicación de matrices en RStudio:
+\begin{verbatim}
+C <- matrix(c(5, -2, 9, 1, 1, -1, 3, 1, -2, 4, 1, 0), nrow = 4, byrow = TRUE)
+SIGMA <- matrix(c(12, 5, 12, 5, 16, 15, 12, 15, 20), nrow = 3, byrow = TRUE)
+CT <- matrix(c(5, 1, 3, 4, -2, 1, 1, 1, 9, -1, -2, 0), nrow = 3, byrow = TRUE)
+
+resultado_CSIGMA <- C %*% SIGMA
+resultado <- resultado_CSIGMA %*% CT
+\end{verbatim}
+Nos resulta:
+\begin{align*}
+\mathbf{C \Sigma_X C'} &= \begin{pmatrix}
+5 &-2 &9 \\
+1 & 1 &-1\\
+3 & 1 &-2\\
+4 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+12&5&12\\
+5&16&15\\
+12&15&20
+\end{pmatrix}
+\begin{pmatrix}
+5 & 1&3 &4\\
+-2& 1&1&1\\
+9 &-1 & -2 &0
+\end{pmatrix}\\
+&= 
+\begin{pmatrix}
+158 & 128 & 210 \\
+5&6&7\\
+17&1&11\\
+53 & 36 & 63
+\end{pmatrix} 
+\begin{pmatrix}
+5 & 1&3 &4\\
+-2& 1&1&1\\
+9 &-1 & -2 &0
+\end{pmatrix}\\
+\text{Cov}(\mathbf{Z})&= 
+\begin{pmatrix}
+2424 & 76 & 182 & 760 \\
+76&4&7&26 \\
+182 & 7 &30 &69\\
+760 & 26 &69 &248
+\end{pmatrix}
+\end{align*}
+\end{sol}
