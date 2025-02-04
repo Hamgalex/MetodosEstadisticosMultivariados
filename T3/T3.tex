@@ -103,8 +103,7 @@ Por tanto, la distribución de $\mathbf{Y}$ es:
 \end{align*}
 
 \pagebreak
-
-c) Obtener la distancia estadística de $\mathbf{x_1}'(110, 97, 230, 396, 85)$ a $\mathbf{x_2}'(96, 93, 237, 408, 90)$. \\\\
+d) Obtener la distancia estadística de $\mathbf{x_1}'(110, 97, 230, 396, 85)$ a $\mathbf{x_2}'(96, 93, 237, 408, 90)$. \\\\
 Primero calcularemos  \(\mathbf{X_1} - \mathbf{X_2}\):
 \begin{align*}
 \mathbf{x_1} - \mathbf{x_2} &= (110 - 96, 97 - 93, 230 - 237, 396 - 408, 85 - 90) \\
@@ -180,7 +179,7 @@ Primero calcularemos $\mathbf{\bar{x}'}-\mathbf{\mu}$:
 -0.5 & 1 & 1 & 0 & 0.2
 \end{pmatrix}
 \end{align*}
-Ahora calcularemos la distancia con $d^2(\mathbf{x_1,x_2})=(\mathbf{x_1-x_2})\mathbf{\Sigma}^{-1}(\mathbf{x_1-x_2})'$ con R:\\\\
+Ahora calcularemos la distancia con $d^2(\mathbf{x_1,x_2})=(\mathbf{x_1-x_2})\frac{\mathbf{\Sigma}^{-1}}{40}(\mathbf{x_1-x_2})'$ con R:\\\\
 \includegraphics[width=1\textwidth]{img/11.png}\\\\
 Por tanto la distancia estadística de $\mathbf{x_1}'(99.5,96,231,400,86.2)$ a $\mathbf{\mu}$ es de $4.3477$ 
 
@@ -198,7 +197,7 @@ Tenemos a A:
 \end{pmatrix}
 \end{align*}
 abemos que si $\mathbf{\bar{X}}$ sigue una normal multivariada, entonces  $q$ combinaciones lineales sigue una distribución $N_q(\mathbf{A \mu , A \frac{\Sigma}{40} A'})$. Calcularemos estas operaciones en R:\\\\
-\includegraphics[width=1\textwidth]{img/11.png}\\\\
+\includegraphics[width=1\textwidth]{img/12.png}\\\\
 Por tanto, la distribución de $\mathbf{W}$ es:
 \begin{align*}
 \mathbf{W}\sim N_2(\begin{pmatrix}
@@ -206,7 +205,7 @@ Por tanto, la distribución de $\mathbf{W}$ es:
 \end{pmatrix}, 
 \begin{pmatrix}
 1.650 & -0.375 \\
--0.375 & 1.650
+-0.375 & 0.600
 \end{pmatrix})
 \end{align*}
 \end{sol}
@@ -222,7 +221,7 @@ Para probar la normalidad multivariada de un conjunto de datos nos basaremos en 
 \begin{align*}
 d_i^2=(\mathbf{X_i-\bar{X}})'\mathbf{S}^{-1}(\mathbf{X_i-\bar{X}})
 \end{align*}
-Debido a que $n=50$ y $p=4$ entonces cada una de las distancias al cuadrado debe seguir una distribución chi cuadrada. A continuación evaluaremos el ajuste a través de QQ-plots de $d_i^2$ vs $\chi_p^2$, usaremos una linea referencia.
+Debido a que $n=50$ y $p=4$ entonces cada una de las distancias al cuadrado debe seguir una distribución chi cuadrada. A continuación evaluaremos el ajuste a través de QQ-plots de $d_i^2$ vs $\chi_p^2$ mediante R, usando la función  mahalanobis para acelerar el proceso de sacar todas las distancias y la función qchisq para sacar los cuantiles de la distribución chi cuadrado con 4 grados de libertad. Luego graficaremos estos datos con la función qqplot.
 \\\\
 \includegraphics[width=1\textwidth]{img/13.png}
 \includegraphics[width=1\textwidth]{img/14.png}
