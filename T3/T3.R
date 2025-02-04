@@ -77,3 +77,30 @@ pnorm(687,mean = 690, sd = sqrt(7.425))
 xbarramenosmu <- matrix(c(-0.5,1,1,0,0.2), nrow = 1, byrow = TRUE)
 Sigma_div_40_inversa <- solve(Sigma_div_40)
 sqrt((xbarramenosmu %*% Sigma_div_40_inversa) %*%  t(xbarramenosmu))
+
+## d
+mu <- matrix(c(100,95,230,400,86), nrow = 5, byrow = TRUE)
+A <- matrix(c(
+  1,0,2,-1,0,
+  0,1,0,0,1
+), nrow = 2, byrow = TRUE)
+
+A %*% mu160
+(A %*% Sigma_div_40) %*% t(A)
+
+
+# 3
+library(readxl)
+datos <- read_excel("C:/Users/hamga/Downloads/datos tarea 3.xlsx")
+
+media <- colMeans(datos)
+covarianza <- cov(datos)
+
+valChiCuadrada <- qchisq(ppoints(length(d2)), df = 4)
+
+qqplot(valChiCuadrada, d2,
+       xlab = "Cuantiles teóricos(chi-cuad)",
+       ylab = "cuantiles muestrales (d2M)")
+
+abline(0, 1, col = "red")  
+
