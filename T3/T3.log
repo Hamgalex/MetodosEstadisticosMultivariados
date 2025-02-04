@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  3 FEB 2025 16:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  3 FEB 2025 18:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -296,18 +296,22 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
+
+ []
+
 <img/1.png, id=1, 416.30531pt x 24.84282pt>
 File: img/1.png Graphic file (type png)
 <use img/1.png>
-Package pdftex.def Info: img/1.png  used on input line 66.
+Package pdftex.def Info: img/1.png  used on input line 62.
 (pdftex.def)             Requested size: 469.75502pt x 28.03375pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--68
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--68
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
 
  []
 
@@ -317,30 +321,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--68
 <img/2.png, id=18, 416.30531pt x 209.28188pt>
 File: img/2.png Graphic file (type png)
 <use img/2.png>
-Package pdftex.def Info: img/2.png  used on input line 79.
+Package pdftex.def Info: img/2.png  used on input line 75.
 (pdftex.def)             Requested size: 469.75502pt x 236.16321pt.
 <img/3.png, id=19, 290.58563pt x 33.12375pt>
 File: img/3.png Graphic file (type png)
 <use img/3.png>
-Package pdftex.def Info: img/3.png  used on input line 81.
+Package pdftex.def Info: img/3.png  used on input line 77.
 (pdftex.def)             Requested size: 469.75502pt x 53.55098pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--83
+Underfull \hbox (badness 10000) in paragraph at lines 73--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--83
+Underfull \hbox (badness 10000) in paragraph at lines 73--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--83
+Underfull \hbox (badness 10000) in paragraph at lines 73--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--83
+Underfull \hbox (badness 10000) in paragraph at lines 73--79
 
  []
 
@@ -348,64 +352,152 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--83
 <img/4.png, id=25, 511.15968pt x 317.68687pt>
 File: img/4.png Graphic file (type png)
 <use img/4.png>
-Package pdftex.def Info: img/4.png  used on input line 96.
+Package pdftex.def Info: img/4.png  used on input line 92.
 (pdftex.def)             Requested size: 469.75502pt x 291.95067pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--98
+Underfull \hbox (badness 10000) in paragraph at lines 90--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--98
+Underfull \hbox (badness 10000) in paragraph at lines 90--94
 
  []
 
 [3 <./img/4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
 <img/5.png, id=30, 490.08093pt x 215.30438pt>
 File: img/5.png Graphic file (type png)
 <use img/5.png>
-Package pdftex.def Info: img/5.png  used on input line 118.
+Package pdftex.def Info: img/5.png  used on input line 114.
 (pdftex.def)             Requested size: 469.75502pt x 206.38103pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--120
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--120
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
 
 <img/6.png, id=31, 454.69875pt x 57.96657pt>
 File: img/6.png Graphic file (type png)
 <use img/6.png>
-Package pdftex.def Info: img/6.png  used on input line 130.
+Package pdftex.def Info: img/6.png  used on input line 126.
 (pdftex.def)             Requested size: 469.75502pt x 59.88666pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--132
+Underfull \hbox (badness 10000) in paragraph at lines 124--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--132
+Underfull \hbox (badness 10000) in paragraph at lines 124--128
 
  []
 
-[4 <./img/5.png> <./img/6.png>] [5] (T3.aux)
+[4 <./img/5.png> <./img/6.png>] [5]
+<img/7.png, id=40, 374.14781pt x 228.10219pt>
+File: img/7.png Graphic file (type png)
+<use img/7.png>
+Package pdftex.def Info: img/7.png  used on input line 150.
+(pdftex.def)             Requested size: 469.75502pt x 286.40437pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--151
+
+ []
+
+<img/8.png, id=41, 278.54062pt x 29.35968pt>
+File: img/8.png Graphic file (type png)
+<use img/8.png>
+Package pdftex.def Info: img/8.png  used on input line 161.
+(pdftex.def)             Requested size: 469.75502pt x 49.51607pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--163
+
+ []
+
+[6 <./img/7.png> <./img/8.png>]
+<img/9.png, id=47, 407.27156pt x 118.19156pt>
+File: img/9.png Graphic file (type png)
+<use img/9.png>
+Package pdftex.def Info: img/9.png  used on input line 169.
+(pdftex.def)             Requested size: 469.75502pt x 136.33041pt.
+<img/10.png, id=48, 459.21562pt x 32.37094pt>
+File: img/10.png Graphic file (type png)
+<use img/10.png>
+Package pdftex.def Info: img/10.png  used on input line 171.
+(pdftex.def)             Requested size: 469.75502pt x 33.1157pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--173
+
+ []
+
+[7 <./img/9.png> <./img/10.png>]
+<img/11.png, id=55, 515.67656pt x 67.75313pt>
+File: img/11.png Graphic file (type png)
+<use img/11.png>
+Package pdftex.def Info: img/11.png  used on input line 184.
+(pdftex.def)             Requested size: 469.75502pt x 61.72159pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
+
+ []
+
+[8 <./img/11.png>]
+File: img/11.png Graphic file (type png)
+<use img/11.png>
+Package pdftex.def Info: img/11.png  used on input line 201.
+(pdftex.def)             Requested size: 469.75502pt x 61.72159pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--203
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--203
+
+ []
+
+[9] (T3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3950 strings out of 474486
- 60607 string characters out of 5743754
+ 3985 strings out of 474486
+ 61176 string characters out of 5743754
  1935542 words of memory out of 5000000
- 26192 multiletter control sequences out of 15000+600000
+ 26227 multiletter control sequences out of 15000+600000
  563989 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,65p,401b,276s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -421,9 +513,9 @@ Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
 hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C
 :/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti
 12.pfb>
-Output written on T3.pdf (5 pages, 168446 bytes).
+Output written on T3.pdf (9 pages, 205680 bytes).
 PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
+ 105 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

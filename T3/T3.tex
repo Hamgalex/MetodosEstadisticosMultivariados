@@ -56,10 +56,6 @@ X_2+X_4-X_5
 Obtener la distribución de $\mathbf{Y}$\\
 d) Obtener la distancia estadística de $\mathbf{X_1}'(110, 97, 230, 396, 85)$ a $\mathbf{X_2}'(96, 93, 237, 408, 90)$.\\
 e) Indicar que componentes de $\mathbf{\bar{X}}$ son independientes.\\
-e) Obtener la distribución de $\mathbf{W}= \begin{bmatrix}
-\bar{X_1} + 2\bar{X_3}-\bar{X_4} \\
-\bar{X_2}+\bar{X_5}
-\end{bmatrix}$
 \end{problem}
 \begin{sol}a)Obtener $P(90<X_2<100)$.\\
 Debido a que el vector aleatorio $\mathbf{X}$ sigue una distribución normal multivariada, entonces $X_i$ sigue una distribución normal, por tanto para calcular esta probabilidad observamos que: $\mu_2=95$ y $\sigma_{22}=9$. Usaremos código en R para calcular la probabilidad:\\ \\
@@ -135,6 +131,88 @@ Por tanto la distancia estadística de $\mathbf{x_1}'(110, 97, 230, 396, 85)$ a 
 e) Indicar que componentes de $\mathbf{\bar{X}}$ son independientes.\\ 
 En $\mathbf{\Sigma}$ tenemos que $\sigma_{14} = \sigma_{41} = 0$ y esta es la unica covarianza cero en la matriz de covarianzas poblacionales, esto sumado a que en una distribución normal multivariada la covarianza cero implica que los componentes correspondientes son independientes nos dice que los únicos componentes que son independientes son $\mathbf{X_1}$ y $\mathbf{X_4}$.
 \end{sol}
+
+\pagebreak
+
+\begin{problem}{2}
+Considerando el problema 1, se toma una muestra aleatoria de tamaño 40.\\
+a) Obtener $P(\bar{X_3}<229)$. b) Obtener $P(4\bar{X_1}+3\bar{X_3}-\bar{X_4}<687)$.\\
+c) Obtener la distancia estadística de $\bar{X}'=(99.5,96,231,400,86.2)$ a $\mathbf{\mu}$. \\
+d) Obtener la distribución de $\mathbf{W}= \begin{bmatrix}
+\bar{X_1} + 2\bar{X_3}-\bar{X_4} \\
+\bar{X_2}+\bar{X_5}
+\end{bmatrix}$
+\end{problem}
+
+\begin{sol}
+a) Obtener $P(\bar{X_3}<229)$.\\
+Debido a que $\mathbf{X_i}$ tiene distribución $N_5(\mathbf{\mu,\Sigma})$ entonces  $\mathbf{\bar{X}}$ tiene distribución $N_5(\mathbf{\mu,\frac{1}{40}\Sigma})$, calcularemos $\frac{1}{40}\Sigma)$ en R:\\\\
+\includegraphics[width=1\textwidth]{img/7.png}
+\begin{align*}
+\frac{\mathbf{\Sigma}}{40} = \begin{bmatrix}
+  0.250 & -0.050 &  0.025 & 0.000 &  0.075 \\
+ -0.050 &  0.225 & -0.075 & 0.100 &  0.125 \\
+  0.025 & -0.075 &  0.375 & 0.175 & -0.050 \\
+  0.000 &  0.100 &  0.175 & 0.500 &  0.050 \\
+  0.075 &  0.125 & -0.050 & 0.050 &  0.125
+\end{bmatrix}
+\end{align*}
+Debido a que esta es la matriz de covarianzas de $\bar{X}$ entonces $\bar{X_3}$ tiene varianza $\sigma_{33}=0.375$. También tenemos que $\mu_3=230$, usaremos estos datos para calcular la probabilidad en R: \\\\
+\includegraphics[width=1\textwidth]{img/8.png}\\\\
+Por tanto $P(\bar{X_3}<229)=0.0512$ \pagebreak
+
+b)Obtener $P(4\bar{X_1}+3\bar{X_3}-\bar{X_4}<687)$.\\
+Del ejercicio anterior sabemos que $\mathbf{\bar{X}} \sim N_5(\mathbf{\mu},\frac{\Sigma}{40})$. Tenemos la combinación lineal de\\ $\mathbf{a'\bar{X}}= \begin{pmatrix}
+4\\0\\3\\-1\\0
+\end{pmatrix}\mathbf{\bar{X}}$. Sabemos que la combinación lineal de los componentes de  $\mathbf{\bar{X}}$ tiene distribución normal $N(\mathbf{a' \mu, a' \frac{\Sigma}{40} a})$.
+Calcularemos $\mathbf{a' \mu}$ y $\mathbf{a' \Sigma a}$ en R: \\\\
+\includegraphics[width=1\textwidth]{img/9.png}\\\\
+Ahora calcularemos la probabilidad:\\\\
+\includegraphics[width=1\textwidth]{img/10.png}\\\\
+Por tanto,  $P(4\bar{X_1}+3\bar{X_3}-\bar{X_4}<687)=0.1354$
+
+\pagebreak
+
+c) Obtener la distancia estadística de $\bar{X}'=(99.5,96,231,400,86.2)$ a $\mathbf{\mu}$. \\
+Primero calcularemos $\mathbf{\bar{x}'}-\mathbf{\mu}$:
+\begin{align*}
+(\mathbf{\bar{x}'}-\mathbf{\mu})' &= \begin{pmatrix}
+-0.5 & 1 & 1 & 0 & 0.2
+\end{pmatrix}
+\end{align*}
+Ahora calcularemos la distancia con $d^2(\mathbf{x_1,x_2})=(\mathbf{x_1-x_2})\mathbf{\Sigma}^{-1}(\mathbf{x_1-x_2})'$ con R:\\\\
+\includegraphics[width=1\textwidth]{img/11.png}\\\\
+Por tanto la distancia estadística de $\mathbf{x_1}'(99.5,96,231,400,86.2)$ a $\mathbf{\mu}$ es de $4.3477$ 
+
+\pagebreak
+
+d) Obtener la distribución de $\mathbf{W}= \begin{bmatrix}
+\bar{X_1} + 2\bar{X_3}-\bar{X_4} \\
+\bar{X_2}+\bar{X_5}
+\end{bmatrix}$\\
+Tenemos a A:
+\begin{align*}\mathbf{A}=
+\begin{pmatrix}
+1 & 0 & 2 & -1 & 0\\
+0 & 1 & 0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+abemos que si $\mathbf{\bar{X}}$ sigue una normal multivariada, entonces  $q$ combinaciones lineales sigue una distribución $N_q(\mathbf{A \mu , A \frac{\Sigma}{40} A'})$. Calcularemos estas operaciones en R:\\\\
+\includegraphics[width=1\textwidth]{img/11.png}\\\\
+Por tanto, la distribución de $\mathbf{W}$ es:
+\begin{align*}
+\mathbf{W}\sim N_2(\begin{pmatrix}
+160\\181
+\end{pmatrix}, 
+\begin{pmatrix}
+1.650 & -0.375 \\
+-0.375 & 1.650
+\end{pmatrix})
+\end{align*}
+\end{sol}
+
+\pagebreak
+
 
 
 
