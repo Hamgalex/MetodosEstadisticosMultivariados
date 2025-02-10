@@ -1,0 +1,179 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solución:}
+    }
+    {
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Héctor Alejandro Márquez González}  %replace with your name
+\rhead{Métodos Estadísticos Multivariados \\ 1989936} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{1}
+Se colectaron datos sobre la contaminacion del aire en cierta ciudad. Suponer normalidad
+en los datos.\\
+A) Determinar si el vector de media poblacional es $\mu_0=(8,74,5,2,10,9,3)$ con un nivel
+de significancia del 5\% incluir el p-valor. \\  
+B) Obtener IC simultaneos para las medias de cada componente, con un nivel de confianza  
+global del 95\%. \\  
+C) Obtener IC simultaneos para las diferencias de medias poblacionales (ignorando  
+unidades) con un nivel de confianza global del 95\%. \\  
+D) Obtener IC simultaneos para la media de cada componente, con un nivel de confianza  
+global del 95\% usando el metodo de Bonferroni.  
+\end{problem}
+\begin{sol}
+\begin{itemize}
+\item A) Determinar si el vector de media poblacional es $\mu_0=(8,74,5,2,10,9,3)$ con un nivel
+de significancia del 5\% incluir el p-valor.\\\\
+Debido a que el vector de medias poblacionales y la matriz de covarianzas poblacionales son desconocidas, entonces usaremos la prueba de hipótesis para $\mu$ con parámetros desconocidos. Sea:
+$H_0:\mu = \mu_0 $ v.s. $H_1:\mu \neq \mu_0$.
+El estadístico de prueba es:
+\begin{align*}
+T^2=n(\bar{\mathbf{X}} - \mu_0)'\mathbf{S}^{-1}(\mathbf{\bar{X}}-\mu_0)
+\end{align*}
+Para esto, necesitamos calcular dos cosas, $\mathbf{\bar{X}}$, $\mathbf{S}$ y $\mathbf{S}^{-1}$, lo haremos con R:\\\\
+\includegraphics[width=1\textwidth]{img/1.png}\\\\
+Esto nos da:
+\begin{align*}
+\mathbf{\bar{X}} &= \begin{pmatrix}
+  7.5000 \\
+  73.8571 \\
+  4.5476 \\
+  2.1905 \\
+  10.0476 \\
+  9.4048 \\
+  3.0952
+\end{pmatrix}\\
+\mathbf{S} &= \begin{pmatrix}
+  2.5000 & -2.7805 & -0.3780 & -0.4634 & -0.5854 & -2.2317 &  0.1707 \\
+ -2.7805 & 300.5157 &  3.9094 & -1.3868 &  6.7631 & 30.7909 &  0.6237 \\
+ -0.3780 &   3.9094 &  1.5221 &  0.6736 &  2.3148 &  2.8217 &  0.1417 \\
+ -0.4634 &  -1.3868 &  0.6736 &  1.1823 &  1.0883 & -0.8107 &  0.1765 \\
+ -0.5854 &   6.7631 &  2.3148 &  1.0883 & 11.3635 &  3.1266 &  1.0441 \\
+ -2.2317 &  30.7909 &  2.8217 & -0.8107 &  3.1266 & 30.9785 &  0.5947 \\
+  0.1707 &   0.6237 &  0.1417 &  0.1765 &  1.0441 &  0.5947 &  0.4785
+\end{pmatrix} \\
+\mathbf{S^{-1}} &= \begin{pmatrix}
+  0.5651 &  0.0023 & -0.2490 &  0.4382 &  0.0639 &  0.0762 & -0.5267 \\
+  0.0023 &  0.0038 & -0.0067 &  0.0082 & -0.0006 & -0.0026 & -0.0021 \\
+ -0.2490 & -0.0067 &  1.8812 & -1.1633 & -0.3075 & -0.1991 &  0.8880 \\
+  0.4382 &  0.0082 & -1.1633 &  1.8575 &  0.1171 &  0.1852 & -0.9935 \\
+  0.0639 & -0.0006 & -0.3075 &  0.1171 &  0.1707 &  0.0263 & -0.3793 \\
+  0.0762 & -0.0026 & -0.1991 &  0.1852 &  0.0263 &  0.0640 & -0.1701 \\
+ -0.5267 & -0.0021 &  0.8880 & -0.9935 & -0.3793 & -0.1701 &  3.4233
+\end{pmatrix}
+\end{align*}
+Ahora calcularemos esta operación en R, $T^2=n(\bar{\mathbf{X}} - \mu_0)'\mathbf{S}^{-1}(\mathbf{\bar{X}}-\mu_0)$: \\\\
+\includegraphics[width=1\textwidth]{img/2.png}\\\\
+Por tanto $T^2 = 27.0684$. Nuestra regla de desición será que se rechaza $H_0$ con nivel de significancia $\alpha$ si:
+\begin{align*}
+T^2 > \frac{(n-1)p}{n-p}F_{\alpha,p,n-p}
+\end{align*}
+\includegraphics[width=1\textwidth]{img/3.png}\\\\
+Debido a que $T^2>18.7389$ entonces rechazamos $H_0$ y aceptamos la hipótesis alternativa.\\
+Para calcular el p-valor tenemos que:
+\begin{align*}
+P(F>\frac{(n-p)T^2}{(n-1)p})
+\end{align*}
+A continuación calcularemos esta probabilidad en R:\\\\
+\includegraphics[width=1\textwidth]{img/4.png}\\\\
+Por tanto p-valor$=0.0084$. \pagebreak
+\item B) Obtener IC simultaneos para las medias de cada componente, con un nivel de confianza  
+global del 95\%. \\  
+Para esto usaremos la fórmula para los intervalos de confianza simultáneos, esto es:
+\begin{align*}
+\bar{x}_i-\sqrt{\frac{p(n-1)}{n(n-p)}F_{\alpha,p,n-p}s_{ii}}<\mu_i<\bar{x_i}+\sqrt{\frac{p(n-1)}{n(n-p)}F_{\alpha,p,n-p}s_{ii}}
+\end{align*}
+Calcularemos esto en R para todas las medias:\\\\
+\includegraphics[width=1\textwidth]{img/5.png}\\\\
+Esto es:
+\begin{align*}
+ 4.4757 < \mu_1 &< 10.5243 \\
+ 40.6992 < \mu_2 &< 107.0151 \\
+ 2.1878 < \mu_3 &< 6.9074 \\
+0.1107 < \mu_4 &< 4.2703 \\
+3.5998 < \mu_5 &< 16.4954 \\
+ -1.2412 < \mu_6 &< 20.0507 \\
+ 1.7721 < \mu_7 &< 4.4184 \\
+\end{align*}
+\pagebreak
+\item C) Obtener IC simultaneos para las diferencias de medias poblacionales (ignorando  
+unidades) con un nivel de confianza global del 95\%. \\
+Para esto usaremos la fórmula de IC simultáneos para la diferencia de medias:
+\begin{align*}
+(\bar{x_i}-\bar{x_j}) \pm \sqrt{\frac{p(n-1)}{n(n-p)}F_{\alpha,p,n-p}(s_{ii}-2s_{ij}+s_{jj})}
+\end{align*}
+Observamos que al tener 7 variables entonces habrá $\binom{7}{2} = 21$ intervalos. Lo calcularemos en R:\\\\
+\includegraphics[width=1\textwidth]{img/6.png}\\\\
+Nos dan los siguientes resultados:
+\begin{align*}
+ -99.9569 < \mu_{1} - \mu_{2} &< -32.7574 \\
+ -1.2287 < \mu_{1} - \mu_{3} &< 7.1334 \\
+ 1.2031 < \mu_{1} - \mu_{4} &< 9.4160 \\
+ -9.9641 < \mu_{1} - \mu_{5} &< 4.8688 \\
+ -13.6866 < \mu_{1} - \mu_{6} &< 9.8771 \\
+ 1.2987 < \mu_{1} - \mu_{7} &< 7.5109 \\
+ 36.5008 < \mu_{2} - \mu_{3} &< 102.1183 \\
+ 38.2912 < \mu_{2} - \mu_{4} &< 105.0422 \\
+ 30.7711 < \mu_{2} - \mu_{5} &< 96.8480 \\
+ 33.0281 < \mu_{2} - \mu_{6} &< 95.8767 \\
+ 37.6464 < \mu_{2} - \mu_{7} &< 103.8775 \\
+ 0.1289 < \mu_{3} - \mu_{4} &< 4.5854 \\
+ -10.9959 < \mu_{3} - \mu_{5} &< -0.0041 \\
+ -14.7697 < \mu_{3} - \mu_{6} &< 5.0554 \\
+ -1.0541 < \mu_{3} - \mu_{7} &< 3.9589 \\
+ -14.0164 < \mu_{4} - \mu_{5} &< -1.6979 \\
+ -18.3316 < \mu_{4} - \mu_{6} &< 3.9030 \\
+ -3.0921 < \mu_{4} - \mu_{7} &< 1.2826 \\
+ -10.8477 < \mu_{5} - \mu_{6} &< 12.1334 \\
+ 0.9787 < \mu_{5} - \mu_{7} &< 12.9261 \\
+ -4.2136 < \mu_{6} - \mu_{7} &< 16.8326 \\
+\end{align*}
+\pagebreak
+\item D) Obtener IC simultaneos para la media de cada componente, con un nivel de confianza  
+global del 95\% usando el metodo de Bonferroni. \\
+El método de Bonferroni nos dice que ternemos el siguiente IC:
+\begin{align*}
+\bar{x_i}-t_{\alpha / 2p,n-1}\sqrt{\frac{s_{ii}}{n}}<\mu_i<\bar{x_i}+t_{\alpha / 2p,n-1}\sqrt{\frac{s_{ii}}{n}}
+\end{align*}
+\includegraphics[width=1\textwidth]{img/7.png}\\\\
+Esto es:
+\begin{align*}
+6.8091 < \mu_1 &< 8.1909 \\
+66.2823 < \mu_2 &< 81.4320 \\
+4.0085 < \mu_3 &< 5.0867 \\
+1.7153 < \mu_4 &< 2.6656 \\
+8.5746 < \mu_5 &< 11.5206 \\
+6.9727 < \mu_6 &< 11.8368 \\
+2.7930 < \mu_7 &< 3.3975 \\
+\end{align*}
+\end{itemize}
+\end{sol}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}

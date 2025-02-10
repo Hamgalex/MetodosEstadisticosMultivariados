@@ -85,7 +85,7 @@ A <- matrix(c(
   0,1,0,0,1
 ), nrow = 2, byrow = TRUE)
 
-A %*% mu160
+A %*% mu
 (A %*% Sigma_div_40) %*% t(A)
 
 
@@ -96,6 +96,7 @@ datos <- read_excel("C:/Users/hamga/Downloads/datos tarea 3.xlsx")
 media <- colMeans(datos)
 covarianza <- cov(datos)
 
+d2 <- mahalanobis(datos, center = media, cov = covarianza)
 valChiCuadrada <- qchisq(ppoints(length(d2)), df = 4)
 
 qqplot(valChiCuadrada, d2,
@@ -104,3 +105,41 @@ qqplot(valChiCuadrada, d2,
 
 abline(0, 1, col = "red")  
 
+help(mahalanobis)
+
+
+
+
+
+# Definir los vectores y la matriz de covarianza
+mu <- c(100, 95, 230, 400, 86)
+X_bar <- c(99.5, 96, 231, 400, 86.2)
+Sigma <- matrix(c(
+  10, -2, 1, 0, 3,
+  -2, 9, -3, 4, 5,
+  1, -3, 15, 7, -2,
+  0, 4, 7, 20, 2,
+  3, 5, -2, 2, 5
+), nrow = 5, byrow = TRUE)
+
+# Tamaño de la muestra
+n <- 40
+
+# Ajustar la matriz de covarianza para la media muestral
+Sigma_bar <- Sigma / n
+
+# Calcular la diferencia entre X_bar y mu
+diff <- X_bar - mu
+
+# Calcular la inversa de la matriz de covarianza ajustada
+Sigma_bar_inv <- solve(Sigma_bar)
+
+# Calcular la distancia de Mahalanobis al cuadrado
+D_squared <- t(diff) %*% Sigma_bar_inv %*% diff
+
+# Imprimir el resultado
+cat("La distancia de Mahalanobis al cuadrado es:", D_squared, "\n")
+
+# Si se desea la distancia (no al cuadrado)
+D <- sqrt(D_squared)
+cat("La distancia de Mahalanobis es:", D, "\n")
