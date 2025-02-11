@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  9 FEB 2025 20:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  10 FEB 2025 19:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -285,131 +285,153 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+\openout2 = `E3.aux'.
 
- (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+ (E3.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<img/8.png, id=1, 555.57562pt x 309.40594pt>
-File: img/8.png Graphic file (type png)
-<use img/8.png>
-Package pdftex.def Info: img/8.png  used on input line 54.
-(pdftex.def)             Requested size: 469.75502pt x 261.61299pt.
+Underfull \hbox (badness 10000) in paragraph at lines 10--14
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--56
+ []
+
+<img/13.png, id=1, 540.51938pt x 308.65312pt>
+File: img/13.png Graphic file (type png)
+<use img/13.png>
+Package pdftex.def Info: img/13.png  used on input line 18.
+(pdftex.def)             Requested size: 469.75502pt x 268.25288pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--19
 
  []
 
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 52--56
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 16--19
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--56
+Underfull \hbox (badness 10000) in paragraph at lines 16--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--19
 
  []
 
 [1{C:/Users/hamga/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
- <./img/8.png>]
-<img/9.png, id=18, 602.25pt x 234.8775pt>
-File: img/9.png Graphic file (type png)
-<use img/9.png>
-Package pdftex.def Info: img/9.png  used on input line 86.
-(pdftex.def)             Requested size: 469.75502pt x 183.21088pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--88
+ <./img/13.png>]
+<img/14.png, id=16, 597.73312pt x 79.79813pt>
+File: img/14.png Graphic file (type png)
+<use img/14.png>
+Package pdftex.def Info: img/14.png  used on input line 39.
+(pdftex.def)             Requested size: 469.75502pt x 62.71349pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--41
 
  []
 
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 84--88
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 37--41
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--88
+Underfull \hbox (badness 10000) in paragraph at lines 37--41
 
  []
 
-<img/10.png, id=19, 593.96906pt x 39.89906pt>
-File: img/10.png Graphic file (type png)
-<use img/10.png>
-Package pdftex.def Info: img/10.png  used on input line 92.
-(pdftex.def)             Requested size: 469.75502pt x 31.55641pt.
+<img/15.png, id=17, 438.13687pt x 91.09032pt>
+File: img/15.png Graphic file (type png)
+<use img/15.png>
+Package pdftex.def Info: img/15.png  used on input line 44.
+(pdftex.def)             Requested size: 469.75502pt x 97.6658pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--95
-
- []
-
-
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 90--95
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 43--46
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--95
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 
  []
 
-[2 <./img/9.png> <./img/10.png>] [3]
-<img/11.png, id=31, 572.89032pt x 227.34938pt>
-File: img/11.png Graphic file (type png)
-<use img/11.png>
-Package pdftex.def Info: img/11.png  used on input line 107.
-(pdftex.def)             Requested size: 469.75502pt x 186.42422pt.
+[2 <./img/14.png> <./img/15.png>]
+<img/16.png, id=26, 896.59969pt x 289.83281pt>
+File: img/16.png Graphic file (type png)
+<use img/16.png>
+Package pdftex.def Info: img/16.png  used on input line 53.
+(pdftex.def)             Requested size: 469.75502pt x 151.8505pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--109
+Underfull \hbox (badness 10000) in paragraph at lines 51--55
 
  []
 
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 105--109
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 51--55
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--109
+Underfull \hbox (badness 10000) in paragraph at lines 51--55
 
  []
 
-[4 <./img/11.png>]
-<img/12.png, id=36, 586.44093pt x 223.58531pt>
-File: img/12.png Graphic file (type png)
-<use img/12.png>
-Package pdftex.def Info: img/12.png  used on input line 122.
-(pdftex.def)             Requested size: 469.75502pt x 179.09705pt.
+[3 <./img/16.png>]
+<img/17.png, id=31, 651.93562pt x 149.8097pt>
+File: img/17.png Graphic file (type png)
+<use img/17.png>
+Package pdftex.def Info: img/17.png  used on input line 78.
+(pdftex.def)             Requested size: 469.75502pt x 107.94974pt.
+<img/18.png, id=32, 494.59781pt x 409.53pt>
+File: img/18.png Graphic file (type png)
+<use img/18.png>
+Package pdftex.def Info: img/18.png  used on input line 79.
+(pdftex.def)             Requested size: 469.75502pt x 388.95755pt.
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 121--124
-[] 
+Underfull \hbox (badness 10000) in paragraph at lines 76--81
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 76--81
+[]
+ []
+
+
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 76--81
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--81
 
  []
 
-[5 <./img/12.png>] (T4.aux)
+[4 <./img/17.png>]) [5 <./img/18.png>] (T4.aux (E3.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3946 strings out of 474486
- 60568 string characters out of 5743754
- 1940542 words of memory out of 5000000
- 26187 multiletter control sequences out of 15000+600000
+ 3975 strings out of 474486
+ 61255 string characters out of 5743754
+ 1939542 words of memory out of 5000000
+ 26211 multiletter control sequences out of 15000+600000
  564326 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,14n,65p,254b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,14n,65p,512b,382s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\hamga\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -418,16 +440,14 @@ pe1/public/amsfonts/cm/cmex10.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/hamga/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/hamga/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hamga/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ham
-ga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Us
-ers/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmti12.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/symbols/msam10.pfb>
-Output written on T4.pdf (5 pages, 233016 bytes).
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ham
+ga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
+Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmti12.pfb>
+Output written on T4.pdf (5 pages, 228557 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
+ 86 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

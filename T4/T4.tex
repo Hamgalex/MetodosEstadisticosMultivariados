@@ -32,106 +32,11 @@
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\include{E1} \pagebreak
-\begin{problem}{2}
-Se colectaron datos de tratamiento de radioterapia en muchos pacientes. El investigador considera que la muestra es muy grande, usar la teía de muestras muy grandes.\\
- A) Determinar cuáles vectores $\mathbf{\mu}$ están en la región de confianza del 95\%. 
-\begin{align*}
-\mu_1 = \begin{pmatrix} 3.60 \\ 2.00 \\ 2.10 \\ 2.15 \\ 2.60 \\ 1.30 \end{pmatrix}, 
-\mu_2 = \begin{pmatrix} 3.60 \\ 1.90 \\ 2.10 \\ 2.15 \\ 2.60 \\ 1.30 \end{pmatrix}, 
-\mu_3 = \begin{pmatrix} 3.60 \\ 2.00 \\ 2.10 \\ 2.15 \\ 3.00 \\ 1.30 \end{pmatrix}
-\end{align*}
-B) Con la teoría de muestras muy grandes obtener IC simultáneos con un nivel de confianza global del 95\% para la media de cada variable.\\
-C) Resolver B con el método de Bonferroni.
-\end{problem}
-\begin{sol}
-\begin{itemize}
-\item A) Determinar cuáles vectores $\mathbf{\mu}$ están en la región de confianza del 95\%. \\
-Debido a que es una muestra grande entonces haremos una prueba de hipótesis para cada uno de las entradas de $\mu$ en dónde $H_0 : \mu = \mu_i$ v.s. $H_1:\mu \neq \mu_i$ con: 
-\begin{align*}
-T^2 = n (\mathbf{\bar{X}} - \mu_i)' \mathbf{S}^{-1} (\mathbf{\bar{X}} - \mu_i)
-\end{align*}
-teniendo una distribución aproximada $\chi_p^2$ entonces se rechaza $H_0$ con nivel de significancia $\alpha$ si $T^2 > \chi_{(\alpha,p)}^2$. Haremos los cálculos en R:\\\\
-\includegraphics[width=1\textwidth]{img/8.png}\\\\
-Nos queda: 
-\begin{align*}
-\mathbf{\bar{X}} &=
-\begin{pmatrix} 
-  3.5423 \\ 
-  1.8094 \\ 
-  2.1376 \\ 
-  2.2090 \\ 
-  2.5748 \\ 
-  1.2755 
-\end{pmatrix} \\
-\mathbf{S} &=
-\begin{pmatrix}
-  4.6548 &  0.9313 &  0.5897 &  0.2769 &  1.0749 &  0.1582 \\
-  0.9313 &  0.6128 &  0.1109 &  0.1185 &  0.3889 & -0.0249 \\
-  0.5897 &  0.1109 &  0.5714 &  0.0870 &  0.3480 &  0.1101 \\
-  0.2769 &  0.1185 &  0.0870 &  0.1104 &  0.2174 &  0.0218 \\
-  1.0749 &  0.3889 &  0.3480 &  0.2174 &  0.8622 & -0.0088 \\
-  0.1582 & -0.0249 &  0.1101 &  0.0218 & -0.0088 &  0.8615
-\end{pmatrix} \\
-\mathbf{S^{-1}} &=
-\begin{pmatrix}
-  0.3660 & -0.3995 & -0.1578 &  0.1338 & -0.2468 & -0.0645 \\
- -0.3995 &  2.7908 &  0.4089 & -1.0291 & -0.6650 &  0.1208 \\
- -0.1578 &  0.4089 &  2.4975 &  0.0252 & -1.0050 & -0.2894 \\
-  0.1338 & -1.0291 &  0.0252 & 18.6016 & -4.4092 & -0.5736 \\
- -0.2468 & -0.6650 & -1.0050 & -4.4092 &  3.2880 &  0.2999 \\
- -0.0645 &  0.1208 & -0.2894 & -0.5736 &  0.2999 &  1.2307
-\end{pmatrix}
-\end{align*}
-Ahora calcularemos $T^2$:\\\\
-\includegraphics[width=1\textwidth]{img/9.png}\\\\
-Por tanto:
-\begin{align*}
-T_{\mu_1}^2=18.9681,\quad T_{\mu_2}^2=11.1078,\quad T_{\mu_3}^2=89.8923
-\end{align*}
-Ahora calcularemos $\chi_{(\alpha,p)}^2$:\\\\
-\includegraphics[width=1\textwidth]{img/10.png}\\\\
-Por tanto $\chi_{(\alpha,p)}^2=12.5915$.
-\begin{itemize}
-\item Para $\mu_1$ tenemos $T^2=18.9681 > 12.5915$ por tanto se rechaza $H_0$. No están en la región de confianza del 95\%.
-\item Para $\mu_2$ tenemos $T^2=11.1078 > 12.5915$ por tanto no se rechaza $H_0$. Esto nos dice que $\mu_2$ sí esta en la región de confianza del 95\%.
-\item Para $\mu_3$ tenemos $T^2=89.8923 > 12.5915$ por tanto se rechaza $H_0$.No están en la región de confianza del 95\%.
-\end{itemize}
-$\therefore$ El vector que está en la región de confianza del 95\% es el $\mu_2$ \pagebreak
+%\include{E2} \pagebreak
+\include{E3} \pagebreak
 
-\item B) Con la teoría de muestras muy grandes obtener IC simultáneos con un nivel de confianza global del 95\% para la media de cada variable.\\
-Los intervalos los encontraremos con:
-\begin{align*}
-\bar{x_i}-\sqrt{\chi_{\alpha,p}^2(\frac{s_{ii}}{n})} < \mu_i < \bar{x_i}+\sqrt{\chi_{\alpha,p}^2(\frac{s_{ii}}{n})}
-\end{align*}
-Lo calcularemos con R:\\\\
-\includegraphics[width=1\textwidth]{img/11.png}\\\\
-Esto es: 
-\begin{align*}
- 1.5972 < \mu_1 &< 5.4875 \\
- 1.1036 < \mu_2 &< 2.5151 \\
- 1.4561 < \mu_3 &< 2.8191 \\
- 1.9094 < \mu_4 &< 2.5086 \\
- 1.7377 < \mu_5 &< 3.4120 \\
- 0.4387 < \mu_6 &< 2.1123 \\
-\end{align*} \pagebreak
-\item C) Resolver B con el método de Bonferroni. \\
-El método de Bonferroni nos dice que ternemos el siguiente IC:
-\begin{align*}
-\bar{x_i}-t_{\alpha / 2p,n-1}\sqrt{\frac{s_{ii}}{n}}<\mu_i<\bar{x_i}+t_{\alpha / 2p,n-1}\sqrt{\frac{s_{ii}}{n}}
-\end{align*}
-\includegraphics[width=1\textwidth]{img/12.png}\\\\
-Esto es:
-\begin{align*}
-2.9553 < \mu_1 &< 4.1294 \\
-1.5964 < \mu_2 &< 2.0223 \\
-1.9319 < \mu_3 &< 2.3433 \\
-2.1186 < \mu_4 &< 2.2994 \\
-2.3222 < \mu_5 &< 2.8275 \\
-1.0230 < \mu_6 &< 1.5280 \\
-\end{align*}
 
-\end{itemize}
-\end{sol}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
