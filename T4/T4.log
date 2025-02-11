@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  10 FEB 2025 22:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  10 FEB 2025 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -510,11 +510,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--61
  []
 
 [9 <./img/9.png> <./img/10.png>] [10]
-<img/11.png, id=67, 572.89032pt x 227.34938pt>
+<img/11.png, id=67, 617.30624pt x 385.44pt>
 File: img/11.png Graphic file (type png)
 <use img/11.png>
 Package pdftex.def Info: img/11.png  used on input line 73.
-(pdftex.def)             Requested size: 469.75502pt x 186.42422pt.
+(pdftex.def)             Requested size: 469.75502pt x 293.31973pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 71--75
 
@@ -793,7 +793,7 @@ fb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmsy8.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmti12.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msam10.pfb>
-Output written on T4.pdf (24 pages, 633229 bytes).
+Output written on T4.pdf (24 pages, 644223 bytes).
 PDF statistics:
  189 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
