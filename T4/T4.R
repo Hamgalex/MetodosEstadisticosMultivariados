@@ -20,16 +20,27 @@ mu_0 <-c(8,74,5,2,10,9,3)
 T2 <- nrow(df) * t(mean_vector - mu_0) %*% cov_matrix_inv %*% (mean_vector - mu_0)
 T2
 
-n <- nrow(df) 
-p <- ncol(df)
-alpha <- 0.05 
+f_value <- qf(1 - alpha, p, n - p)
 
-F_critical <- ((n - 1) * p) / (n - p) * qf(1 - alpha, p, n - p)
-F_critical
+# Calcular los límites de los intervalos de confianza para cada componente del vector de medias
+intervalos <- vector("list", length = p)  # Crear una lista para almacenar los intervalos
 
-statistic <- ((n - p) * T2) / ((n - 1) * p)
-p_value <- 1 - pf(statistic, p, n - p)
-p_value
+for (i in 1:p) {
+  # Elemento i-ésimo de la matriz de varianzas-covarianzas (s_ii)
+  s_ii <- cov_matrix[i, i]
+  
+  # Calcular los límites inferior y superior para el intervalo de confianza de la i-ésima media
+  limite_inferior <- mean_vector[i] - sqrt((p * (n - 1)) / (n * (n - p)) * f_value * s_ii)
+  limite_superior <- mean_vector[i] + sqrt((p * (n - 1)) / (n * (n - p)) * f_value * s_ii)
+  
+  # Almacenar los intervalos en la lista
+  intervalos[[i]] <- c(limite_inferior, limite_superior)
+}
+
+# Imprimir los intervalos
+for (i in 1:p) {
+  cat("Intervalo de confianza para mu_", i, ": [", intervalos[[i]][1], ", ", intervalos[[i]][2], "]\n", sep = "")
+}
 
 # B
 

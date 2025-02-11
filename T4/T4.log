@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  10 FEB 2025 21:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  10 FEB 2025 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -207,7 +207,7 @@ tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count278
 \l__pdf_internal_box=\box54
-) (T4.aux (E1.aux))
+) (T4.aux (E1.aux) (E2.aux) (E3.aux) (E4.aux))
 \openout1 = `T4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
@@ -383,11 +383,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--70
  []
 
 [3 <./img/4.png>]
-<img/5.png, id=31, 575.14874pt x 250.68657pt>
+<img/5.png, id=31, 788.9475pt x 384.6872pt>
 File: img/5.png Graphic file (type png)
 <use img/5.png>
 Package pdftex.def Info: img/5.png  used on input line 77.
-(pdftex.def)             Requested size: 469.75502pt x 204.75337pt.
+(pdftex.def)             Requested size: 469.75502pt x 229.04727pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
@@ -404,11 +404,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--79
  []
 
 [4 <./img/5.png>]
-<img/6.png, id=36, 888.31876pt x 293.59688pt>
+<img/6.png, id=36, 857.45343pt x 581.17125pt>
 File: img/6.png Graphic file (type png)
 <use img/6.png>
 Package pdftex.def Info: img/6.png  used on input line 96.
-(pdftex.def)             Requested size: 469.75502pt x 155.25616pt.
+(pdftex.def)             Requested size: 469.75502pt x 318.39479pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 94--98
 
@@ -771,10 +771,10 @@ L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4155 strings out of 474486
- 64835 string characters out of 5743754
+ 4165 strings out of 474486
+ 65125 string characters out of 5743754
  1942542 words of memory out of 5000000
- 26374 multiletter control sequences out of 15000+600000
+ 26378 multiletter control sequences out of 15000+600000
  564326 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,65p,512b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -793,7 +793,7 @@ fb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmsy8.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmti12.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msam10.pfb>
-Output written on T4.pdf (24 pages, 578322 bytes).
+Output written on T4.pdf (24 pages, 633229 bytes).
 PDF statistics:
  189 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
