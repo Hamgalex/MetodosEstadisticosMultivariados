@@ -13,7 +13,7 @@ C) Mencionar los supuestos para que los resultados anteriores sean válidos.
 \begin{sol}
 \begin{itemize}
 \item A) Determinar que vectores de medias están en la región de confianza del 95\%. \\
-Haremos una prueba de hipótesis para cada uno de las entradas de $\mu$ en dónde $H_0 : \mu = \mu_i$ v.s. $H_1:\mu \neq \mu_i$. El estadístico de prueba es:
+Debido a que $n=87$ y $p=3$ entonces es muestra grande, por lo que haremos una prueba de hipótesis para cada uno de las entradas de $\mu$ en dónde $H_0 : \mu = \mu_i$ v.s. $H_1:\mu \neq \mu_i$. El estadístico de prueba es:
 \begin{align*}
 T^2=n(\bar{\mathbf{X}} - \mu_0)'\mathbf{S}^{-1}(\mathbf{\bar{X}}-\mu_0)
 \end{align*}
@@ -44,28 +44,32 @@ T_{\mu_1}^2=4.1462,\quad T_{\mu_2}^2=6.8261 \quad T_{\mu_3}^2=8.5145
 \end{align*}
 Nuestra regla de desición será que se rechaza $H_0$ con nivel de significancia $\alpha$ si:
 \begin{align*}
-T^2 > \frac{(n-1)p}{n-p}F_{\alpha,p,n-p}
+T^2 >\chi_{\alpha, p}^2
 \end{align*}
-Lo calcularemos en R:\\
-\includegraphics[width=1\textwidth]{img/21.png}\\\\
+Lo calcularemos en R:\\\\
+\includegraphics[width=1\textwidth]{img/21.png}\\
 \begin{itemize}
-\item Para $\mu_1$ tenemos $T^2=4.1462 < 5.0433$ por tanto no se rechaza $H_0$. Esto nos dice que $\mu_1$ sí esta en la región de confianza del 95\%.
-\item Para $\mu_2$ tenemos $T^2=6.8261> 5.04335$ por tanto se rechaza $H_0$.No están en la región de confianza del 95\%.
-\item Para $\mu_3$ tenemos $T^2=8.5145 > 5.04335$ por tanto se rechaza $H_0$.No están en la región de confianza del 95\%.
-\end{itemize} \pagebreak
-\item B) Obtener IC simultáneos para diferencias de medias con un nivel de confianza global del 95\%.\\
-Para esto usaremos la siguiente fórmula en R para sacar los intervalos:
+\item Para $\mu_1$ tenemos $T^2=4.1462 < 7.8147$ por tanto no hay suficiente evidencia para rechazar $H_0$. Esto nos dice que $\mu_1$ sí esta en la región de confianza del 95\%.
+\item Para $\mu_2$ tenemos $T^2=6.8261< 7.8147$ por tanto no hay suficiente evidencia para rechazar $H_0$. Esto nos dice que $\mu_2$ sí esta en la región de confianza del 95\%.
+\item Para $\mu_3$ tenemos $T^2=8.5145 >7.8147$ por tanto se rechaza $H_0$. No están en la región de confianza del 95\%.
+\end{itemize} 
+$\therefore$ Los vectores que está en la región de confianza del 95\% son $\mu_1,\mu_2$ \pagebreak
+
+\item B) Obtener IC simultáneos para diferencias de medias con un nivel de confianza global del 95\%.\\ 
+Para esto usaremos la fórmula de ic simultáneos para muestras grandes:
 \begin{align*}
-(\bar{x_i}-\bar{x_j}) \pm \sqrt{\frac{p(n-1)}{n(n-p)}F_{\alpha,p,n-p}(s_{ii}-2s_{ij}+s_{jj})}
+(\bar{x}_i-\bar{x}_j)\pm \sqrt{\chi_{\alpha,p}^2(s_{ii}-2s_{ij}+s_{jj})/n}
 \end{align*}
-\includegraphics[width=1\textwidth]{img/22.png}\\\\
-Esto nos da: 
+\includegraphics[width=1\textwidth]{img/22.png}\\
+Esto es:
 \begin{align*}
-    434.5594 < \mu_{1} - \mu_{2} &< 509.2337 \\
-    461.6489 < \mu_{1} - \mu_{3} &< 541.2707 \\
-    24.0748 < \mu_{2} - \mu_{3} &< 35.0517
+451.2658 < \mu_1 - \mu_2 &< 492.5273 \\
+479.4622 < \mu_1 - \mu_3 &< 523.4574 \\
+26.5306 < \mu_2 - \mu_3 &< 32.5959 \\
 \end{align*} \pagebreak
-\item C) Mencionar los supuestos para que los resultados anteriores sean válidos.\\
-Los supuestos para que los resultados anteriores son que las observaciones sean independientes y los datos sigan una distribución normal multivariada. 
+
+\item C) Mencionar los supuestos para que los resultados anteriores sean válidos. \\
+Para que lo que acabamos de hacer sea válido, debe de ser una muestra grande, esto se checa con $n-p$ y recordemos que nosotros tenemos $n=87$ y $p=3$ por lo que $n-p=84>40$ pues 40 es neustro mínimo para considerar grande a una muestra. Debido a esto, no es necesario hacer un test de normalidad.
 \end{itemize}
+
 \end{sol}

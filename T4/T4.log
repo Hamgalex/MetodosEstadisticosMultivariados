@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  10 FEB 2025 23:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  11 FEB 2025 00:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,11 +620,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 43--46
  []
 
 [14 <./img/14.png> <./img/15.png>] [15]
-<img/16.png, id=93, 896.59969pt x 289.83281pt>
+<img/16.png, id=93, 823.57687pt x 627.84563pt>
 File: img/16.png Graphic file (type png)
 <use img/16.png>
 Package pdftex.def Info: img/16.png  used on input line 53.
-(pdftex.def)             Requested size: 469.75502pt x 151.8505pt.
+(pdftex.def)             Requested size: 469.75502pt x 358.11522pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 51--55
 
@@ -640,13 +640,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--55
 
  []
 
-[16 <./img/16.png>]
-<img/17.png, id=98, 651.93562pt x 149.8097pt>
+[16 <./img/16.png>] [17]
+<img/17.png, id=101, 651.93562pt x 149.8097pt>
 File: img/17.png Graphic file (type png)
 <use img/17.png>
 Package pdftex.def Info: img/17.png  used on input line 78.
 (pdftex.def)             Requested size: 469.75502pt x 107.94974pt.
-<img/18.png, id=99, 494.59781pt x 409.53pt>
+<img/18.png, id=102, 494.59781pt x 409.53pt>
 File: img/18.png Graphic file (type png)
 <use img/18.png>
 Package pdftex.def Info: img/18.png  used on input line 79.
@@ -671,11 +671,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--81
 
  []
 
-[17 <./img/17.png>]) [18 <./img/18.png>]
+[18 <./img/17.png>]) [19 <./img/18.png>]
 \openout2 = `E4.aux'.
 
  (E4.tex
-<img/19.png, id=108, 389.20406pt x 225.84375pt>
+<img/19.png, id=112, 389.20406pt x 225.84375pt>
 File: img/19.png Graphic file (type png)
 <use img/19.png>
 Package pdftex.def Info: img/19.png  used on input line 21.
@@ -700,12 +700,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--22
 
  []
 
-[19
+[20
 
 
 
  <./img/19.png>]
-<img/20.png, id=114, 582.67688pt x 280.79906pt>
+<img/20.png, id=117, 582.67688pt x 280.79906pt>
 File: img/20.png Graphic file (type png)
 <use img/20.png>
 Package pdftex.def Info: img/20.png  used on input line 40.
@@ -725,11 +725,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--42
 
  []
 
-<img/21.png, id=115, 499.8675pt x 108.405pt>
+<img/21.png, id=118, 625.58719pt x 27.85406pt>
 File: img/21.png Graphic file (type png)
 <use img/21.png>
 Package pdftex.def Info: img/21.png  used on input line 50.
-(pdftex.def)             Requested size: 469.75502pt x 101.87753pt.
+(pdftex.def)             Requested size: 469.75502pt x 20.9164pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--52
+
+ []
+
 
 Overfull \hbox (29.3747pt too wide) in paragraph at lines 48--52
 [] 
@@ -740,28 +745,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--52
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--52
-
- []
-
-[20 <./img/20.png> <./img/21.png>] [21]
-<img/22.png, id=124, 901.86937pt x 287.57437pt>
+[21 <./img/20.png> <./img/21.png>] [22]
+<img/22.png, id=127, 787.44188pt x 304.88907pt>
 File: img/22.png Graphic file (type png)
 <use img/22.png>
-Package pdftex.def Info: img/22.png  used on input line 61.
-(pdftex.def)             Requested size: 469.75502pt x 149.78964pt.
+Package pdftex.def Info: img/22.png  used on input line 63.
+(pdftex.def)             Requested size: 469.75502pt x 181.88344pt.
 
-Overfull \hbox (29.3747pt too wide) in paragraph at lines 60--63
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 62--65
 [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 60--63
-
- []
-
-[22 <./img/22.png>]) [23] [24
+[23 <./img/22.png>]) [24] [25
 
 
 ] (T4.aux (E1.aux) (E2.aux) (E3.aux) (E4.aux))
@@ -777,7 +772,7 @@ Here is how much of TeX's memory you used:
  26378 multiletter control sequences out of 15000+600000
  564326 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,14n,65p,512b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,14n,65p,475b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\hamga\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -793,9 +788,9 @@ fb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmsy8.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmti12.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msam10.pfb>
-Output written on T4.pdf (24 pages, 647306 bytes).
+Output written on T4.pdf (25 pages, 682318 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
+ 193 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
