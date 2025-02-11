@@ -1,0 +1,71 @@
+\begin{problem}{4}
+Se colectaron datos sobre el puntaje de exámenes en estudiantes universitarios. \\
+A) Determinar que vectores de medias están en la región de confianza del 95\%.
+\begin{align*}
+\mu_1 = \begin{pmatrix}527 \\ 53 \\ 25 \end{pmatrix}, 
+\mu_2 = \begin{pmatrix}523 \\ 55 \\ 26 \end{pmatrix}, 
+\mu_3 = \begin{pmatrix} 525 \\ 53 \\ 26 \end{pmatrix}
+\end{align*}
+B) Obtener IC simultáneos para diferencias de medias con un nivel de confianza global del 95\%.\\
+C) Mencionar los supuestos para que los resultados anteriores sean válidos.
+\end{problem}
+
+\begin{sol}
+\begin{itemize}
+\item A) Determinar que vectores de medias están en la región de confianza del 95\%. \\
+Haremos una prueba de hipótesis para cada uno de las entradas de $\mu$ en dónde $H_0 : \mu = \mu_i$ v.s. $H_1:\mu \neq \mu_i$. El estadístico de prueba es:
+\begin{align*}
+T^2=n(\bar{\mathbf{X}} - \mu_0)'\mathbf{S}^{-1}(\mathbf{\bar{X}}-\mu_0)
+\end{align*}
+Para esto, necesitamos calcular tres cosas, $\mathbf{\bar{X}}$, $\mathbf{S}$ y $\mathbf{S}^{-1}$, lo haremos con R:\\\\
+\includegraphics[width=1\textwidth]{img/19.png}\\\\
+\begin{align*}
+    \mathbf{\bar{X}}&= \begin{pmatrix} 
+        526.5862 \\ 
+        54.6897 \\ 
+        25.1264 
+    \end{pmatrix} \\
+    \mathbf{S} &= \begin{pmatrix}
+        5808.0593 & 597.8352 & 222.0297 \\ 
+        597.8352 & 126.0537 & 23.3885 \\ 
+        222.0297 & 23.3885 & 23.1117 
+    \end{pmatrix} \\
+    \mathbf{S^{-1}} &= \begin{pmatrix}
+        0.0004 & -0.0016 & -0.0026 \\ 
+        -0.0016 & 0.0155 & -0.0006 \\ 
+        -0.0026 & -0.0006 & 0.0684
+    \end{pmatrix}
+\end{align*}
+Ahora calcularemos $T^2$:\\\\
+\includegraphics[width=1\textwidth]{img/20.png}\\\\
+Por tanto:
+\begin{align*}
+T_{\mu_1}^2=4.1462,\quad T_{\mu_2}^2=6.8261 \quad T_{\mu_3}^2=8.5145
+\end{align*}
+Nuestra regla de desición será que se rechaza $H_0$ con nivel de significancia $\alpha$ si:
+\begin{align*}
+T^2 > \frac{(n-1)p}{n-p}F_{\alpha,p,n-p}
+\end{align*}
+Lo calcularemos en R:\\
+\includegraphics[width=1\textwidth]{img/21.png}\\\\
+\begin{itemize}
+\item Para $\mu_1$ tenemos $T^2=4.1462 < 5.0433$ por tanto no se rechaza $H_0$. Esto nos dice que $\mu_1$ sí esta en la región de confianza del 95\%.
+\item Para $\mu_2$ tenemos $T^2=6.8261> 5.04335$ por tanto se rechaza $H_0$.No están en la región de confianza del 95\%.
+\item Para $\mu_3$ tenemos $T^2=8.5145 > 5.04335$ por tanto se rechaza $H_0$.No están en la región de confianza del 95\%.
+\end{itemize} \pagebreak
+\item B) Obtener IC simultáneos para diferencias de medias con un nivel de confianza global del 95\%.\\
+Para esto usaremos la siguiente fórmula en R para sacar los intervalos:
+\begin{align*}
+(\bar{x_i}-\bar{x_j}) \pm \sqrt{\frac{p(n-1)}{n(n-p)}F_{\alpha,p,n-p}(s_{ii}-2s_{ij}+s_{jj})}
+\end{align*}
+\includegraphics[width=1\textwidth]{img/22.png}\\\\
+Esto nos da: 
+\begin{align*}
+    434.5594 < \mu_{1} - \mu_{2} &< 509.2337 \\
+    461.6489 < \mu_{1} - \mu_{3} &< 541.2707 \\
+    24.0748 < \mu_{2} - \mu_{3} &< 35.0517
+\end{align*} \pagebreak
+\item C) Mencionar los supuestos para que los resultados anteriores sean válidos.\\
+Los supuestos para que los resultados anteriores son que las observaciones sean independientes y los datos sigan una distribución normal multivariada. 
+\end{itemize}
+\end{sol}
