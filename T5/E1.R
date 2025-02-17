@@ -3,6 +3,7 @@ muestra1 <- read_excel("C:/Users/hamga/Documents/maestria/2do/MEM/MetodosEstadis
 muestra2 <- read_excel("C:/Users/hamga/Documents/maestria/2do/MEM/MetodosEstadisticosMultivariados/T5/datos_tarea.xlsx", sheet=2)
 
 pdh_dos_medias_grandes(muestra1,muestra2,0.05)
+ic_diferencia_medias_grandes(muestra1,muestra2,0.05)
 
 #' Hace una prueba de hipótesis para saber si la media poblacional 
 #' es igual dada MUESTRA GRANDE
@@ -64,7 +65,6 @@ ic_diferencia_medias_grandes <- function(muestra1, muestra2, alpha) {
 
   ic <- data.frame(
     Variable = colnames(muestra1),
-    Media_Dif = xbarra1 - xbarra2,
     IC_Lower = ic_inf,
     IC_Upper = ic_sup
   )

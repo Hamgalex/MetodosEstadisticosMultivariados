@@ -1,0 +1,50 @@
+\begin{problem}{2}
+Se comparan dos maquinarias pesadas de perforación profunda. Se miden las siguientes variables:X1 = peso de arrastre, X2 = peso de rotación, X3 = ángulo, X4 = velocidad de la barrena,
+X5 = peso del lodo, X6 = peso de levante y X7 = Torque de fondo.\\
+A) Determinar si los vectores de medias poblacionales son iguales en las maquinarias (alfa = 5\%).\\
+B) Obtener intervalos de confianza (95\%) de diferencia de medias e interpretar resultados.\\
+C) Menciona los supuestos que hiciste.
+\end{problem}
+\begin{sol}
+A) Determinar si los vectores de medias poblacionales son iguales en las maquinarias (alfa = 5\%).\\
+Debido a que el enunciado no nos dice que las muestras sigan una distribución normal y también se cumple que $n_1-p,n_2-p>40$ entonces usaremos la prueba de hipótesis para dos medias poblacionales grandes.
+Sea $H_0:\mu_1-\mu_2 = \delta_0$ vs $H_1: \mu_1 - \mu_2
+\neq \delta_0$ donde:
+\begin{align*}
+\delta_0 = \begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}
+\end{align*}
+Usaremos el estadístico de prueba
+\begin{align*}
+T^2 = (\bm{\bar{X_1}-\bar{X_2}-\delta_0})' \left[ \frac{1}{n_1}\bm{S_1}+\frac{1}{n_2}\bm{S_2} \right] ^{-1} (\bm{\bar{X_1}-\bar{X_2}-\delta_0})
+\end{align*}
+Y rechazaremos $H_0$ con nivel de significancia $\alpha$ si $T^2 > \chi_{\alpha, p}^2$. Debido a que ya contamos con todos los datos necesarios, solo debemos de calcular $T^2$ y $ \chi_{\alpha, p}^2$, lo haremos en R:\\\\
+\includegraphics[width=1\textwidth]{img/5.png}\\\\
+Debido a que $T^2=292.6722 > \chi_{\alpha, p}^2=14.06714$ entonces rechazamos $H_0$, esto es que hay evidencia de que las medias no son iguales.
+
+\pagebreak
+B) Obtener intervalos de confianza (95\%) de diferencia de medias e interpretar resultados.\\
+Como es muestra grande calcularemos los intervalos con:
+\begin{align*}
+(\bar{X_{1i}}-\bar{X_{2i}}) \pm \sqrt{\chi_{\alpha, p}^2 \left[\frac{1}{n_1}s_{ii(1)}+\frac{1}{n_2}s_{ii(2)} \right] }
+\end{align*}
+Lo calcularemos en R:\\
+\includegraphics[width=1\textwidth]{img/6.png}\\\\
+Esto es:
+\begin{align*}
+-17.2501765 &< \mu_1 - \mu_2 < 13.8501765 \\
+-20.7756225 &< \mu_1 - \mu_2 < 12.7356225 \\
+-0.6489871  &< \mu_1 - \mu_2 < 2.1589871 \\
+-1.6828236  &< \mu_1 - \mu_2 < 0.9248236 \\
+-5.9186822  &< \mu_1 - \mu_2 < 6.6586822 \\
+-6.0141268  &< \mu_1 - \mu_2 < 4.0221268 \\
+-1.4152759  &< \mu_1 - \mu_2 < 0.8912759 \\
+\end{align*}
+Observamos que todos los intervalos van de negativo a positivo, esto quiere decir que todos los intervalos de confianza contienen al cero, lo cual puede sonar contradictorio debido a que en la prueba de hipotesis anterior nos dio que hay evidencia de que las medias no son iguales.
+
+\pagebreak
+
+C) Mencione los supuestos que hiciste.\\
+En este caso debido a que es una muestra grande, no es necesario que las dos muestras sigan una distribución normal p-variada debido a que la media muestral se aproximará a una distribución normal. Lo que nosotros tuvimos que asumir es que las observaiones son independientes unas de otras.
+\end{sol}
