@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ,bm}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solución:}
+    }
+    {
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Héctor Alejandro Márquez González}  %replace with your name
+\rhead{Métodos Estadísticos Multivariados \\ 1989936} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{problem}{1}
+ 1.- Se comparan indicadores de dos sierras mecánicas en un proceso de corte. 
+X1 = presión de mordaza (psi), X2 = velocidad de la sierra (m/min), 
+X3 = velocidad de posicionamiento (\%), X4 = presión de avance (psi).\\
+A) Determinar si los vectores de medias poblacionales son iguales en las dos sierras (alfa = 5\%). \\
+B) Obtener intervalos de confianza (95\%) de diferencia de medias e interpretar resultados.\\
+C) Mencione los supuestos que hiciste.
+\end{problem}
+\begin{sol}
+A) Determinar si los vectores de medias poblacionales son iguales en las dos sierras (alfa = 5\%). \\
+Debido a que el enunciado no nos dice que las muestras sigan una distribución normal y también se cumple que $n_1-p,n_2-p>40$ entonces usaremos la prueba de hipótesis para dos medias poblacionales grandes.
+Sea $H_0:\mu_1-\mu_2 = \delta_0$ vs $H_1: \mu_1 - \mu_2
+\neq \delta_0$ donde:
+\begin{align*}
+\delta_0 = \begin{pmatrix}
+0\\0\\0\\0
+\end{pmatrix}
+\end{align*}
+Usaremos el estadístico de prueba
+\begin{align*}
+T^2 = (\bm{\bar{X_1}-\bar{X_2}-\delta_0})' \left[ \frac{1}{n_1}\bm{S_1}+\frac{1}{n_2}\bm{S_2} \right] ^{-1} (\bm{\bar{X_1}-\bar{X_2}-\delta_0})
+\end{align*}T
+Y rechazaremos $H_0$ con nivel de significancia $\alpha$ si $T^2 > \chi_{\alpha, p}^2$\\
+Para esto usaremos R, primero leeremos las muestras:\\\\
+\includegraphics[width=1\textwidth]{img/1.png}\\\\
+Ahora calcularemos los vectores de medias muestrales y la matriz de covarianzas muestrales:\\\\
+\includegraphics[width=1\textwidth]{img/2.png}\\\\
+Ahora calcularemos $T^2$ y $\chi_{\alpha, p}^2$ \\\\
+\includegraphics[width=1\textwidth]{img/3.png}\\\\
+Debido a que $T^2=6.1692 < \chi_{\alpha, p}^2=9.4877$ entonces no rechazamos $H_0$, esto es que no hay suficiente evidencia para decir que las medias son distintas. 
+
+\pagebreak
+B) Obtener intervalos de confianza (95\%) de diferencia de medias e interpretar resultados.\\
+Como es muestra grande calcularemos los intervalos con:
+\begin{align*}
+(\bar{X_{1i}}-\bar{X_{2i}}) \pm \sqrt{\chi_{\alpha, p}^2 \left[\frac{1}{n_1}s_{ii(1)}+\frac{1}{n_2}s_{ii(2)} \right] }
+\end{align*}
+Lo calcularemos en R:\\
+\includegraphics[width=1\textwidth]{img/4.png}\\\\
+Esto es:
+\begin{align*}
+-33.968659 &< \mu_{11} - \mu_{21} < 42.499602 \\
+-0.937193  &< \mu_{12} - \mu_{22} < 7.284050 \\
+-8.714146  &< \mu_{13} - \mu_{23} < 6.015517  \\
+-4.311730  &< \mu_{14} - \mu_{24} < 5.777021  \\
+\end{align*}
+C) Mencione los supuestos que hiciste.\\
+En este caso debido a que es una muestra grande, no es necesario que las dos muestras sigan una distribución normal p-variada debido a que la media muestral se aproximará a una distribución normal. Lo que nosotros tuvimos que asumir es que las observaiones son independientes unas de otras.
+
+\end{sol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
