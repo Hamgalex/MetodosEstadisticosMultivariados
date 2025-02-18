@@ -92,7 +92,7 @@ pdh_mu_1_muestra_suponiendo_normalidad <- function (datos,mu0,alpha){
   cat("f critico:",F_critical,"\n")
   cat("p-value:",p_value,"\n")
   
-  if(est_prueba>valor_critico){
+  if(T2>F_critical){
     cat("Se rechaza H0, hay suficiente evidencia para decir que las mu NO es igual a mu0")
   } else{
     cat("No se rechaza H0, hay suficiente evidencia para decir que las mu es igual a mu0")
@@ -184,3 +184,110 @@ ic_1_muestra_bonferroni_suponiendo_normalidad <- function(datos,alpha){
     cat(IC_lower[i], " < x",i," < ",IC_upper[i],"\n")
   }
 }
+
+pdh_mu_1_muestra_grande <- function (datos,mu0,alpha){
+  n <- nrow(datos) 
+  p <- ncol(datos)
+  
+  mean_vector <- colMeans(datos)
+  cov_matrix <- cov(datos)
+  
+  T2 <- n * t(mean_vector - mu0) %*% solve(cov_matrix) %*% (mean_vector - mu0)
+  valor_critico <- qchisq(1 - alpha, df = p)
+  p_value <- pchisq(T2, df = p, lower.tail = FALSE)
+  cat("t cuadrada: ",T2,"\n")
+  cat("f critico:",valor_critico,"\n")
+  cat("p-value:",p_value,"\n")
+  
+  if(T2>valor_critico){
+    cat("Se rechaza H0, hay suficiente evidencia para decir que las mu NO es igual a mu0")
+  } else{
+    cat("No se rechaza H0, hay suficiente evidencia para decir que las mu es igual a mu0")
+  }
+}
+
+ic_1_muestra_grande <- function(datos, alpha){
+  n <- nrow(datos) 
+  p <- ncol(datos)
+  
+  mean_vector <- colMeans(datos)
+  cov_matrix <- cov(datos)
+  
+  
+  valor_critico <- qchisq(1 - alpha, df = p)
+  IC_inf <- numeric(p)
+  IC_sup <- numeric(p)
+  
+  
+  for (i in 1:p) {
+    
+    s_ii <- cov_matrix[i, i]
+    
+    margin_error <- sqrt(valor_critico * s_ii/n)
+    
+    IC_inf[i] <- mean_vector[i] - margin_error
+    IC_sup[i] <- mean_vector[i] + margin_error
+  }
+  for(i in 1:p) {
+    cat(IC_inf[i], " < x",i," < ",IC_sup[i],"\n")
+  }
+}
+
+ic_diferencia_muestra_grande <- function(datos, alpha){
+  n <- nrow(datos) 
+  p <- ncol(datos)
+  
+  mean_vector <- colMeans(datos)
+  cov_matrix <- cov(datos)
+  
+  valor_critico <- qchisq(1 - alpha, df = p)
+  
+  IC_diff_lower <- list() 
+  IC_diff_upper <- list() 
+  for(i in 1:(p-1)) {
+    for(j in (i+1):p) {
+      
+      diff <- mean_vector[i] - mean_vector[j]
+      
+      margin_error <- sqrt( valor_critico*(cov_matrix[i, i] - 2 * cov_matrix[i, j] + cov_matrix[j, j])/n)
+      
+      pair_name <- paste("X", i, "-", "X", j, sep = "") 
+      
+      IC_diff_lower[[pair_name]] <- diff - margin_error  
+      IC_diff_upper[[pair_name]] <- diff + margin_error  
+    }
+  }
+  for(pair in names(IC_diff_lower)) {
+    cat("Intervalo de Confianza para la diferencia de medias entre ", pair, ":\n", sep="")
+    cat("Límite Inferior: ", IC_diff_lower[[pair]], "\n")
+    cat("Límite Superior: ", IC_diff_upper[[pair]], "\n\n")
+  }
+}
+
+
+ic_1_muestra_bonferroni_grande <- function(datos,alpha){
+  n <- nrow(datos) 
+  p <- ncol(datos)
+  
+  mean_vector <- colMeans(datos)
+  cov_matrix <- cov(datos)
+  
+  z_alpha <- qnorm(1 - alpha / (2 * p)) 
+  
+  ic_medias_bonferroni <- function(i) {
+    margin <- z_alpha * sqrt(cov_matrix[i, i] / n)
+    
+    lower <- mean_vector[i] - margin
+    upper <- mean_vector[i] + margin
+    
+    return(c(lower, upper))
+  }
+  
+  for (i in 1:p) {
+    ic <- ic_medias_bonferroni(i)
+    cat("Intervalo de confianza para μ_", i, ": [", round(ic[1], 4), ", ", round(ic[2], 4), "]\n")
+  }
+  
+}
+
+
