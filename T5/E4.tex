@@ -1,0 +1,77 @@
+\begin{problem}{4}
+Se comparan los puntajes de un examen de admisión a posgrado de estudiantes de tres universidades.\\
+A) Determinar si los vectores de medias poblacionales de los tres turnos son iguales (incluir el
+estadístico de Bartlett), alfa = 5\% e interpretar resultado.\\
+B) Obtener IC simultáneos para diferencia de medias (95\%).\\
+C) Aplicar la prueba M de Box e interpretar resultado.
+\end{problem}
+\begin{sol}
+A) Determinar si los vectores de medias poblacionales de los tres turnos son iguales (incluir el
+estadístico de Bartlett), alfa = 5\% e interpretar resultado.\\
+Para esto haremos el MANOVA en R, con los tests de Pillai, Wilks, Hotelling-Lawley y Roy, luego calcularemos el estadístico de Bartlett. Esto se hace para hacer nuestra prueba de hipótesis donde:
+$H_0:\bm{\mu_1}=\cdots = \bm{\mu_k}$ vs $H_1:$ Al menos hay $\bm{\mu_p} \neq \bm{\mu_q}$, para esto compararemos el estadístico de Bartlett, donde se rechazara $H_0$ con nivel de significancia $\alpha$ si:
+\begin{align*}
+-[N-1-(p+k)/2]\ln{(\Lambda^*)}>\chi_{\alpha,p(k-1)}^2
+\end{align*}
+Lo haremos en R:\\
+\includegraphics[width=1\textwidth]{img/13.png}\\\\
+\includegraphics[width=1\textwidth]{img/14.png}\\\\
+Observamos que $20.9785 < \chi_{\alpha,p(k-1)}^2$ por tanto no rechazamos $H_0$ por lo que no hay suficiente evidencia para decir que las medias son distintas. Por tanto inferimos que los vectores de medias son iguales en las tres universidades. 
+B) Obtener IC simultáneos para diferencia de medias (95\%).\\
+Para obtener esto primero necesitamos calcular $\bm{W}=(n_1-1)\bm{S_1}+\cdots+(n_k-1)\bm{S_k}$, $\frac{\bm{W}}{N-k}$ pues con esta matriz estimamos $\bm{\Sigma}$ y luego $\hat{V}(\bar{X_{qi}}-\bar{X_{ri}})=(\frac{1}{n_q}+\frac{1}{n_r})[\frac{w_{ii}}{N-k}]$, con estos datos nuestros intervalos de confianza serán:
+\begin{align*}
+(\bar{X_{qi}}-\bar{X_{ri}}) \pm t_{\alpha/(pk(k-1)),N-k}\sqrt{(\frac{1}{n_q}+\frac{1}{n_r})[\frac{w_{ii}}{N-k}]}
+\end{align*}
+Lo calcularemos en R:\\
+\includegraphics[width=1\textwidth]{img/15.png}\\
+\includegraphics[width=1\textwidth]{img/16.png}\\
+\includegraphics[width=1\textwidth]{img/17.png}\\
+\includegraphics[width=1\textwidth]{img/18.png}\\
+Debido a que nuestra muestra 1 es la universidad A, la muestra 2 es la universidad B y la muestra 3 es la universidad C. Tenemos los siguientes resultados:
+Para las universidades A vs B
+\begin{align*}
+-64.949171 &< \mu_{1} - \mu_{2} < 19.9026595 \\
+-10.034469 &< \mu_{2} - \mu_{2} < -0.5146263 \\
+-5.156442 &< \mu_{3} - \mu_{3} < 3.9749175 \\
+-7.956788 &< \mu_{4} - \mu_{4} < 1.9309480 \\
+-4.631016 &< \mu_{5} - \mu_{5} < 4.1090523 \\
+-4.946035 &< \mu_{6} - \mu_{6} < 3.7541743 \\
+\end{align*}
+
+Para las universidades B vs C
+\begin{align*}
+-24.157744 &< \mu_{2} - \mu_{3} < 56.386074 \\
+-1.977294 &< \mu_{2} - \mu_{3} < 7.059217 \\
+-4.763315 &< \mu_{2} - \mu_{3} < 3.904436 \\
+-3.674892 &< \mu_{2} - \mu_{3} < 5.710833 \\
+-4.537434 &< \mu_{2} - \mu_{3} < 3.758893 \\
+-1.112861 &< \mu_{2} - \mu_{3} < 7.145630 \\
+\end{align*}
+
+Para las universidades A vs C
+\begin{align*}
+-48.614737 &< \mu_{1} - \mu_{3} < 35.796556 \\
+-7.468795 &< \mu_{2} - \mu_{3} < 2.001623 \\
+-5.562178 &< \mu_{3} - \mu_{3} < 3.521773 \\
+-6.913150 &< \mu_{4} - \mu_{4} < 2.923251 \\
+-4.997598 &< \mu_{5} - \mu_{5} < 3.697093 \\
+-1.907065 &< \mu_{6} - \mu_{6} < 6.747974 \\
+\end{align*}
+
+\pagebreak
+C) Aplicar la prueba M de Box e interpretar resultado.
+Para la prueba M de box tendremos que calcular lo siguiente:
+\begin{align*}
+\Lambda &= \prod_{i}(\frac{|\bm{S_i}|}{|\bm{S_{pond}}|})^{\frac{n_i-1}{2}}  \\
+M &= -2\ln{\Lambda}\\
+f_1 &= (k-1)p(p+1)/2\\
+\rho &= 1- \frac{2p^2+3p-1}{6(p+1)(k-1)}(\sum_i\frac{1}{(n_i-1)}-\frac{1}{N-k})\\
+\tau &= \frac{(p-1)(p+2)}{6(k-1)}(\sum_i\frac{1}{(n_i-1)^2}-\frac{1}{(N-k)^2})\\
+f_2 &= \frac{f_1+2}{|\tau-(1-p)^2|}\\
+\rho &= \frac{\pi-f_1/f_2}{f_1}
+\end{align*}
+Estos valores nos ayudarán con nuestra prueba de hipótesis donde: $H_0:\bm{\Sigma_1=\Sigma_2=\cdots = \Sigma_k}$ vs $H_1:$ Al menos hay dos diferentes $\bm{\Sigma_u} \neq \bm{\Sigma_v}$. Nuestro estadístico de prueba será $\gamma* M$ en donde se rechazará $H_0$ con nivel de significancia $\alpha$ si $\gamma*M>F_{\alpha,f_1,f_2}$. Haremos nuestros cálculos en R:\\
+\includegraphics[width=1\textwidth]{img/19.png}\\
+\includegraphics[width=1\textwidth]{img/20.png}\\
+Debido a que $\gamma* M = 1.3263 < F_{\alpha,f_1,f_2}$ entonces no rechazamos $H_0$ y decimos que hay suficiente evidencia para decir que las matrices de covarianza son iguales. Esto que hicimos no era necesario debido a que usamos una teoría de muestra grande y la teoría de muestra grande implica que, con suficientes datos, los estimadores serán consistentes y los efectos de las diferencias de varianza/covarianza se atenúan. 
+\end{sol}
