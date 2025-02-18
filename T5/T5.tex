@@ -46,7 +46,73 @@ B) Obtener IC simultáneos para diferencia de medias (95\%).\\
 C) Aplicar la prueba M de Box e interpretar resultado.
 \end{problem}
 \begin{sol}
+A) Determinar si los vectores de medias poblacionales de los tres turnos son iguales (incluir el
+estadístico de Bartlett), alfa = 5\% e interpretar resultado.\\
+Para esto haremos el MANOVA en R, con los tests de Pillai, Wilks, Hotelling-Lawley y Roy, luego calcularemos el estadístico de Bartlett. Esto se hace para hacer nuestra prueba de hipótesis donde:
+$H_0:\bm{\mu_1}=\cdots = \bm{\mu_k}$ vs $H_1:$ Al menos hay $\bm{\mu_p} \neq \bm{\mu_q}$, para esto compararemos el estadístico de Bartlett, donde se rechazara $H_0$ con nivel de significancia $\alpha$ si:
+\begin{align*}
+-[N-1-(p+k)/2]\ln{(\Lambda^*)}>\chi_{\alpha,p(k-1)}^2
+\end{align*}
+Lo haremos en R:\\\\
+\includegraphics[width=1\textwidth]{img/7.png}\\\\
+Observamos que $12.5404 < \chi_{\alpha,p(k-1)}^2$ por tanto no rechazamos $H_0$ por lo que no hay suficiente evidencia para decir que las medias son distintas. Por tanto inferimos que los vectores de medias son iguales en los tres turnos. 
 
+\pagebreak
+
+B) Obtener IC simultáneos para diferencia de medias (95\%).\\
+Para obtener esto primero necesitamos calcular $\bm{W}=(n_1-1)\bm{S_1}+\cdots+(n_k-1)\bm{S_k}$, $\frac{\bm{W}}{N-k}$ pues con esta matriz estimamos $\bm{\Sigma}$ y luego $\hat{V}(\bar{X_{qi}}-\bar{X_{ri}})=(\frac{1}{n_q}+\frac{1}{n_r})[\frac{w_{ii}}{N-k}]$, con estos datos nuestros intervalos de confianza serán:
+\begin{align*}
+(\bar{X_{qi}}-\bar{X_{ri}}) \pm t_{\alpha/(pk(k-1)),N-k}\sqrt{(\frac{1}{n_q}+\frac{1}{n_r})[\frac{w_{ii}}{N-k}]}
+\end{align*}
+Lo calcularemos en Python:\\
+\includegraphics[width=1\textwidth]{img/8.png}\\
+\includegraphics[width=1\textwidth]{img/9.png}\\
+\includegraphics[width=1\textwidth]{img/10.png}\\
+Esto es, para las muestras 1 y 2:
+\begin{align*}
+-0.6810228 &< \mu_{1} - \mu_{2} < 0.9543562 \\
+-1.5234393 &< \mu_{2} - \mu_{2} < 0.5767726 \\
+-3.7931644 &< \mu_{3} - \mu_{3} < 4.3931644 \\
+-22.0522471 &< \mu_{4} - \mu_{4} < 15.3189137 \\
+-19.8476293 &< \mu_{5} - \mu_{5} < 34.4476293 \\
+-1.2104656 &< \mu_{6} - \mu_{6} < 1.7464656 \\
+\end{align*}
+Para las muestras 2 y 3:
+\begin{align*}
+-0.7648785 &< \mu_{2} - \mu_{3} < 0.7648785 \\
+-0.6622842 &< \mu_{2} - \mu_{3} < 1.3022842 \\
+-1.6288047 &< \mu_{2} - \mu_{3} < 6.0288047 \\
+-15.0620933 &< \mu_{2} - \mu_{3} < 19.8954266 \\
+-30.9942819 &< \mu_{2} - \mu_{3} < 19.7942819 \\
+-2.0980613 &< \mu_{2} - \mu_{3} < 0.6678946 \\
+\end{align*}
+Para las muestras 1 y 3:
+\begin{align*}
+-0.6282118 &< \mu_{1} - \mu_{3} < 0.9015452 \\
+-1.1356175 &< \mu_{2} - \mu_{3} < 0.8289508 \\
+-1.3288047 &< \mu_{3} - \mu_{3} < 6.3288047 \\
+-18.4287600 &< \mu_{4} - \mu_{4} < 16.5287600 \\
+-23.6942819 &< \mu_{5} - \mu_{5} < 27.0942819 \\
+-1.8300613 &< \mu_{6} - \mu_{6} < 0.9358946 \\
+\end{align*}
+
+\pagebreak
+
+C) Aplicar la prueba M de Box e interpretar resultado.\\
+Para la prueba M de box tendremos que calcular lo siguiente:
+\begin{align*}
+\Lambda &= \prod_{i}(\frac{|\bm{S_i}|}{|\bm{S_{pond}}|})^{\frac{n_i-1}{2}}  \\
+M &= -2\ln{\Lambda}\\
+f_1 &= (k-1)p(p+1)/2\\
+\rho &= 1- \frac{2p^2+3p-1}{6(p+1)(k-1)}(\sum_i\frac{1}{(n_i-1)}-\frac{1}{N-k})\\
+\tau &= \frac{(p-1)(p+2)}{6(k-1)}(\sum_i\frac{1}{(n_i-1)^2}-\frac{1}{(N-k)^2})\\
+f_2 &= \frac{f_1+2}{|\tau-(1-p)^2|}\\
+\rho &= \frac{\pi-f_1/f_2}{f_1}
+\end{align*}
+Estos valores nos ayudarán con nuestra prueba de hipótesis donde: $H_0:\bm{\Sigma_1=\Sigma_2=\cdots = \Sigma_k}$ vs $H_1:$ Al menos hay dos diferentes $\bm{\Sigma_u} \neq \bm{\Sigma_v}$. Nuestro estadístico de prueba será $\gamma* M$ en donde se rechazará $H_0$ con nivel de significancia $\alpha$ si $\gamma*M>F_{\alpha,f_1,f_2}$. Haremos nuestros cálculos en R:\\
+\includegraphics[width=1\textwidth]{img/11.png}\\
+\includegraphics[width=1\textwidth]{img/12.png}\\
+Debido a que $\gamma* M = 1.8394 > F_{\alpha,f_1,f_2}$ entonces rechazamos $H_0$ y decimos que no hay suficiente evidencia para decir que las matrices de covarianza son iguales.
 \end{sol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
