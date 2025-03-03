@@ -1,0 +1,104 @@
+\begin{problem}{3}
+Se colectaron datos sobre un proceso de soldadura industrial.\\
+A) Tratar de reducir la información a menos de 5 dimensiones usando componentes principales.\\
+B) Obtener los valores de los componentes principales obtenidos en el a) para:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lccccccccc}
+        \toprule
+        \textbf{x1} & \textbf{x2} & \textbf{x3} & \textbf{x4} & \textbf{x5} & \textbf{x6} & \textbf{x7} & \textbf{x8} & \textbf{x9} \\
+        \midrule
+        58 & 62 & 58 & 34 & 50 & 0.1 & 0.033 & 0.097 & 120 \\
+        50 & 62 & 54 & 35 & 49 & 0.1 & 0.036 & 0.099 & 120 \\
+        60 & 57 & 54 & 32 & 45 & 0.065 & 0.3 & 0.062 & 120 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:datos}
+\end{table}
+\end{problem}
+
+
+\begin{sol}A)
+Para reducir la dimensionalidad, aplicamos el Análisis de Componentes Principales (PCA) con datos estandarizados:
+\begin{verbatim}
+pca_matriz_correlacion <- function(datos){
+  pca_corr <- prcomp(datos, center = TRUE, scale = TRUE)
+
+  plot(pca_corr, type = "l", main = "Grafico de codo de x1, x2, ..., x6")
+
+  print(pca_corr)
+
+  print(summary(pca_corr))
+
+  biplot(pca_corr, scale = 0)
+
+  cat("eigenvalues: ", pca_corr$sdev^2 , "\n" )
+
+  return(pca_corr)
+
+}
+\end{verbatim}
+Nos resulta:\\\\
+\includegraphics[width=1\textwidth]{img/5.png}\\
+\includegraphics[width=1\textwidth]{img/6.png}\\
+Esto nos quiere decir que tendremos:
+\begin{align*}
+\lambda_1 &= 2.777069, 
+\lambda_2 &= 1.957986, 
+\lambda_3 &= 1.183942, 
+\lambda_4 &= 1.059898, 
+\lambda_5 &= 0.8727796, 
+\lambda_6 &= 0.6872157, \\
+\lambda_7 &= 0.419001, 
+\lambda_8 &= 0.03836691, 
+\lambda_9 &= 0.003742198
+\end{align*}
+También de los datos podemos concluir que los primeros CUATRO componentes principales explican más del 77\% de la variabilidad de los datos, por tanto, reducimos las nueve variables a cuatro:
+\begin{align*}
+PC_1 &= -0.1345 \cdot x_1 + 0.0022 \cdot x_2 + 0.1476 \cdot x_3 + 0.1806 \cdot x_4 + 0.3641 \cdot x_5 + 0.5452 \cdot x_6 - 0.3997 \cdot x_7 \\ & + 0.5444 \cdot x_8 - 0.2036 \cdot x_9 \\
+PC_2 &= -0.1900 \cdot x_1 + 0.2088 \cdot x_2 - 0.1939 \cdot x_3 - 0.5787 \cdot x_4 - 0.1335 \cdot x_5 + 0.1954 \cdot x_6 - 0.1876 \cdot x_7\\ & + 0.1947 \cdot x_8 + 0.6471 \cdot x_9 \\
+PC_3 &= -0.4843 \cdot x_1 + 0.4436 \cdot x_2 - 0.4268 \cdot x_3 + 0.4077 \cdot x_4 - 0.3888 \cdot x_5 - 0.0415 \cdot x_6 - 0.1989 \cdot x_7 \\ &- 0.0453 \cdot x_8 - 0.1603 \cdot x_9 \\
+PC_4 &= -0.4279 \cdot x_1 + 0.4121 \cdot x_2 + 0.7034 \cdot x_3 - 0.0186 \cdot x_4 - 0.0057 \cdot x_5 - 0.0022 \cdot x_6 + 0.3872 \cdot x_7 \\ &+ 0.0144 \cdot x_8 + 0.0429 \cdot x_9
+\end{align*}
+
+Nuestras nueve variables originales se combinaron linealmente para formar las cuatro primeras componentes principales PC1, PC2, PC3 y PC4.
+
+\pagebreak
+
+B) Usaremos el siguiente código: 
+\begin{verbatim}
+calcular_datos_dada_pca_corr <- function(pca_corr,datos_valores, medias, desvest){
+
+  for (i in 1:nrow(datos_valores)) {
+
+    # se tienen que escalar los valores debido a que para el pca
+    # se uso la correlacion en vez de la covarianza.
+    datos_valores_escalados <- scale(datos_valores[i,], center = medias, scale = desvest)
+
+    cat("fila ",i,"\n")
+    cat("y1=",sum(datos_valores_escalados*pca_corr$rotation[, "PC1"]),"\n")
+    cat("y2=",sum(datos_valores_escalados*pca_corr$rotation[, "PC2"]),"\n")
+    cat("y3=",sum(datos_valores_escalados*pca_corr$rotation[, "PC3"]),"\n")
+    cat("y4=",sum(datos_valores_escalados*pca_corr$rotation[, "PC4"]),"\n\n")
+  }
+}
+\end{verbatim}
+Nos resulta:\\\\
+\includegraphics[width=1\textwidth]{img/7.png}\\\\ \\
+
+Por tanto:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Fila} & \textbf{y1} & \textbf{y2} & \textbf{y3} & \textbf{y4} \\
+        \hline
+        1 & 0.777792 & 1.03079 & -0.03632513 & 0.8834595 \\
+        2 & 0.8439702 & 2.26959 & 3.040871 & 0.3245175 \\
+        3 & -3.392126 & -0.05219226 & -0.0785673 & -1.765081 \\
+        \hline
+    \end{tabular}
+    \label{tab:valores_pca}
+\end{table}
+\end{sol}
+
