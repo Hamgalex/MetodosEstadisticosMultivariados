@@ -38,13 +38,21 @@ datos_valores <- data.frame(
 )
 
 
-calcular_datos_dada_pca_corr <- function(pca_corr,datos_valores){
+calcular_datos_dada_pca_corr <- function(pca_corr,datos_valores, medias, desvest){
 
   for (i in 1:nrow(datos_valores)) {
+
+    # se tienen que escalar los valores debido a que para el pca
+    # se uso la correlacion en vez de la covarianza.
+    datos_valores_escalados <- scale(datos_valores[i,], center = medias, scale = desvest)
+
     cat("fila ",i,"\n")
-    cat("y1=",sum(datos_valores[i,]*pca_corr$rotation[, "PC1"]),"\n")
-    cat("y2=",sum(datos_valores[i,]*pca_corr$rotation[, "PC2"]),"\n\n")
+    cat("y1=",sum(datos_valores_escalados*pca_corr$rotation[, "PC1"]),"\n")
+    cat("y2=",sum(datos_valores_escalados*pca_corr$rotation[, "PC2"]),"\n\n")
   }
 }
 
-calcular_datos_dada_pca_corr(pca_corr, datos_valores)
+
+medias <- apply(datos, 2, mean)
+desvest <- apply(datos, 2, sd)
+calcular_datos_dada_pca_corr(pca_corr, datos_valores, medias,desvest)

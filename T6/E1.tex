@@ -1,0 +1,88 @@
+\begin{problem}{1}
+Se tiene la tasa de retorno semanal de 5 acciones bursátiles del NYSE.\\
+A) Tratar de reducir la información a menos de 5 dimensiones usando componenetes principales.\\
+B) Obtener los valores de los componentes pricipales obtenidos en el a) para:
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lccccc}
+        \toprule
+         Allied Chemical & Du Pont & Union Carbide & Exxon & Texaco \\
+        \midrule
+        -0.030717 & 0.020202 & -0.04086 & -0.03905 & -0.05051 \\
+        -0.003521 & 0.118812 & 0.089686 & 0.06007 & 0.021276 \\
+        0.060071  & 0.079646 & 0.028807 & 0.036666 & 0.026041 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:datos}
+\end{table}
+\end{problem}
+\begin{sol}A)
+Para reducir la dimensionalidad, aplicamos el Análisis de Componentes Principales (PCA) con datos estandarizados:
+\begin{verbatim}
+pca_matriz_correlacion <- function(datos){
+  pca_corr <- prcomp(datos, center = TRUE, scale = TRUE)
+
+  plot(pca_corr, type = "l", main = "Grafico de codo de x1, x2, ..., x6")
+
+  print(pca_corr)
+
+  print(summary(pca_corr))
+
+  biplot(pca_corr, scale = 0)
+
+  cat("eigenvalues: ", pca_corr$sdev^2 , "\n" )
+
+  return(pca_corr)
+
+}
+\end{verbatim}
+Nos resulta:\\\\
+\includegraphics[width=1\textwidth]{img/1.png}\\
+Esto nos quiere decir que tendremos:
+\begin{align*}
+\lambda_1 = 2.8564, \lambda_2 = 0.80911, \lambda_3 = 0.5400, \lambda_4 = 0.4513 , \lambda_5 = 0.343
+\end{align*}
+También de los datos podemos concluir que los primeros dos componentes principales explican más del 73\% de la variabilidad de los datos, por tanto, reducimos las cinco variables a 2:
+\[
+PC_1 = 0.4635 \cdot \text{Allied Chemical} + 0.4571 \cdot \text{Du Pont} + 0.4700 \cdot \text{Union Carbide} + 0.4217 \cdot \text{Exxon} + 0.4213 \cdot \text{Texaco}
+\]
+\[
+PC_2 = 0.2408 \cdot \text{Allied Chemical} + 0.5091 \cdot \text{Du Pont} + 0.2606 \cdot \text{Union Carbide} - 0.5253 \cdot \text{Exxon} - 0.5822 \cdot \text{Texaco}
+\]
+Nuestras cinco variables originales se combinaron linealmente para formar las dos primeras componentes principales PC1 y PC2.
+
+\pagebreak
+
+B) Usaremos el siguiente código: 
+\begin{verbatim}
+calcular_datos_dada_pca_corr <- function(pca_corr,datos_valores, medias, desvest){
+
+  for (i in 1:nrow(datos_valores)) {
+
+    # se tienen que escalar los valores debido a que para el pca
+    # se uso la correlacion en vez de la covarianza.
+    datos_valores_escalados <- scale(datos_valores[i,], center = medias, scale = desvest)
+
+    cat("fila ",i,"\n")
+    cat("y1=",sum(datos_valores_escalados*pca_corr$rotation[, "PC1"]),"\n")
+    cat("y2=",sum(datos_valores_escalados*pca_corr$rotation[, "PC2"]),"\n\n")
+  }
+}
+\end{verbatim}
+Nos resulta:\\\\
+\includegraphics[width=1\textwidth]{img/2.png}\\
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Fila} & $y_1$ & $y_2$ \\
+        \hline
+        1 & -2.273133 & 1.687177 \\
+        2 & 3.453575 & 0.7881083 \\
+        3 & 2.672294 & 0.5299272 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+\end{sol}
