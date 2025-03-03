@@ -308,3 +308,4 @@ for(pair in names(IC_diff_lower)) {
   cat("Límite Superior: ", IC_diff_upper[[pair]], "\n\n")
 }
 
+

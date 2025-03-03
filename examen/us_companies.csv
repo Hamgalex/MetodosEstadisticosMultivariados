@@ -1,0 +1,338 @@
+Company,Country,Assets,Sales,Market Value,Profits,Sector
+Synovus Financial,United States,30.1,1.3,5,0.247,Financials
+Berkshire Hathaway,United States,620.9,222.9,409.9,24.1,Financials
+EQT,United States,15.5,1.8,10.9,-0.453,Energy
+Ecolab,United States,18.3,13,36.3,1.2,Materials
+Associated Banc-Corp,United States,29.3,1.2,3.6,0.198,Financials
+Weyerhaeuser,United States,19.2,6.8,26.1,0.986,Financials
+Mosaic,United States,16.8,7.2,10.1,0.298,Materials
+Host Hotels & Resorts,United States,11.4,5.4,13.5,0.762,Financials
+Henry Schein,United States,6.7,11.6,13.3,0.507,Health Care
+Lam Research,United States,11.5,6.4,21.1,0.999,Materials
+Valspar,United States,4.2,4.2,8.8,0.341,Information Technology
+Pfizer,United States,171.6,52.8,203.1,7.1,Health Care
+Best Buy,United States,14.2,39.4,14.9,1.2,Information Technology
+Amdocs,United States,5.2,3.8,9,0.403,Information Technology
+Loews,United States,76.6,13,15.9,0.654,Financials
+HCP,United States,15.8,2.5,14.9,0.627,Financials
+Baxter International,United States,15.5,10.2,28.6,4.9,Health Care
+Interactive Brokers Group,United States,54.7,1.4,14.3,0.084,Financials
+Rockwell Collins,United States,7.7,5.3,12.9,0.738,Industrials
+HCA Holdings,United States,33.8,41.5,32.6,2.9,Health Care
+WW Grainger,United States,5.7,10.1,13.5,0.601,Industrials
+Coty,United States,21.9,5.4,12.7,-0.011,Industrials
+Simon Property Group,United States,31.1,5.4,53,1.8,Financials
+Citigroup,United States,1795.1,84,164.3,14.7,Financials
+Eastman Chemical,United States,15.5,8.9,11.7,0.866,Materials
+PNC Financial Services,United States,369.4,16.1,57.9,3.9,Financials
+SVB Financial Group,United States,44.8,1.6,9.5,0.383,Financials
+Humana,United States,25.8,54.4,30.4,0.594,Health Care
+CSX,United States,36,11.1,43.8,1.7,Industrials
+Dxc Technology,United States,8.3,7.5,21.5,-0.101,Information Technology
+General Dynamics,United States,32.9,31.4,57,3,Industrials
+Huntington Ingalls Industries,United States,6.9,7.1,9.4,0.573,Industrials
+Intuit,United States,4.4,4.9,30.3,0.793,Information Technology
+The Priceline Group,United States,19.8,10.7,87,2.1,Financials
+Schlumberger,United States,78,27.8,109.2,-1.7,Energy
+KeyCorp,United States,137.3,5.4,18.9,0.791,Financials
+Capital One Financial,United States,357,27.9,40.3,3.7,Financials
+Bristol-Myers Squibb,United States,33.7,19.4,88,4.5,Health Care
+IntercontinentalExchange,United States,82,6,36.2,1.4,Financials
+BlackRock,United States,220.2,11.2,62.6,3.2,Financials
+Westar Energy,United States,11.5,2.6,7.7,0.346,Energy
+American Express,United States,158.9,34,70.1,5.4,Financials
+United Continental Holdings,United States,45.4,36.6,22.3,2.3,Industrials
+Targa Resources,United States,13,6.7,11.6,-0.187,Energy
+Facebook,United States,65,27.6,407.3,9.5,Information Technology
+JetBlue Airways,United States,9.5,6.6,7,0.75,Industrials
+Prologis,United States,30.3,2.5,28.4,1.2,Financials
+Adobe Systems,United States,13,6.1,64.4,1.3,Information Technology
+LabCorp,United States,14.2,9.6,14.7,0.722,Health Care
+Hartford Financial Services,United States,225.2,18.1,17.9,0.896,Financials
+Exxon Mobil,United States,330.3,197.5,343.2,7.8,Energy
+Lincoln National,United States,263.5,13.4,14.8,1.2,Financials
+Nucor,United States,15.2,16.2,19.4,0.731,Materials
+Jacobs Engineering,United States,7.1,10.7,6.6,0.224,Industrials
+Morgan Stanley,United States,816,37.9,78.3,6,Financials
+Fiserv,United States,9.7,5.5,24.9,0.93,Information Technology
+Pioneer Natural Resources,United States,16.5,4,32.2,-0.557,Energy
+Applied Materials,United States,15.2,11.8,42,2.1,Information Technology
+Eversource Energy,United States,32.1,7.6,18.8,0.942,Energy
+McKesson,United States,57.9,196.5,30.5,2,Health Care
+SL Green Realty,United States,15.9,1.7,10.8,0.261,Financials
+Norwegian Cruise Line Holdings,United States,13,4.9,11,0.633,Financials
+Zoetis,United States,7.6,4.9,25.8,0.821,Health Care
+WR Berkley,United States,23.4,7.7,8.6,0.602,Financials
+Lowe's,United States,34.4,65,71.1,3.1,Energy
+Danaher,United States,45.3,19.9,59.7,2.6,Industrials
+Cincinnati Financial,United States,20.8,5.5,11.6,0.591,Financials
+Biogen,United States,22.9,10.5,58,3.7,Health Care
+ConocoPhillips,United States,89.8,23.8,61.3,-3.6,Energy
+CNO Financial Group,United States,32,4,3.6,0.358,Financials
+Reliance Steel,United States,7.4,8.6,5.8,0.304,Materials
+Freddie Mac,United States,2023.4,69.8,1.5,7.8,Financials
+Alleghany,United States,24.1,6.1,9.4,0.457,Financials
+Boston Scientific,United States,18.1,8.4,33.7,0.347,Health Care
+UnitedHealth Group,United States,125,184.9,160.2,7.2,Health Care
+Markel,United States,25.9,5.6,13.6,0.44,Financials
+Express Scripts,United States,51.7,100.5,39.9,3.4,Health Care
+Marsh & McLennan,United States,18.2,13.2,37.8,1.8,Financials
+Caterpillar,United States,74.7,38.5,56,-0.67,Industrials
+Avnet,United States,13.3,20.8,5.7,0.392,Information Technology
+PBF Energy,United States,7.6,15.9,2.3,0.171,Energy
+Boeing,United States,90,94.6,108.8,4.9,Industrials
+NASDAQ OMX Group,United States,14.2,3.7,11.5,0.109,Financials
+Affiliated Managers Group,United States,8.7,2.2,9.1,0.471,Financials
+Raymond James Financial,United States,31.7,5.7,10.9,0.568,Financials
+Concho Resources,United States,12.5,1.6,19.1,-1.5,Energy
+AECOM Technology,United States,13.5,17.5,5.1,0.164,Industrials
+Avis Budget Group,United States,17.8,8.7,2.3,0.163,Financials
+Dana Holding,United States,4.9,5.8,2.6,0.64,Financials
+Huntington Bancshares,United States,99.7,3.8,14.3,0.712,Financials
+Dell Technologies,United States,118.2,61.9,13.5,-3.7,Information Technology
+Mastercard,United States,18.7,10.8,121.3,4.1,Information Technology
+JPMorgan Chase,United States,2513,102.5,306.6,24.2,Financials
+Wells Fargo,United States,1943.4,97.6,274.4,21.9,Financials
+Martin Marietta Materials,United States,7.6,3.8,14,0.423,Materials
+Union Pacific,United States,56.8,19.9,86.8,4.2,Industrials
+Republic Services,United States,20.6,9.4,21.3,0.613,Industrials
+United Technologies,United States,89.7,57.4,90.6,5,Industrials
+Avalonbay Communities,United States,17.9,2,25.4,1,Financials
+Xilinx,United States,4.8,2.3,14.1,0.614,Information Technology
+Cummins,United States,15,17.5,25.1,1.4,Industrials
+Hewlett Packard Enterprise,United States,76.7,48.8,30.4,3.2,Information Technology
+International Paper,United States,33.3,21.1,20.8,0.904,Materials
+Fortive,United States,8.2,6.2,20.9,0.872,Industrials
+Vertex Pharmaceuticals,United States,2.9,1.7,28.8,-0.112,Health Care
+TD Ameritrade Holding,United States,28.8,3.4,20.3,0.846,Financials
+Tesoro,United States,20.4,24.6,9.4,0.734,Energy
+New Residential Investment,United States,18.4,1.2,5.2,0.505,Financials
+Honeywell International,United States,54.1,39.3,94.6,4.7,Industrials
+Arrow Electronics,United States,14.2,23.8,6.3,0.523,Information Technology
+Intuitive Surgical,United States,6.5,2.7,28.2,0.736,Health Care
+Voya Financial,United States,216.9,10.7,7,-0.428,Financials
+Torchmark,United States,21.4,3.9,9,0.549,Financials
+American Tower,United States,30.9,5.8,52.2,0.956,Financials
+Texas Instruments,United States,16.4,13.4,80.5,3.4,Information Technology
+Apple,United States,331.1,217.5,752,45.2,Information Technology
+Two Harbors Investment,United States,20.1,0.741,3.4,0.353,Financials
+CIT Group,United States,64.2,4.4,8.8,-0.861,Financials
+Norfolk Southern,United States,34.9,9.9,36,1.7,Industrials
+United Parcel Service,United States,40.4,60.5,91.3,3.4,Industrials
+DaVita,United States,18.7,14.7,13,0.88,Health Care
+Progressive,United States,34.3,23.5,22.8,1,Financials
+Devon Energy,United States,25.9,10.5,22.3,-3.3,Energy
+T Rowe Price,United States,6.4,4.2,16.9,1.2,Financials
+Southwest Airlines,United States,24.8,20.4,33.6,2.2,Industrials
+Tenet Healthcare,United States,24.7,19.6,1.7,-0.192,Health Care
+EOG Resources,United States,29.5,7.5,56.2,-1.1,Energy
+First Republic Bank,United States,73.4,2.4,14.2,0.665,Financials
+L3 Technologies,United States,11.9,10.5,12.9,0.71,Information Technology
+PulteGroup,United States,10.2,7.6,7.4,0.598,Industrials
+American International Group,United States,498.3,52.4,60.1,-0.849,Financials
+ServiceNow,United States,2,1.4,14.3,-0.452,Information Technology
+Occidental Petroleum,United States,43.1,10.1,48.2,-0.574,Energy
+SunTrust Banks,United States,204.9,8.9,27.2,1.9,Financials
+Stryker,United States,20.4,11.3,48.8,1.6,Health Care
+Agilent Technologies,United States,7.9,4.2,17,0.507,Information Technology
+AGNC Investment,United States,56.9,1.5,6.6,0.623,Financials
+Harris,United States,11.6,7.3,13.7,0.668,Information Technology
+Comerica,United States,73.2,2.9,12,0.473,Financials
+Zimmer Biomet,United States,26.7,7.7,24.1,0.3,Industrials
+Air Products & Chemicals,United States,16,9.1,29.4,1.5,Materials
+Akamai Technologies,United States,4.4,2.3,10.1,0.316,Information Technology
+American Equity Investment,United States,58.3,2.1,2.1,0.083,Financials
+Oneok,United States,16.1,8.9,11.9,0.352,Energy
+Alaska Air Group,United States,10,5.9,11,0.814,Industrials
+Incyte,United States,1.6,1.1,28.6,0.104,Health Care
+BOK Financial,United States,33,1.5,5,0.23,Financials
+Citizens Financial Group,United States,150.6,5.8,17.6,1,Financials
+Atmos Energy,United States,10.6,3.2,8.4,0.372,Energy
+Apache,United States,22.5,5.3,20,-1.5,Energy
+Huntsman,United States,9.2,9.7,5.9,0.326,Materials
+Community Health Systems,United States,21.9,18.4,1,-1.7,Health Care
+Crown Holdings,United States,9.6,8.3,7.4,0.496,Materials
+Cerner,United States,5.6,4.8,19.7,0.637,Health Care
+Micron Technology,United States,32.4,14.7,31.6,0.689,Information Technology
+Kansas City Southern,United States,9,2.4,9.3,0.478,Industrials
+Microsoft,United States,224.6,85.3,507.5,16.8,Information Technology
+Assurant,United States,29.7,7.2,5.2,0.565,Financials
+Principal Financial Group,United States,228,12.5,18,1.3,Financials
+Discover Financial Services,United States,92.8,10.5,25.3,2.4,Financials
+Johnson & Johnson,United States,141.2,71.9,338.6,16.4,Health Care
+Microchip Technology,United States,7.1,3.1,16,0.094,Information Technology
+East West Bancorp,United States,34.8,1.3,7.4,0.432,Financials
+DR Horton,United States,11.7,12.6,12.4,0.935,Industrials
+Public Storage,United States,10.1,2.6,38.8,1.4,Financials
+American Financial Group,United States,55.7,6.4,8.2,0.649,Financials
+Bank of New York Mellon,United States,333.5,15.6,48.8,3.5,Financials
+Continental Resources,United States,14.4,2.1,17.3,-0.4,Energy
+CME Group,United States,69.4,3.6,40.1,1.5,Financials
+Owens Corning,United States,7.7,5.7,6.8,0.393,Industrials
+Raytheon,United States,30.1,24.1,44.9,2.2,Industrials
+Signature Bank,United States,39.2,1.4,7.6,0.396,Financials
+Jabil Circuit,United States,10,18.3,5.2,0.152,Information Technology
+Sealed Air,United States,7.4,6.8,8.3,0.473,Materials
+Marathon Oil,United States,31.1,4.1,13.8,-2.1,Energy
+Symantec,United States,16.8,3.8,19.1,2,Information Technology
+WellCare Health Plans,United States,6.2,14.2,6.3,0.241,Health Care
+Charles Schwab,United States,223.4,7.6,53.3,1.9,Financials
+AbbVie,United States,66.1,25.6,104.5,5.9,Health Care
+Illumina,United States,4.3,2.4,25.2,0.464,Health Care
+Yum China Holdings,United States,3.7,6.8,12,0.502,Financials
+Kinder Morgan,United States,80.3,12.9,48.1,0.704,Energy
+Cigna,United States,60.3,39.7,39,1.9,Health Care
+Ally Financial,United States,163.7,10.1,9.1,1.1,Financials
+Molina Healthcare,United States,7.4,17.8,2.7,0.052,Health Care
+US Bancorp,United States,451,22,86.6,5.9,Financials
+Masco,United States,5.1,7.4,10.7,0.485,Materials
+Hess,United States,28.6,4.8,15.2,-6.1,Energy
+KLA-Tencor,United States,5.1,3.3,15.1,0.864,Information Technology
+Prudential Financial,United States,784,56.3,45.6,4.3,Financials
+Invesco,United States,25.7,4.8,12.3,0.829,Financials
+Lockheed Martin,United States,47.8,49.9,78.3,3.8,Industrials
+FleetCor Technologies,United States,9.6,1.8,13.4,0.449,Energy
+Oracle,United States,125.4,37.4,182.2,8.9,Information Technology
+Gilead Sciences,United States,57,30.3,87,13.5,Health Care
+WEC Energy Group,United States,31.3,7.5,19,0.94,Energy
+Arconic,United States,20,12.4,11.6,-0.941,Materials
+Northern Trust,United States,123.9,5.2,19.8,1,Financials
+Baker Hughes,United States,19,9.8,26.1,-2.7,Energy
+Anadarko Petroleum,United States,45.6,8.5,34.9,-3.1,Energy
+BioMarin Pharmaceutical,United States,4,1.1,15.2,-0.642,Health Care
+PPG,United States,15.8,15.1,27.3,0.456,Materials
+Boston Properties,United States,18.9,2.6,20.7,0.511,Financials
+Bankunited,United States,28.1,1.2,3.9,0.217,Financials
+Total System Services,United States,6.4,4.2,9.7,0.318,Financials
+Vornado Realty,United States,20.8,2.6,19.2,0.907,Financials
+New York Community,United States,49.1,1.9,6.6,0.492,Financials
+Electronic Arts,United States,7.7,4.6,27.4,1.3,Information Technology
+Lennar,United States,15.4,11.3,11.9,0.891,Industrials
+Chevron,United States,260.1,110.5,206.1,-0.497,Energy
+Equity Residential,United States,20.7,2.4,23.1,0.232,Financials
+Analog Devices,United States,10.2,3.6,29.2,0.914,Information Technology
+Visa,United States,63.4,16,206.4,6,Financials
+Synchrony Financial,United States,90.2,15.1,26.9,2.3,Financials
+Autodesk,United States,4.8,2,18.7,-0.584,Information Technology
+Paccar,United States,20.6,17,23.6,0.522,Industrials
+Nike,United States,23.2,33.8,91.2,4.1,Financials
+Centene,United States,20.2,40.6,12.2,0.558,Health Care
+HP,United States,28.2,48.7,29.4,2.5,Information Technology
+E-Trade Financial,United States,49.5,2,9.6,0.552,Financials
+Ventas,United States,23.2,3.4,23,0.551,Financials
+Amphenol,United States,8.5,6.3,21.5,0.823,Information Technology
+AmerisourceBergen,United States,33.9,148.3,19,1.3,Health Care
+Alcoa,United States,16.7,15.1,6.2,0.02,Materials
+Alexion Pharmaceuticals,United States,13.3,3,26,0.394,Health Care
+Red Hat,United States,4.5,2.4,15.1,0.254,Information Technology
+Ball,United States,16.2,9.1,12.6,0.225,Materials
+Regeneron Pharmaceuticals,United States,7,4.9,40.4,0.88,Health Care
+Fifth Third Bancorp,United States,142.2,6.7,18.8,1.6,Financials
+Citrix Systems,United States,6.4,3.4,13,0.536,Information Technology
+Celanese,United States,8.4,5.4,13,0.9,Materials
+Ares Capital,United States,9.2,1.1,7.5,0.474,Financials
+MetLife,United States,905.2,64.7,57.2,0.8,Financials
+CR Bard,United States,5.3,3.7,18,0.529,Health Care
+Parker-Hannifin,United States,11.7,11.2,21.5,0.88,Industrials
+Universal Health,United States,10.3,9.8,11.9,0.702,Health Care
+Regions Financial,United States,126.7,5.8,17.4,1.2,Financials
+CalAtlantic Group,United States,8.7,6.5,4.3,0.484,Industrials
+HD Supply Holdings,United States,6,7.4,8.1,0.202,Financials
+Northrop Grumman,United States,28,24.5,41.7,2.2,Industrials
+Celgene,United States,28.1,11,97.7,2,Health Care
+Qualcomm,United States,52.4,23.8,83.2,4.9,Information Technology
+Monsanto,United States,21.4,14.5,50.9,1.9,Materials
+Rockwell Automation,United States,7.1,5.9,20,0.758,Industrials
+Merck,United States,95.4,39.6,173.3,3.9,Health Care
+Chesapeake Energy,United States,13,8.4,5.6,-4.2,Energy
+Emerson Electric,United States,17.5,17.2,38.3,1.5,Industrials
+3M,United States,32.9,30.1,113.5,5.1,Industrials
+EI du Pont de Nemours,United States,40,24.6,69.2,2.5,Materials
+Live Nation Entertainment,United States,6.8,8.4,6.4,-0.047,Energy
+Xerox,United States,18.1,15.6,7.2,-0.477,Industrials
+General Electric,United States,365.2,119.7,261.2,10,Industrials
+Ameriprise Financial,United States,139.8,11.7,19.9,1.3,Financials
+United Rentals,United States,12,5.8,10.4,0.566,Financials
+Public Service Enterprise Group,United States,40.1,8.8,22.6,0.887,Energy
+Expeditors International,United States,2.8,6.1,10.1,0.431,Industrials
+Yahoo!,United States,48.1,5.2,44.4,-0.214,Information Technology
+National Oilwell Varco,United States,21.1,7.2,14.7,-2.4,Energy
+JB Hunt Transport,United States,3.9,6.6,10.1,0.432,Industrials
+Aetna,United States,69.1,63.2,45.1,2.3,Health Care
+US Steel,United States,9.2,10.3,5.9,-0.44,Materials
+Marathon Petroleum,United States,44.4,56,26.4,1.2,Energy
+Reinsurance Group of America,United States,53.1,11.5,8.1,0.701,Financials
+Salesforce.com,United States,17.6,8.4,59.7,0.18,Information Technology
+Abbott Laboratories,United States,55,20.9,75.7,1.4,Health Care
+BB&T,United States,221.2,11.3,35.6,2.4,Financials
+Eli Lilly,United States,38.8,21.2,94.1,2.7,Health Care
+Illinois Tool Works,United States,15.2,13.6,45.5,2,Industrials
+Waste Management,United States,21.3,13.6,32.3,1.2,Industrials
+Cisco Systems,United States,126.2,48.6,165.1,9.8,Information Technology
+Old Republic International,United States,19.1,5.9,5.2,0.467,Financials
+Leucadia National,United States,45.3,10.9,9.5,0.127,Industrials
+Ametek,United States,7.1,3.8,12.5,0.512,Industrials
+Vulcan Materials,United States,8.8,3.6,16.4,0.395,Materials
+Valero Energy,United States,46.8,75.7,29.4,2.3,Energy
+First Data,United States,40.3,11.6,14,0.42,Information Technology
+Corning,United States,27.9,9.4,24.9,3.7,Information Technology
+IBM,United States,117.5,79.9,162.4,11.9,Information Technology
+AmTrust Financial Services,United States,23.1,5.6,3.2,0.485,Financials
+M&T Bank,United States,123.4,5.7,23.5,1.3,Financials
+Cardinal Health,United States,35,127.2,26,1.4,Health Care
+Dover,United States,10.1,6.8,12.5,0.509,Industrials
+Fluor,United States,9.5,19,7.3,0.281,Industrials
+Commerce Bancshares,United States,25.6,1.2,5.6,0.272,Financials
+VeriSign,United States,2.3,1.1,8.9,0.441,Information Technology
+Cheniere Energy,United States,23.7,1.3,11.3,-0.61,Energy
+CBRE Group,United States,10.8,13.2,11.1,0.572,Financials
+Dow Chemical,United States,79.5,48.1,77,4.3,Materials
+CA,United States,11,4,13.3,0.781,Information Technology
+Chimera Investment,United States,16.7,0.942,3.8,0.552,Financials
+Westlake Chemical,United States,10.9,5.1,8.7,0.397,Materials
+Halliburton,United States,27,15.9,43.1,-5.8,Energy
+Maxim Integrated Products,United States,3.9,2.2,12.7,0.5,Information Technology
+Quest Diagnostics,United States,10.1,7.5,13.4,0.641,Health Care
+Fannie Mae,United States,3288,108.3,2.8,12.3,Financials
+Amgen,United States,77.6,22.7,120.3,7.7,Health Care
+General Growth Properties,United States,22.7,2.3,20.4,1.3,Financials
+Genworth Financial,United States,104.7,8.4,2,-0.273,Financials
+CDW,United States,6.9,14,9.2,0.424,Information Technology
+Hertz Global Holdings,United States,19.2,9.1,1.3,-0.492,Financials
+American Airlines Group,United States,51.3,40.2,21.1,2.7,Financials
+Praxair,United States,19.3,10.5,33.9,1.5,Materials
+HollyFrontier,United States,9.6,10.6,4.7,-0.261,Energy
+Phillips 66,United States,51.7,71.2,39.9,1.5,Energy
+Motorola Solutions,United States,8.5,6,13.9,0.559,Information Technology
+Edwards Lifesciences,United States,4.5,3,19.9,0.57,Health Care
+NVIDIA,United States,9.8,6.9,59.1,1.6,Information Technology
+Textron,United States,15.4,13.8,12.9,0.962,Industrials
+Annaly Capital Management,United States,87.9,2,11.5,1.4,Financials
+Roper Industries,United States,14.3,3.8,21.2,0.659,Industrials
+Western Digital,United States,29,15.9,24.5,-0.408,Information Technology
+Steel Dynamics,United States,6.4,7.8,8.5,0.382,Materials
+State Street,United States,242.7,10.6,30.1,2.1,Financials
+Tech Data,United States,7.9,26.2,3.4,0.195,Information Technology
+Goldman Sachs Group,United States,860.2,36.9,90.6,7.4,Financials
+Delta Air Lines,United States,58.9,39.6,33,4.4,Industrials
+CVS Health,United States,94.5,177.5,79.8,5.3,Financials
+Newmont Mining,United States,21,7.7,18.2,-0.027,Materials
+Franklin Resources,United States,16.2,6.5,23.6,1.7,Financials
+Intel,United States,113.3,59.4,170.4,10.3,Information Technology
+FedEx,United States,46.8,57.6,52.3,1.9,Industrials
+Allstate,United States,110.4,36.3,29.6,1.9,Financials
+Noble Energy,United States,21.4,3.4,15.1,-0.998,Energy
+Juniper Networks,United States,9.7,5,10.6,0.601,Information Technology
+Unum,United States,63.6,11.1,10.6,0.931,Financials
+Fidelity National Financial,United States,14.6,8.2,10.4,0.65,Financials
+People's United Financial,United States,40.9,1.5,6.1,0.28,Financials
+Snap,United States,1.7,0.404,24.4,-0.515,Financials
+Aflac,United States,129.8,22.7,29.2,2.7,Financials
+Zions Bancorp,United States,63.4,2.5,8.4,0.455,Financials
+NetApp,United States,9.1,5.4,11.1,0.311,Information Technology
+Bank of America,United States,2196.8,92.2,231.9,16.6,Financials
+Alphabet,United States,167.5,89.9,579.5,19.5,Information Technology
+Cognizant Technology,United States,14.3,13.5,35.6,1.6,Information Technology
+Becton Dickinson,United States,24.3,12.4,39.2,1.3,Health Care
+VMware,United States,16.6,7.1,37.8,1.2,Information Technology
+Navient,United States,121.1,5,4.3,0.682,Financials
