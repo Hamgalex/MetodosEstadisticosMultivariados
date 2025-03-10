@@ -17,7 +17,7 @@ B) Obtener los valores de los componentes pricipales obtenidos en el a) para:
 \end{table}
 \end{problem}
 \begin{sol}A)
-Para reducir la dimensionalidad, aplicamos el Análisis de Componentes Principales (PCA) con datos estandarizados:
+Para reducir la dimensionalidad, aplicamos el Análisis de Componentes Principales (PCA) con datos estandarizados, esto debido a que cada acción puede tener varianzas distintas en sus retornos. La matriz de covarianza daría mas peso a las acciones con mayor volatilidad, lo que podría sesgar la interpretación de los componentes principales, para poder asegurarnos al 100\% de que nos conviene usar la matriz de covarianza, tendríamos que tener mas información de los datos. Debido a esto estandarizamos los datos usando la matriz de correlación en lugar de la matriz de covarianzas. 
 \begin{verbatim}
 pca_matriz_correlacion <- function(datos){
   pca_corr <- prcomp(datos, center = TRUE, scale = TRUE)

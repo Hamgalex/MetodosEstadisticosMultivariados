@@ -1,15 +1,31 @@
 
+pca_matriz_covarianza <- function(datos){
+  pca_cov <- prcomp(datos)
+
+  #plot(pca_cov, type = "l", main = "Grafico de codo de x1, x2, ..., x5")
+
+  print(pca_cov)
+
+  print(summary(pca_cov))
+
+  #biplot(pca_cov, scale = 0)
+
+  cat("eigenvalues: ", pca_cov$sdev^2 , "\n" )
+
+  return(pca_cov)
+
+}
 
 pca_matriz_correlacion <- function(datos){
   pca_corr <- prcomp(datos, center = TRUE, scale = TRUE)
 
-  plot(pca_corr, type = "l", main = "Grafico de codo de x1, x2, ..., x6")
+  #plot(pca_corr, type = "l", main = "Grafico de codo de x1, x2, ..., x5")
 
   print(pca_corr)
 
   print(summary(pca_corr))
 
-  biplot(pca_corr, scale = 0)
+  #biplot(pca_corr, scale = 0)
 
   cat("eigenvalues: ", pca_corr$sdev^2 , "\n" )
 
@@ -25,6 +41,7 @@ file_path <- "C:/Users/hamga/Downloads/datos_tarea 6.xlsx"
 datos <- read_excel(file_path, sheet = 1)
 head(datos)
 
+pca_corr <- pca_matriz_covarianza(datos)
 pca_corr <- pca_matriz_correlacion(datos)
 
 # B
