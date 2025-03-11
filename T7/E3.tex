@@ -1,0 +1,81 @@
+\begin{problem}{3}
+Se colectaron datos sobre la contaminación del aire en cierta ciudad. Tratar de identificar factores no observables que estén relacionados con estas variables.
+\end{problem}
+
+\begin{sol}
+Primero leeremos los datos y encontraremos la matriz de correlación:
+    \begin{verbatim}
+    file_path <- "C:/Users/hamga/Downloads/datos_tarea 7.xlsx"
+    
+    datos <- read_excel(file_path, sheet = 2)
+    datos <- datos[,-1]
+    head(datos)
+    
+    cor_matrix <- cor(datos)
+    n_obs <- nrow(datos)
+    
+    corrplot(cor_matrix, method = "circle", addCoef.col = "black",
+             order = "original", type = "upper")
+    \end{verbatim}
+    \includegraphics[width=1\textwidth]{img/17.png}\\
+       Para poder identificar los factores primero tenemos que hacer la prueba de esfericidad de Bartlett para evaluar si la matriz de correlaciones es significativamente diferente de $\sigma^2 \bm{I}$, lo que indicaría que hay correlaciones significativas entre las variables y que el análisis factorial es apropiado:
+    \begin{verbatim}
+    > cortest.bartlett(cor_matrix, n=n_obs)
+    \end{verbatim}
+    \includegraphics[width=1\textwidth]{img/18.png}\\
+  Observamos que el p value es muy pequeño, por lo que rechazamos nuestra hipótesis nula, por tanto, la matriz de correlaciones es significativamente diferente de $\sigma^2 \bm{I}$. Se infiere que si hay correlacion entre las variables, ahora determinaremos el número de factores:
+    \begin{verbatim}
+    fa.parallel(cor_matrix, fm = "pa", n.obs = n_obs, ylabel = "Eigenvalues")
+    \end{verbatim}
+    \includegraphics[width=1\textwidth]{img/19.png}\\
+    Observamos que es recomendable usar 2 factores debido al codo de la gráfica. Ahora haremos el análisis de factores utilizando componentes principales:
+    \begin{verbatim}
+    acp <- principal(cor_matrix, nfactors = 2, rotate = "none")
+    print(acp)
+    \end{verbatim}
+    \includegraphics[width=1\textwidth]{img/20.png}\\
+     Podemos observar las cargas de los dos componentes PC1 y PC2. Ahora lo haremos de nuevo pero con una rotación varimax para obtener resultados mas precisos:
+    \begin{verbatim}
+    acp <- principal(cor_matrix, nfactors = 2, rotate = "varimax", n.obs = n_obs)
+    
+    (acp$r.scores)
+    
+    print(acp)
+    \end{verbatim}
+    \includegraphics[width=1\textwidth]{img/21.png}\\
+	  Esto nos dice que el primer componente tendrá mayor carga para las variables CO, NO, NO2 Y HC mientras que el segundo tendra para la variable WIND, SOLAR RADIATION Y O3. Veremos la gráfica del análisis de componentes principales con rotación varimax:\\
+    \includegraphics[width=1\textwidth]{img/22.png}\\    
+    Observamos que las variables 2 y 6 pertenecen al segundo componente principal y las demás pertenecen al primero.
+    Ahora haremos el análisis de factores:
+\begin{verbatim}
+    mlf <- fa(cor_matrix, nfactors = 2, fm="ml", rotate = "varimax", n.obs = n_obs,
+              scores = "regression")
+    print(mlf)
+    \end{verbatim}
+    \includegraphics[width=1\textwidth]{img/23.png}\\
+        Los resultados nos dicen que el primer factor explica el 22\% de la varianza total, mientras que el segundo explica el 20\%, lo que hace que ambos factores expliquen el 42 \% de la varianza total.\\ En cuanto a los factores, el primero esta asociado fuertemente al CO, NO, NO2 y HC mientras que el segundoe está asociado a WIND, SOLAR RADIATION, y O3.
+    Podemos ver en la siguiente gráfica cuando es de color morado tiene mayor carga para el factor dos y si es color blanco tiene mayor carga para el factor uno.\\
+    \includegraphics[width=1\textwidth]{img/24.png}\\
+Sin embargo, debido a la baja explicación de la varianza total y los errores, haremos otro análisis con cuatro factores, esto es:
+\begin{verbatim}
+    mlf <- fa(cor_matrix, nfactors = 4, fm="ml", rotate = "varimax", n.obs = n_obs,
+              scores = "regression")
+    print(mlf)
+    \end{verbatim}
+    \includegraphics[width=1\textwidth]{img/25.png}\\
+Aqui podemos observar que entre los cuatro factores explican el 70\% de la varianza total. En total nuestros cuatro factores serán:
+\begin{itemize}
+\item factor 1: CO, NO2
+\item factor 2: SOLAR RADIATION, O3
+\item factor 3: HC
+\item factor 4: WIND, NO
+\end{itemize}
+Los factores obtenidos pueden interpretarse de la siguiente manera:
+\begin{itemize}
+\item Emisiones directas de combustión (vehículos e industria). (CO, NO2): Representa contaminantes de combustión, asociados principalmente con emisiones de vehículos y procesos industriales.
+\item Formación de ozono por procesos fotoquímicos  (Solar Radiation, O2): Relacionado con procesos fotoquímicos, destacando la formación de ozono en presencia de radiación solar.
+\item Presencia de hidrocarburos en el ambiente. (HC): Captura la presencia de compuestos orgánicos volátiles, que pueden provenir de emisiones industriales y evaporación de combustibles.
+\item Efectos meteorológicos en la dispersión de contaminantes. (Wind, NO): Sugiere la influencia de condiciones meteorológicas en la dispersión de contaminantes, en particular el impacto del viento sobre el dióxido de nitrógeno.
+
+\end{itemize}
+\end{sol}

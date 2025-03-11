@@ -1,0 +1,57 @@
+\begin{problem}{1}
+Considera la siguiente matriz de correlaciones de 6 variables para 100 observaciones. Trata de identificar factores no observables que estén relacionados con estas variables.
+\[
+R =
+\begin{bmatrix}
+1    & 0.83 & 0.81 & 0.8  & 0.71 & 0.54 \\
+0.83 & 1    & 0.87 & 0.62 & 0.59 & 0.58 \\
+0.81 & 0.87 & 1    & 0.63 & 0.37 & 0.3  \\
+0.8  & 0.62 & 0.63 & 1    & 0.49 & 0.3  \\
+0.71 & 0.59 & 0.37 & 0.49 & 1    & 0.34 \\
+0.54 & 0.58 & 0.3  & 0.3  & 0.34 & 1    
+\end{bmatrix}
+\]
+\end{problem}
+\begin{sol}
+Tenemos estos datos:\\\\
+\includegraphics[width=1\textwidth]{img/1.png}\\
+Para poder identificar los factores primero tenemos que hacer la prueba de esfericidad de Bartlett para evaluar si la matriz de correlaciones es significativamente diferente de $\sigma^2 \bm{I}$, lo que indicaría que hay correlaciones significativas entre las variables y que el análisis factorial es apropiado:
+\begin{verbatim}
+> cortest.bartlett(cor_matrix, n=n_obs)
+\end{verbatim}
+\includegraphics[width=1\textwidth]{img/2.png}\\
+Observamos que el p value es muy pequeño, por lo que rechazamos nuestra hipótesis nula, por tanto, la matriz de correlaciones es significativamente diferente de $\sigma^2 \bm{I}$. Se infiere que si hay correlacion entre las variables, ahora determinaremos el número de factores:
+\begin{verbatim}
+fa.parallel(cor_matrix, fm = "pa", n.obs = n_obs, ylabel = "Eigenvalues")
+\end{verbatim}
+\includegraphics[width=1\textwidth]{img/3.png}\\
+Observamos que es recomendable usar 2 factores. Ahora haremos el análisis de factores utilizando componentes principales:
+\begin{verbatim}
+acp <- principal(cor_matrix, nfactors = 2, rotate = "none")
+print(acp)
+\end{verbatim}
+\includegraphics[width=1\textwidth]{img/4.png}\\
+Podemos observar las cargas de los dos componentes PC1 y PC2. Ahora lo haremos de nuevo pero con una rotación varimax para obtener resultados mas precisos:
+\begin{verbatim}
+acp <- principal(cor_matrix, nfactors = 2, rotate = "varimax", n.obs = n_obs)
+
+(acp$r.scores)
+
+print(acp)
+\end{verbatim}
+\includegraphics[width=1\textwidth]{img/5.png}\\
+Esto nos dice que el primer componente tendrá mayor carga para las variables 1,2,3,4 y 5, mientras que el segundo tendra para la variable 6. Veremos la gráfica del análisis de componentes principales con rotación varimax:\\
+\includegraphics[width=1\textwidth]{img/6.png}\\
+Observamos que la variable 6 pertenece al segundo componente principal y las demas al primero. Ahora haremos el análisis de factores:
+\begin{verbatim}
+mlf <- fa(cor_matrix, nfactors = 2, fm="ml", rotate = "varimax", n.obs = n_obs,
+          scores = "regression")
+print(mlf)
+\end{verbatim}
+\includegraphics[width=1\textwidth]{img/7.png}\\
+Los resultados nos dicen que el primer factor explica el 39\% de la varianza total, mientras que el segundo explica el 34\%, lo que hace que ambos factores expliquen el 74 \% de la varianza total.\\ En cuanto a los factores, el primero esta asociado fuertemente a la segunda y tercer variable, el segundo factor esta asociado fuertemente a la quinta y sexta variable y para la primera y cuarta variable las cargas son parecidas en el factor uno y dos. \\ 
+Podemos ver en la siguiente gráfica cuando es de color morado tiene mayor carga para el factor dos y si es color blanco tiene mayor carga para el factor uno.\\
+\includegraphics[width=1\textwidth]{img/8.png}\\
+Las comunalidad (h2) nos dice que tanto se explica de la variabilidad de esa variable, observamos que la de las variables 1 y 3 se explica el 100\% de la variabilidad mientras que en la sexta variable se explica muy poco.
+Con estos resultados, nos damos cuenta que 2 factores fueron suficiente para representar los datos.  
+\end{sol}
