@@ -1,0 +1,180 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 2.0 (March 8, 2022)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+	11pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	%t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+
+\usetheme{Madrid}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+
+\usefonttheme{default} % Typeset using the default sans serif font
+\usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+
+\useinnertheme{circles}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[Análisis de pacientes]{Análisis de pacientes menores a 15 años} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+
+\subtitle{en el centro de salud en Puebla} % Presentation subtitle, remove this command if a subtitle isn't required
+
+\author[Héctor Márquez]{Héctor Márquez} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+
+\institute[UANL]{Universidad Autónoma de Nuevo León\\ \smallskip \textit{hector.marquez@uanl.edu.mx}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+
+\date[\today]{Métodos Estadísticos Multivariados \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Tabla de contenido} % Título de la diapositiva
+    \begin{itemize}
+        \item Objetivos
+        \item Introducción
+        \item Análisis descriptivo de los datos
+        \begin{itemize}
+        	\item Matriz de correlación
+        	\item Histogramas
+        	\item Prueba de normalidad
+        	\item Promedios
+        \end{itemize}
+        \item Análisis Factorial
+        \item Análisis de conglomerados 
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Objetivos} % Slide title
+    \textbf{Objetivo del Proyecto:}
+    \begin{itemize}
+        \item Presentación de resultados donde se aplique una o varias técnicas multivariadas en el análisis de datos de varias variables aplicado a la solución de un problema real.
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Objetivos Específicos:}
+    \begin{itemize}
+        \item Aplicar un análisis de factores para descubrir nuevas variables latentes y reducir la dimensionalidad del conjunto de datos sin perder información relevante.
+        \item Implementar un análisis de conglomerados para agrupar a los pacientes en conjuntos homogéneos según sus características clínicas y evaluar la relación entre estos grupos y los factores identificados previamente.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Introducción} % Slide title
+    \begin{itemize}
+        \item El conjunto de datos contiene información clínica de 50 pacientes menores de 15 años atendidos en el centro de salud Santa María Guadalupe Tecola, Puebla.
+        \item Se incluyen múltiples variables biomédicas que permiten evaluar la salud general y detectar posibles afecciones.
+        \item Estas variables serán analizadas mediante técnicas multivariadas para identificar patrones y relaciones ocultas en los datos.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	VARIABLE DESCRIPTION SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Descripción de las Variables} % Slide title
+    \scriptsize % Reduce el tamaño de la fuente
+    \begin{table}[]
+        \centering
+        \begin{tabular}{ll}
+            \hline
+            \textbf{Variable} & \textbf{Descripción} \\
+            \hline
+            IMC & Índice de Masa Corporal (kg/m²) \\
+            ALT & Alanina aminotransferasa, indica daño hepático (UI/L) \\
+            LDL & Colesterol LDL (mg/dL), asociado a enfermedades cardiovasculares \\
+            Gluc & Glucosa en sangre (mg/dL), mide el nivel de azúcar \\
+            Creatinina & Indicador de función renal (mg/dL) \\
+            TRI & Triglicéridos en sangre (mg/dL) \\
+            Insulina & Hormona que regula la glucosa (µU/mL) \\
+            DHL & Deshidrogenasa láctica, relacionada con daño celular (UI/L) \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	DESCRIPTIVE ANALYSIS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Análisis descriptivo del conjunto de datos} % Slide title
+    \begin{itemize}
+        \item La matriz de correlación muestra la relación entre las diferentes variables del estudio.
+        \item Valores cercanos a 1 o -1 indican correlaciones fuertes, mientras que valores cercanos a 0 indican poca relación.
+        \item Se utilizarán estas correlaciones para seleccionar variables clave en el análisis.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	CORRELATION PLOT SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Matriz de Correlación} % Slide title
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{correlation_plot.png} % Ajusta el tamaño según sea necesario
+    \end{center}
+\end{frame}
+
+\end{document}
