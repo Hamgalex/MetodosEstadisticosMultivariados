@@ -25,7 +25,7 @@
 ]{beamer}
 
 \graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
-
+\usepackage{colortbl}
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
 
 %----------------------------------------------------------------------------------------
@@ -94,87 +94,162 @@
     \end{itemize}
 \end{frame}
 
+
+
+%---------------------------------------------------
 %----------------------------------------------------------------------------------------
-%	PRESENTATION BODY SLIDES
+%	ANALISIS DE FACTORES
 %----------------------------------------------------------------------------------------
+%------------------------------------------------------
 
 \begin{frame}
-    \frametitle{Objetivos} % Slide title
-    \textbf{Objetivo del Proyecto:}
-    \begin{itemize}
-        \item Presentación de resultados donde se aplique una o varias técnicas multivariadas en el análisis de datos de varias variables aplicado a la solución de un problema real.
-    \end{itemize}
+  \frametitle{Análisis de factores}
 
-    \vspace{0.5cm}
-
-    \textbf{Objetivos Específicos:}
     \begin{itemize}
-        \item Aplicar un análisis de factores para descubrir nuevas variables latentes y reducir la dimensionalidad del conjunto de datos sin perder información relevante.
-        \item Implementar un análisis de conglomerados para agrupar a los pacientes en conjuntos homogéneos según sus características clínicas y evaluar la relación entre estos grupos y los factores identificados previamente.
-    \end{itemize}
+    \item \textbf{Prueba de Esfericidad de Bartlett:} Determinar si las variables están correlacionadas.
+    \item \textbf{Análisis de Componentes Principales (PCA):} Identificar los componentes principales y la varianza explicada.
+    \item \textbf{Gráfico de Codo:} Identificar el número óptimo de factores a extraer.
+    \item \textbf{Matriz de Factores:} Observar las cargas de las variables para interpretar los factores.
+  \end{itemize}
+ 
 \end{frame}
 
 %----------------------------------------------------------------------------------------
-%	INTRODUCTION SLIDE
+%	BARTLETT
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-    \frametitle{Introducción} % Slide title
+\frametitle{Prueba de Esfericidad de Bartlett}
+
+\begin{itemize}
+    \item La prueba de esfericidad de Bartlett se realiza para verificar si la matriz de correlaciones es adecuada para realizar el análisis de factores.
+    \item Resultado de la prueba de Bartlett:
     \begin{itemize}
-        \item El conjunto de datos contiene información clínica de 50 pacientes menores de 15 años atendidos en el centro de salud Santa María Guadalupe Tecola, Puebla.
-        \item Se incluyen múltiples variables biomédicas que permiten evaluar la salud general y detectar posibles afecciones.
-        \item Estas variables serán analizadas mediante técnicas multivariadas para identificar patrones y relaciones ocultas en los datos.
+        \item Valor chi-cuadrado: 72.13
+        \item Valor p: \( 9.33 \times 10^{-6} \)
+        \item Grados de libertad: 28
     \end{itemize}
+    \item Con un valor p mucho menor que 0.05, rechazamos la hipótesis nula de que la matriz de correlaciones es una matriz identidad, lo que sugiere que el análisis de factores es adecuado para estos datos.
+\end{itemize}
+
 \end{frame}
 
-%----------------------------------------------------------------------------------------
-%	VARIABLE DESCRIPTION SLIDE
-%----------------------------------------------------------------------------------------
 
+
+% Diapositiva 1: Introducción al PCA
 \begin{frame}
-    \frametitle{Descripción de las Variables} % Slide title
-    \scriptsize % Reduce el tamaño de la fuente
-    \begin{table}[]
-        \centering
-        \begin{tabular}{ll}
-            \hline
-            \textbf{Variable} & \textbf{Descripción} \\
-            \hline
-            IMC & Índice de Masa Corporal (kg/m²) \\
-            ALT & Alanina aminotransferasa, indica daño hepático (UI/L) \\
-            LDL & Colesterol LDL (mg/dL), asociado a enfermedades cardiovasculares \\
-            Gluc & Glucosa en sangre (mg/dL), mide el nivel de azúcar \\
-            Creatinina & Indicador de función renal (mg/dL) \\
-            TRI & Triglicéridos en sangre (mg/dL) \\
-            Insulina & Hormona que regula la glucosa (µU/mL) \\
-            DHL & Deshidrogenasa láctica, relacionada con daño celular (UI/L) \\
-            \hline
-        \end{tabular}
-    \end{table}
+\frametitle{Análisis de Componentes Principales (PCA)}
+
+\begin{itemize}
+    \item Se realizó un Análisis de Componentes Principales (PCA) para determinar el número de factores extraídos.
+    \item El PCA permite reducir la dimensionalidad de los datos y entender qué proporción de la variabilidad total explican los primeros componentes.
+    \item A continuación, mostramos la variación explicada por cada componente.
+\end{itemize}
+
 \end{frame}
 
-%----------------------------------------------------------------------------------------
-%	DESCRIPTIVE ANALYSIS SLIDE
-%----------------------------------------------------------------------------------------
-
+% Diapositiva 2: Tabla de Variación Total Analizada
 \begin{frame}
-    \frametitle{Análisis descriptivo del conjunto de datos} % Slide title
-    \begin{itemize}
-        \item La matriz de correlación muestra la relación entre las diferentes variables del estudio.
-        \item Valores cercanos a 1 o -1 indican correlaciones fuertes, mientras que valores cercanos a 0 indican poca relación.
-        \item Se utilizarán estas correlaciones para seleccionar variables clave en el análisis.
-    \end{itemize}
+\frametitle{Variación Explicada por los Componentes Principales}
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Componente} & \textbf{Varianza} & \textbf{Acumulada} \\ \hline
+PC1 & 29.76\% & 29.76\% \\ \hline
+PC2 & 18.27\% & 48.03\% \\ \hline
+PC3 & 15.62\% & 63.65\% \\ \hline
+PC4 & 11.04\% & 74.69\% \\ \hline
+PC5 & 9.59\% & 84.28\% \\ \hline
+PC6 & 6.61\% & 90.89\% \\ \hline
+PC7 & 5.02\% & 95.90\% \\ \hline
+PC8 & 4.10\% & 100.00\% \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+    \item Los primeros tres componentes (PC1, PC2 y PC3) explican el 63.65\% de la varianza total.
+    \item Se podría considerar que tres componentes son suficientes para representar los datos de manera efectiva.
+\end{itemize}
+
 \end{frame}
 
-%----------------------------------------------------------------------------------------
-%	CORRELATION PLOT SLIDE
-%----------------------------------------------------------------------------------------
 
-\begin{frame}
-    \frametitle{Matriz de Correlación} % Slide title
+\begin{frame}{Gráfico de Codo - Determinación del Número de Factores}
+  El gráfico de codo ayuda a identificar cuántos factores extraer. Se utilizó el criterio de Kaiser, que sugiere que se deben extraer solo aquellos factores con un valor propio (eigenvalue) mayor a 1.
+    
+    
     \begin{center}
-        \includegraphics[width=0.8\linewidth]{correlation_plot.png} % Ajusta el tamaño según sea necesario
+        \includegraphics[width=0.6\textwidth]{fa_parallel_plot.png} % Inserta el archivo generado aquí
     \end{center}
 \end{frame}
+
+
+
+\begin{frame}
+\frametitle{Matriz de Factores con Rotación Varimax}
+
+\textbf{Análisis Realizado:}
+
+Se realizó un análisis de factores con \textbf{3 factores} seleccionados, utilizando el método Varimax para la rotación de los factores. La rotación Varimax es una técnica ortogonal que busca maximizar la varianza de las cargas al cuadrado de cada factor, lo que facilita la interpretación de los factores.
+
+\vspace{0.4cm}
+
+\textbf{Resultados:} La matriz de factores obtenida muestra las cargas de cada variable en los factores seleccionados, lo que permite identificar qué variables están relacionadas con cada factor.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Matriz de Factores con Rotación Varimax}
+
+\textbf{Matriz de Factores con Rotación Varimax:}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Variable} & \textbf{Factor 1} & \textbf{Factor 2} & \textbf{Factor 3} \\
+\hline
+\textbf{IMC} & 0.70 & 0.49 & 0.26 \\
+\hline
+\textbf{ALT} & 0.70 & -0.18 & 0.34 \\
+\hline
+\textbf{LDL} & 0.08 & 0.26 & -0.58 \\
+\hline
+\textbf{Gluc} & 0.05 & 0.24 & 0.80 \\
+\hline
+\textbf{Creatinina Serica} & 0.13 & 0.72 & 0.10 \\
+\hline
+\textbf{TRI} & 0.80 & -0.20 & -0.14 \\
+\hline
+\textbf{Insulina} & 0.78 & 0.20 & -0.21 \\
+\hline
+\textbf{DHL} & 0.26 & -0.69 & 0.25 \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Identificación de Variables Latentes}
+
+Las variables con las mayores cargas indican una fuerte relación con el factor correspondiente.
+
+\vspace{0.4cm}
+
+\textbf{Variables Latentes:}
+
+\begin{itemize}
+    \item \textbf{Factor 1:} Las variables \textbf{IMC}, \textbf{TRI} e \textbf{Insulina} tienen las mayores cargas, lo que sugiere que este factor está relacionado con la obesidad y la resistencia a la insulina.
+    \item \textbf{Factor 2:} Las variables \textbf{Creatinina Serica} y \textbf{DHL} tienen las mayores cargas, lo que indica que este factor está asociado con el funcionamiento renal y la inflamación.
+    \item \textbf{Factor 3:} La variable \textbf{Gluc} tiene la mayor carga, lo que sugiere que este factor está relacionado con el metabolismo de la glucosa.
+\end{itemize}
+
+\end{frame}
+
 
 \end{document}

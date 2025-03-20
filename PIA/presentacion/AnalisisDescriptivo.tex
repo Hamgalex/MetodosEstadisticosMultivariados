@@ -1,0 +1,186 @@
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Objetivos} % Slide title
+    \textbf{Objetivo del Proyecto:}
+    \begin{itemize}
+        \item Presentación de resultados donde se aplique una o varias técnicas multivariadas en el análisis de datos de varias variables aplicado a la solución de un problema real.
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Objetivos Específicos:}
+    \begin{itemize}
+        \item Aplicar un análisis de factores para descubrir nuevas variables latentes y reducir la dimensionalidad del conjunto de datos sin perder información relevante.
+        \item Implementar un análisis de conglomerados para agrupar a los pacientes en conjuntos homogéneos según sus características clínicas y evaluar la relación entre estos grupos y los factores identificados previamente.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Introducción} % Slide title
+    \begin{itemize}
+        \item El conjunto de datos contiene información clínica de 50 pacientes menores de 15 años atendidos en el centro de salud Santa María Guadalupe Tecola, Puebla.
+        \item Se incluyen múltiples variables biomédicas que permiten evaluar la salud general y detectar posibles afecciones.
+        \item Estas variables serán analizadas mediante técnicas multivariadas para identificar patrones y relaciones ocultas en los datos.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	VARIABLE DESCRIPTION SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Descripción de las Variables} % Slide title
+    \scriptsize % Reduce el tamaño de la fuente
+    \begin{table}[]
+        \centering
+        \begin{tabular}{ll}
+            \hline
+            \textbf{Variable} & \textbf{Descripción} \\
+            \hline
+            IMC & Índice de Masa Corporal (kg/m²) \\
+            ALT & Alanina aminotransferasa, indica daño hepático (UI/L) \\
+            LDL & Colesterol LDL (mg/dL), asociado a enfermedades cardiovasculares \\
+            Gluc & Glucosa en sangre (mg/dL), mide el nivel de azúcar \\
+            Creatinina & Indicador de función renal (mg/dL) \\
+            TRI & Triglicéridos en sangre (mg/dL) \\
+            Insulina & Hormona que regula la glucosa (µU/mL) \\
+            DHL & Deshidrogenasa láctica, relacionada con daño celular (UI/L) \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	DESCRIPTIVE ANALYSIS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Análisis descriptivo del conjunto de datos} % Slide title
+    \begin{itemize}
+        \item La matriz de correlación muestra la relación entre las diferentes variables del estudio.
+        \item Valores cercanos a 1 o -1 indican correlaciones fuertes, mientras que valores cercanos a 0 indican poca relación.
+        \item Se utilizarán estas correlaciones para seleccionar variables clave en el análisis.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	CORRELATION PLOT SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Matriz de Correlación} % Slide title
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{correlation_plot.png} % Ajusta el tamaño según sea necesario
+    \end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	HISTOGRAMS
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Histogramas} % Slide title
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{histogramas_pacientes.png} % Ajusta el tamaño según sea necesario
+    \end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	prueba normalidad
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+    \frametitle{Prueba de Normalidad (Shapiro-Wilk)}
+    
+    \scriptsize
+    \begin{table}[]
+        \centering
+        \rowcolors{2}{gray!25}{white} % Colores alternados en filas
+        \begin{tabular}{l c}
+            \hline
+            \textbf{Variable} & \textbf{p-valor de Shapiro-Wilk} \\
+            \hline
+            IMC & \textcolor{green}{0.0814} \\
+            ALT & \textcolor{red}{4.91e-08} \\
+            LDL & \textcolor{red}{0.0108} \\
+            Glucosa & \textcolor{green}{0.6602} \\
+            Creatinina & \textcolor{red}{3.68e-05} \\
+            Triglicéridos & \textcolor{green}{0.0987} \\
+            Insulina & \textcolor{red}{2.87e-04} \\
+            DHL & \textcolor{red}{2.38e-04} \\
+            \hline
+        \end{tabular}
+    \end{table}
+    
+    \vspace{0.4cm}
+    \textbf{Conclusión:} IMC, Glucosa y Triglicéridos son compatibles con la normalidad.  
+    ALT, LDL, Creatinina, Insulina y DHL \textbf{no} siguen una distribución normal.
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+%	prueba normalidad multivariada
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}{Prueba de Normalidad Multivariada}
+
+    \textbf{Método:} Prueba de Mardia  
+
+    \textbf{Resultados:}  
+    \begin{table}[]
+        \centering
+        \begin{tabular}{lcc}
+            \toprule
+            \textbf{Prueba} & \textbf{Estadístico} & \textbf{p-valor} \\
+            \midrule
+            Mardia Skewness & 219.77 & $< 0.001$ \\
+            Mardia Kurtosis & 3.30 & $0.00095$ \\
+            \midrule
+            \textbf{Conclusión} & \multicolumn{2}{c}{\textcolor{red}{No sigue una distribución normal multivariada}} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \bigskip
+    \textbf{Conclusión:}  
+    Como los valores p son menores a 0.05, \textbf{rechazamos la hipótesis de normalidad multivariada}.  
+    
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	vector promedios y desviacion muestral
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+  \frametitle{Vector de Promedios y Desviación Muestral}
+
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Variable} & \textbf{Promedio} & \textbf{Desviación Muestral} \\
+      \hline
+      IMC & 20.3320 & 3.9617 \\
+      ALT & 27.5880 & 19.1643 \\
+      LDL & 74.6680 & 28.3022 \\
+      Gluc & 89.0800 & 6.5085 \\
+      CreatininaSerica & 0.5500 & 0.1111 \\
+      TRI & 111.1000 & 39.4328 \\
+      Insulina & 13.4648 & 6.8496 \\
+      DHL & 354.2000 & 168.4154 \\
+      \hline
+    \end{tabular}
+    \caption{Vector de Promedios y Desviación Muestral para cada variable}
+  \end{table}
+
+\end{frame}
