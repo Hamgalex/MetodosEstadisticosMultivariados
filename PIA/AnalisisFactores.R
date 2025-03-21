@@ -51,3 +51,12 @@ num_factores <- 3  # Este número debe basarse en la interpretación del gráfic
 fa_result <- principal(datos_scaled, nfactors = num_factores, rotate = "varimax")
 print(fa_result)
 
+
+# Extraer los scores (las 3 nuevas variables)
+factores_df <- as.data.frame(fa_result$scores)
+
+# Cambiar nombres de columnas si lo deseas
+colnames(factores_df) <- c("Factor1", "Factor2", "Factor3")
+
+
+write.csv(factores_df, file = "factores_pacientes.csv", row.names = FALSE)
