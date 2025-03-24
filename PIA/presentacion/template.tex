@@ -94,7 +94,192 @@
     \end{itemize}
 \end{frame}
 
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
 
+\begin{frame}
+    \frametitle{Objetivos} % Slide title
+    \textbf{Objetivo del Proyecto:}
+    \begin{itemize}
+        \item Presentación de resultados donde se aplique una o varias técnicas multivariadas en el análisis de datos de varias variables aplicado a la solución de un problema real.
+    \end{itemize}
+
+    \vspace{0.5cm}
+
+    \textbf{Objetivos Específicos:}
+    \begin{itemize}
+        \item Aplicar un análisis de factores para descubrir nuevas variables latentes y reducir la dimensionalidad del conjunto de datos sin perder información relevante.
+        \item Implementar un análisis de conglomerados para agrupar a los pacientes en conjuntos homogéneos según sus características clínicas y evaluar la relación entre estos grupos y los factores identificados previamente.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Introducción} % Slide title
+    \begin{itemize}
+        \item El conjunto de datos contiene información clínica de 50 pacientes menores de 15 años atendidos en el centro de salud Santa María Guadalupe Tecola, Puebla.
+        \item Se incluyen múltiples variables biomédicas que permiten evaluar la salud general y detectar posibles afecciones.
+        \item Estas variables serán analizadas mediante técnicas multivariadas para identificar patrones y relaciones ocultas en los datos.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	VARIABLE DESCRIPTION SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Descripción de las Variables} % Slide title
+    \scriptsize % Reduce el tamaño de la fuente
+    \begin{table}[]
+        \centering
+        \begin{tabular}{ll}
+            \hline
+            \textbf{Variable} & \textbf{Descripción} \\
+            \hline
+            IMC & Índice de Masa Corporal (kg/m²) \\
+            ALT & Alanina aminotransferasa, indica daño hepático (UI/L) \\
+            LDL & Colesterol LDL (mg/dL), asociado a enfermedades cardiovasculares \\
+            Gluc & Glucosa en sangre (mg/dL), mide el nivel de azúcar \\
+            Creatinina & Indicador de función renal (mg/dL) \\
+            TRI & Triglicéridos en sangre (mg/dL) \\
+            Insulina & Hormona que regula la glucosa (µU/mL) \\
+            DHL & Deshidrogenasa láctica, relacionada con daño celular (UI/L) \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	DESCRIPTIVE ANALYSIS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Análisis descriptivo del conjunto de datos} % Slide title
+    \begin{itemize}
+        \item La matriz de correlación muestra la relación entre las diferentes variables del estudio.
+        \item Valores cercanos a 1 o -1 indican correlaciones fuertes, mientras que valores cercanos a 0 indican poca relación.
+        \item Se utilizarán estas correlaciones para seleccionar variables clave en el análisis.
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	CORRELATION PLOT SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Matriz de Correlación} % Slide title
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{correlation_plot.png} % Ajusta el tamaño según sea necesario
+    \end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	HISTOGRAMS
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Histogramas} % Slide title
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{histogramas_pacientes.png} % Ajusta el tamaño según sea necesario
+    \end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	prueba normalidad
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+    \frametitle{Prueba de Normalidad (Shapiro-Wilk)}
+    
+    \scriptsize
+    \begin{table}[]
+        \centering
+        \rowcolors{2}{gray!25}{white} % Colores alternados en filas
+        \begin{tabular}{l c}
+            \hline
+            \textbf{Variable} & \textbf{p-valor de Shapiro-Wilk} \\
+            \hline
+            IMC & \textcolor{green}{0.0814} \\
+            ALT & \textcolor{red}{4.91e-08} \\
+            LDL & \textcolor{red}{0.0108} \\
+            Glucosa & \textcolor{green}{0.6602} \\
+            Creatinina & \textcolor{red}{3.68e-05} \\
+            Triglicéridos & \textcolor{green}{0.0987} \\
+            Insulina & \textcolor{red}{2.87e-04} \\
+            DHL & \textcolor{red}{2.38e-04} \\
+            \hline
+        \end{tabular}
+    \end{table}
+    
+    \vspace{0.4cm}
+    \textbf{Conclusión:} IMC, Glucosa y Triglicéridos son compatibles con la normalidad.  
+    ALT, LDL, Creatinina, Insulina y DHL \textbf{no} siguen una distribución normal.
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+%	prueba normalidad multivariada
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}{Prueba de Normalidad Multivariada}
+
+    \textbf{Método:} Prueba de Mardia  
+
+    \textbf{Resultados:}  
+    \begin{table}[]
+        \centering
+        \begin{tabular}{lcc}
+            \toprule
+            \textbf{Prueba} & \textbf{Estadístico} & \textbf{p-valor} \\
+            \midrule
+            Mardia Skewness & 219.77 & $< 0.001$ \\
+            Mardia Kurtosis & 3.30 & $0.00095$ \\
+            \midrule
+            \textbf{Conclusión} & \multicolumn{2}{c}{\textcolor{red}{No sigue una distribución normal multivariada}} \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \bigskip
+    \textbf{Conclusión:}  
+    Como los valores p son menores a 0.05, \textbf{rechazamos la hipótesis de normalidad multivariada}.  
+    
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	vector promedios y desviacion muestral
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+  \frametitle{Vector de Promedios y Desviación Muestral}
+
+  \begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|c|c|}
+      \hline
+      \textbf{Variable} & \textbf{Promedio} & \textbf{Desviación Muestral} \\
+      \hline
+      IMC & 20.3320 & 3.9617 \\
+      ALT & 27.5880 & 19.1643 \\
+      LDL & 74.6680 & 28.3022 \\
+      Gluc & 89.0800 & 6.5085 \\
+      CreatininaSerica & 0.5500 & 0.1111 \\
+      TRI & 111.1000 & 39.4328 \\
+      Insulina & 13.4648 & 6.8496 \\
+      DHL & 354.2000 & 168.4154 \\
+      \hline
+    \end{tabular}
+    \caption{Vector de Promedios y Desviación Muestral para cada variable}
+  \end{table}
+
+\end{frame}
 
 %---------------------------------------------------
 %----------------------------------------------------------------------------------------
@@ -249,6 +434,189 @@ Las variables con las mayores cargas indican una fuerte relación con el factor 
     \item \textbf{Factor 3:} La variable \textbf{Gluc} tiene la mayor carga, lo que sugiere que este factor está relacionado con el metabolismo de la glucosa.
 \end{itemize}
 
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	CLUSTERING
+%----------------------------------------------------------------------------------------
+
+\begin{frame}{Metodología general del análisis de conglomerados}
+    \begin{itemize}
+        \item Se aplicarán cuatro algoritmos de clustering:
+        \begin{enumerate}
+            \item K-means
+            \item Expectation Maximization (EM)
+            \item Jerárquico
+            \item DBSCAN (basado en densidad)
+        \end{enumerate}
+        \item Para cada uno, se reportará la validación interna mediante \textbf{C-index}, ya que no se cuenta con una clasificación real.
+        \item El algoritmo jerárquico incluirá además el dendograma y el diagrama de codo con la medida de Silhouette, para validar el número óptimo de conglomerados.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{¿Qué es el C-index?}
+    \begin{itemize}
+        \item El \textbf{C-index} es una medida de validación interna que evalúa la compacidad de los grupos formados por un algoritmo de clustering.
+        \item Se define como:
+        \[
+            C = \frac{S - S_{min}}{S_{max} - S_{min}}
+        \]
+        donde:
+        \begin{itemize}
+            \item $S$ es la suma de las distancias entre todos los pares de puntos que pertenecen al mismo cluster
+            \item $S_{min}$ es la suma mínima posible (pares más cercanos).
+            \item $S_{max}$ es la suma máxima posible (pares más lejanos).
+        \end{itemize}
+        \item \textbf{Interpretación:} Cuanto más cercano a 0, mejor la agrupación.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Análisis jerárquico: Selección del número de grupos}
+\begin{itemize}
+    \item Para determinar el número adecuado de conglomerados, se utilizó el \textbf{índice de Silhouette}.
+    \item Este índice evalúa qué tan bien se ajusta cada observación a su grupo comparado con otros grupos.
+    \item Se calcularon los valores promedio del índice de Silhouette para $k$ entre 2 y 10.
+    \item En el siguiente gráfico se observa que el valor máximo se alcanza en $\mathbf{k = 3}$.
+    \item Por lo tanto, se elige dividir los datos en \textbf{3 conglomerados}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Análisis jerárquico: Selección del número de grupos}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{silhouette_jerarquico.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Comparación de métodos por C-index}
+\begin{itemize}
+    \item Se construirán cuatro modelos de clustering:
+    \begin{itemize}
+        \item K-means
+        \item Expectation Maximization (EM)
+        \item Jerárquico
+        \item DBSCAN
+    \end{itemize}
+    \item Cada modelo se evaluará con el \textbf{índice C-index}, que mide la compacidad de los grupos formados.
+    \item Se seleccionará el método con el \textbf{menor C-index}, es decir, el que mejor agrupa las observaciones.
+    \item Al método seleccionado se le aplicará su algoritmo \textbf{10 veces} para intentar minimizar aún más el C-index.
+\end{itemize}
+\end{frame}
+\begin{frame}{Validación interna - K-means}
+\begin{itemize}
+    \item Se aplicó el algoritmo K-means con $k = 3$.
+    \item Se obtuvo un \textbf{C-index de 0.1162249}.
+    \item Este fue el valor más bajo entre los métodos evaluados.
+    \item Se considera la mejor solución inicial.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualización 3D - K-means}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{KMEANS.png}
+\end{center}
+\end{frame}
+
+%--------------------------------------
+\begin{frame}{Validación interna - Expectation Maximization (EM)}
+\begin{itemize}
+    \item Se aplicó el algoritmo de Expectation Maximization.
+    \item El valor del C-index obtenido fue \textbf{0.2454119}.
+    \item Agrupación menos compacta en comparación con K-means.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualización 3D - EM}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{EM.png}
+\end{center}
+\end{frame}
+
+%--------------------------------------
+\begin{frame}{Validación interna - Jerárquico}
+\begin{itemize}
+    \item Se aplicó el clustering jerárquico con método completo.
+    \item Se obtuvo un C-index de \textbf{0.1403033}.
+    \item Mejor que EM, pero no tan bueno como K-means.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualización 3D - Jerárquico}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{JERARQUICO.png}
+\end{center}
+\end{frame}
+
+%--------------------------------------
+\begin{frame}{Validación interna - DBSCAN}
+\begin{itemize}
+    \item Se aplicó el algoritmo DBSCAN con parámetros $\varepsilon = 1.5$, minPts = 2.
+    \item El valor del C-index fue \textbf{0.2409209}.
+    \item Resultado similar a EM, con menor cohesión de los grupos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualización 3D - DBSCAN}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{DBSCAN.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Resumen de C-index por método}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Método} & \textbf{C-index} \\
+\midrule
+K-means & 0.1162249 \\
+Expectation Maximization (EM) & 0.2454119 \\
+Jerárquico & 0.1403033 \\
+DBSCAN & 0.2409209 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.5cm}
+\begin{itemize}
+    \item El método con el \textbf{menor C-index} fue \textbf{K-means}.
+    \item Por lo tanto, se aplicará el algoritmo K-means \textbf{10 veces} para intentar obtener una solución aún más óptima.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Repetición de K-means para optimización}
+\begin{itemize}
+    \item Se aplicó el algoritmo K-means 10 veces con diferentes semillas.
+    \item Los valores de C-index obtenidos fueron:
+    \begin{itemize}
+        \item 0.1354802, 0.1162249, 0.1162249, 0.1354802, 0.1354802
+        \item 0.1162249, 0.2881972, 0.1162249, 0.1162249, 0.1354802
+    \end{itemize}
+    \item El valor mínimo fue nuevamente \textbf{0.1162249}, obtenido en varias ejecuciones.
+    \item Se confirma que la solución inicial ya era una de las más compactas posibles.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Análisis de separación de grupos}
+\begin{itemize}
+    \item Una vez determinado el mejor modelo (K-means con $k=3$), se analizó si existen variables que ayudan a separar los grupos.
+    \item Se calcularon las medias de los factores por grupo:
+\end{itemize}
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Grupo} & \textbf{Factor 1} & \textbf{Factor 2} & \textbf{Factor 3} \\
+\midrule
+1 & 1.18 & -0.20 & -0.92 \\
+2 & 0.10 &  1.60 &  0.63 \\
+3 & -0.55 & -0.49 &  0.17 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{0.3cm}
+\begin{itemize}
+    \item El \textbf{Factor 1} y el \textbf{Factor 2} muestran diferencias marcadas entre los grupos.
+    \item Esto sugiere que son variables relevantes para diferenciar los conglomerados.
+\end{itemize}
 \end{frame}
 
 
