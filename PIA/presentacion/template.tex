@@ -26,6 +26,7 @@
 
 \graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
 \usepackage{colortbl}
+\usepackage{bm}
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
 
 %----------------------------------------------------------------------------------------
@@ -70,8 +71,25 @@
 %----------------------------------------------------------------------------------------
 
 \begin{frame}
-	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+    \begin{columns}
+        \column{0.2\textwidth}
+            \includegraphics[width=0.9\linewidth]{logo_uanl.png}
+        \column{0.6\textwidth}
+            \centering
+            {\Large \textbf{Análisis de pacientes menores a 15 años}}\\[0.3cm]
+            {\small en el centro de salud Santa María Guadalupe Tecola, Puebla}\\[0.5cm]
+            {\normalsize \textbf{Presentación de Proyecto de la Evaluación 2}}\\[0.3cm]
+            \textbf{Posgrado:} Maestría en Ciencia de Datos\\
+            \textbf{Unidad de aprendizaje:} Métodos Estadísticos Multivariados\\[0.3cm]
+            \textbf{Profesor:} Rosa Isela Hernández Zamora\\
+            \textbf{Alumno:} Héctor Alejandro Márquez González\\
+            \textbf{Matrícula:} 1989936\\[0.3cm]
+            \textbf{Fecha de presentación:} 25 de marzo del 2025
+        \column{0.2\textwidth}
+            \includegraphics[width=0.9\linewidth]{logo_fcfm.png}
+    \end{columns}
 \end{frame}
+
 
 %----------------------------------------------------------------------------------------
 %	TABLE OF CONTENTS SLIDE
@@ -83,12 +101,6 @@
         \item Objetivos
         \item Introducción
         \item Análisis descriptivo de los datos
-        \begin{itemize}
-        	\item Matriz de correlación
-        	\item Histogramas
-        	\item Prueba de normalidad
-        	\item Promedios
-        \end{itemize}
         \item Análisis Factorial
         \item Análisis de conglomerados 
     \end{itemize}
@@ -110,7 +122,7 @@
     \textbf{Objetivos Específicos:}
     \begin{itemize}
         \item Aplicar un análisis de factores para descubrir nuevas variables latentes y reducir la dimensionalidad del conjunto de datos sin perder información relevante.
-        \item Implementar un análisis de conglomerados para agrupar a los pacientes en conjuntos homogéneos según sus características clínicas y evaluar la relación entre estos grupos y los factores identificados previamente.
+        \item Implementar un análisis de conglomerados para agrupar a los pacientes en conjuntos según sus características clínicas y evaluar la relación entre estos grupos.
     \end{itemize}
 \end{frame}
 
@@ -192,14 +204,13 @@
 %	prueba normalidad
 %----------------------------------------------------------------------------------------
 
-
 \begin{frame}
     \frametitle{Prueba de Normalidad (Shapiro-Wilk)}
-    
+
     \scriptsize
     \begin{table}[]
         \centering
-        \rowcolors{2}{gray!25}{white} % Colores alternados en filas
+        \rowcolors{2}{gray!25}{white}
         \begin{tabular}{l c}
             \hline
             \textbf{Variable} & \textbf{p-valor de Shapiro-Wilk} \\
@@ -215,41 +226,69 @@
             \hline
         \end{tabular}
     \end{table}
-    
-    \vspace{0.4cm}
-    \textbf{Conclusión:} IMC, Glucosa y Triglicéridos son compatibles con la normalidad.  
-    ALT, LDL, Creatinina, Insulina y DHL \textbf{no} siguen una distribución normal.
-\end{frame}
 
+    \vspace{0.3cm}
+    \textbf{Hipótesis de la prueba:}
+    \begin{itemize}
+        \item $H_0$: La variable sigue una distribución normal.
+        \item $H_1$: La variable \textbf{no} sigue una distribución normal.
+    \end{itemize}
+
+    \vspace{0.2cm}
+    \textbf{Conclusión:} IMC, Glucosa y Triglicéridos son compatibles con la normalidad.  
+    ALT, LDL, Creatinina, Insulina y DHL \textbf{no} siguen una distribución normal (p-valor $<$ 0.05).
+\end{frame}
 
 %----------------------------------------------------------------------------------------
 %	prueba normalidad multivariada
 %----------------------------------------------------------------------------------------
+\begin{frame}{Evaluación visual: Gráfico QQ con distancia de Mahalanobis}
 
+\begin{itemize}
+    \item Se graficaron los \textbf{cuantiles teóricos de una distribución chi-cuadrada} contra los \textbf{cuantiles muestrales de la distancia de Mahalanobis}.
+    \item Si los datos siguen una \textbf{distribución normal multivariada}, los puntos deberían alinearse cerca de la diagonal roja.
+    
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{qqplot_mahalanobis.png}
+\end{center}
+
+\end{frame}
 
 \begin{frame}{Prueba de Normalidad Multivariada}
 
-    \textbf{Método:} Prueba de Mardia  
+\textbf{Hipótesis:}
+\begin{itemize}
+    \item $H_0$: Los datos siguen una distribución normal multivariada.
+    \item $H_1$: Los datos \textbf{no} siguen una distribución normal multivariada.
+\end{itemize}
 
-    \textbf{Resultados:}  
-    \begin{table}[]
-        \centering
-        \begin{tabular}{lcc}
-            \toprule
-            \textbf{Prueba} & \textbf{Estadístico} & \textbf{p-valor} \\
-            \midrule
-            Mardia Skewness & 219.77 & $< 0.001$ \\
-            Mardia Kurtosis & 3.30 & $0.00095$ \\
-            \midrule
-            \textbf{Conclusión} & \multicolumn{2}{c}{\textcolor{red}{No sigue una distribución normal multivariada}} \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
+\textbf{Método:} Prueba de Mardia, la cual evalúa:
+\begin{itemize}
+    \item Asimetría multivariada (skewness)
+    \item Curtosis multivariada (kurtosis)
+\end{itemize}
 
-    \bigskip
-    \textbf{Conclusión:}  
-    Como los valores p son menores a 0.05, \textbf{rechazamos la hipótesis de normalidad multivariada}.  
-    
+\vspace{0.2cm}
+\textbf{Resultados en R:}
+\begin{table}[]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Prueba} & \textbf{Estadístico} & \textbf{p-valor} \\
+        \midrule
+        Mardia Skewness & 219.77 & $< 0.001$ \\
+        Mardia Kurtosis & 3.30 & $0.00095$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\vspace{0.3cm}
+\textbf{Conclusión:} Como ambos p-valores son menores a 0.05, \textbf{rechazamos $H_0$}. No hay evidencia suficiente para asumir normalidad multivariada en los datos.
+
 \end{frame}
 
 %----------------------------------------------------------------------------------------
@@ -306,17 +345,26 @@
 \begin{frame}
 \frametitle{Prueba de Esfericidad de Bartlett}
 
+\textbf{Objetivo:} Evaluar si las variables están suficientemente correlacionadas como para aplicar análisis factorial.
+
+\vspace{0.3cm}
+\textbf{Hipótesis a contrastar:}
 \begin{itemize}
-    \item La prueba de esfericidad de Bartlett se realiza para verificar si la matriz de correlaciones es adecuada para realizar el análisis de factores.
-    \item Resultado de la prueba de Bartlett:
-    \begin{itemize}
-        \item Valor chi-cuadrado: 72.13
-        \item Valor p: \( 9.33 \times 10^{-6} \)
-        \item Grados de libertad: 28
-    \end{itemize}
-    \item Con un valor p mucho menor que 0.05, rechazamos la hipótesis nula de que la matriz de correlaciones es una matriz identidad, lo que sugiere que el análisis de factores es adecuado para estos datos.
+    \item $H_0$: $\Sigma = \sigma^2 \mathbf{I}$ — Las variables no están correlacionadas. No se recomienda el uso de análisis factorial
+    
+    \item $H_1$: $\Sigma \neq \sigma^2 \mathbf{I}$ — Existen correlaciones significativas entre variables.Es válido aplicar análisis factorial
 \end{itemize}
 
+\vspace{0.3cm}
+\textbf{Resultados:}
+\begin{itemize}
+    \item Estadístico chi-cuadrado: $72.13$
+    \item Valor p: $9.33 \times 10^{-6}$
+    \item Grados de libertad: $28$
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Conclusión:} Como el p-valor es menor a 0.05, \textbf{rechazamos $H_0$}. Existen correlaciones entre las variables, por lo tanto, \textbf{sí se puede aplicar análisis factorial}.
 \end{frame}
 
 
@@ -563,6 +611,21 @@ Las variables con las mayores cargas indican una fuerte relación con el factor 
 \end{center}
 \end{frame}
 
+\begin{frame}{Comparación visual de los métodos de clustering (3D)}
+
+\begin{center}
+\begin{tabular}{cc}
+    \includegraphics[width=0.25\textwidth]{KMEANS.png} & 
+    \includegraphics[width=0.25\textwidth]{EM.png} \\
+
+    \includegraphics[width=0.25\textwidth]{JERARQUICO.png} & 
+    \includegraphics[width=0.25\textwidth]{DBSCAN.png} \\
+
+\end{tabular}
+\end{center}
+
+\end{frame}
+
 \begin{frame}{Resumen de C-index por método}
 \begin{center}
 \begin{tabular}{ll}
@@ -618,6 +681,82 @@ DBSCAN & 0.2409209 \\
     \item Esto sugiere que son variables relevantes para diferenciar los conglomerados.
 \end{itemize}
 \end{frame}
+
+%--------------------------------------
+\begin{frame}{Prueba de Igualdad de Medias Multivariadas (MANOVA)}
+
+\textbf{Objetivo:} Determinar si los vectores de medias de los $k = 3$ grupos (conglomerados) son iguales.
+
+\vspace{0.3cm}
+\textbf{Hipótesis a contrastar:}
+\begin{itemize}
+    \item $H_0: \bm{\mu}_1 = \bm{\mu}_2 = \bm{\mu}_3$ (los vectores de medias poblacionales son iguales)
+    \item $H_1:$ Al menos existe un par $\bm{\mu}_p \neq \bm{\mu}_q$ (algún vector de medias es diferente)
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Estadístico de prueba:} Se usa el estadístico de Wilks Lambda $(\Lambda^*)$, y se transforma en una chi-cuadrada con la siguiente fórmula:
+
+\[
+- \left[N - 1 - \frac{p + k}{2} \right] \ln(\Lambda^*) > \chi^2_{\alpha, \; p(k - 1)}
+\]
+
+\end{frame}
+
+\begin{frame}{Resultados y Conclusión - MANOVA}
+
+\textbf{Resultados:}
+\begin{itemize}
+    \item Estadístico calculado (chi-cuadrada): $\chi^2 = 125.42$
+    \item Valor crítico: $\chi^2_{0.05, 6} = 12.59$
+\end{itemize}
+
+\vspace{0.4cm}
+\textbf{Decisión:}
+\begin{itemize}
+    \item Como $\chi^2_{\text{calc}} = 125.42 > \chi^2_{\text{crítico}} = 12.59$, se \textbf{rechaza la hipótesis nula}.
+\end{itemize}
+
+\vspace{0.4cm}
+\textbf{Conclusión:}
+\begin{itemize}
+    \item Existen diferencias estadísticamente significativas entre los vectores de medias de los grupos.
+    \item Por lo tanto, al menos una variable factorial distingue claramente entre los conglomerados formados.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Conclusiones}
+\begin{itemize}
+    
+    \item A través del análisis de factores, fue posible reducir la complejidad de los datos y encontrar tres variables latentes que resumen bien la información original.
+
+    \item La técnica de clustering que mejor agrupó a los pacientes fue \textbf{K-means}, con tres grupos bien definidos según el índice de validación interna (C-index).
+
+    \item Se encontró evidencia estadística para afirmar que las medias entre grupos son distintas, lo cual respalda la segmentación realizada.
+
+    \item Algunos factores resultaron útiles para distinguir los grupos formados, lo que puede aportar información para futuras investigaciones médicas o diagnósticas.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Referencias}
+
+\textbf{Fuente de los datos:}
+\begin{itemize}
+    \item Información clínica proporcionada por un estudiante de Medicina, de apellido \textbf{Petriz Guzmán}, quien recopiló los datos como parte de una práctica profesional en el centro de salud Santa María Guadalupe Tecola, Puebla.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Paquetes utilizados en R:}
+
+\smallskip
+
+\texttt{readxl}, \texttt{ggplot2}, \texttt{gridExtra}, \texttt{corrplot}, \texttt{psych}, \texttt{MVN}, \texttt{mclust}, \texttt{clusterCrit}, \texttt{dbscan}, \texttt{plotly}, \texttt{htmlwidgets}, \texttt{cluster}, \texttt{dendextend}, \texttt{ape}
+
+\end{frame}
+
 
 
 \end{document}

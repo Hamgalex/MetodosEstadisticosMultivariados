@@ -93,15 +93,15 @@ valChiCuadrada_scaled <- qchisq(ppoints(length(d2_scaled)), df = ncol(datos_scal
 
 # Gráfico QQ plot
 qqplot(valChiCuadrada_scaled, d2_scaled,
-       xlab = "Cuantiles teóricos (chi-cuadrada)",
+       xlab = "Cuantiles teoricos (chi-cuadrada)",
        ylab = "Cuantiles muestrales (d2M)",
-       main = "Gráfico QQ de la distancia de Mahalanobis (Datos Estandarizados)")
+       main = "Grafico QQ de la distancia de Mahalanobis (Datos Estandarizados)")
 abline(0, 1, col = "red")  # Línea de referencia (roja)
 
 
 
 # Aplicar la prueba de normalidad multivariada
-resultado <- mvn(datos_scaled, mvnTest = "mardia")
+resultado <- mvn(data = as.data.frame(datos_scaled), mvnTest = "mardia", multivariatePlot = FALSE)
 
 # Ver los resultados
 print(resultado)

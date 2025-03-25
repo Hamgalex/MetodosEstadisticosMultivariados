@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  23 MAR 2025 23:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  24 MAR 2025 21:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,6 +781,22 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \minrowclearance=\skip67
 \rownum=\count336
 )
+\sympureletters=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 30.
+
+(C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
+Package: bm 2023/07/08 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+\symboldpureletters=\mathgroup10
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen296
@@ -847,14 +863,14 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerinnertheme
 circles.sty)
 LaTeX Font Info:    Trying to load font information for OT1+opensans-TLF on inp
-ut line 66.
+ut line 67.
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/opensans\ot1opensans-tl
 f.fd
 File: OT1opensans-TLF.fd 2019/06/24 Font definitions for OT1/opensans-TLF.
 )
 LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 66.
+(Font)              scaled to size 10.95pt on input line 67.
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
@@ -864,24 +880,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (template.aux)
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -943,63 +959,65 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 66.
+Package hyperref Info: Link coloring OFF on input line 67.
  (template.out) (template.out)
 \@outlinefile=\write5
 \openout5 = `template.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 66.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 67.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 66.
-\symnumbers=\mathgroup6
-\sympureletters=\mathgroup7
-LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 66.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 66.
-LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 66.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 67.
+\symnumbers=\mathgroup11
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 67.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/cmss/m/it on input line 6
+7.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 66.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 66.
+(Font)                  OT1/mathkerncmss/bx/sl --> OT1/cmss/m/it on input line 
+67.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 66.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 66.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 67.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 67.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 66.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 66.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 67.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 67.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 67.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 67.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 67.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 6
-6.
+7.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 6
-6.
+7.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 66.
+ut line 67.
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-b
 asic-dictionary-English.dict
@@ -1029,34 +1047,26 @@ Dictionary: translator-theorem-dictionary, Language: English
 \c@mv@boldtabular=\count350
  (template.nav)
 LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 66.
-LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 74.
-LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 74.
-LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 74.
-LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
-(Font)              scaled to size 4.0pt on input line 74.
- [1
-
-{C:/Users/hamga/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/hamg
-a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_n3lhbv.enc}{C:/Users
-/hamga/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_iz27ck.enc}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+(Font)              scaled to size 6.0pt on input line 67.
+<Images/logo_uanl.png, id=14, 3854.4pt x 2168.1pt>
+File: Images/logo_uanl.png Graphic file (type png)
+<use Images/logo_uanl.png>
+Package pdftex.def Info: Images/logo_uanl.png  used on input line 91.
+(pdftex.def)             Requested size: 61.61179pt x 34.63737pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
 
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
 
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 95.
+ut line 91.
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathk
 erncmss.fd
@@ -1064,81 +1074,116 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
 LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 95.
- [2
-
-]
+(Font)              scaled to size 14.4pt on input line 91.
 LaTeX Font Info:    Font shape `OT1/opensans-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 115.
- [3
+(Font)              scaled to size 14.4pt on input line 91.
+LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 91.
+LaTeX Font Info:    Font shape `OT1/opensans-TLF/b/n' will be
+(Font)              scaled to size 10.95pt on input line 91.
+<Images/logo_fcfm.png, id=15, 200.75pt x 200.75pt>
+File: Images/logo_fcfm.png Graphic file (type png)
+<use Images/logo_fcfm.png>
+Package pdftex.def Info: Images/logo_fcfm.png  used on input line 91.
+(pdftex.def)             Requested size: 61.61179pt x 61.61002pt.
+LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
+(Font)              scaled to size 4.0pt on input line 91.
+ [1
+
+{C:/Users/hamga/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/hamg
+a/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_n3lhbv.enc} <./Image
+s/logo_uanl.png> <./Images/logo_fcfm.png>] [2
+
+] [3
 
 ] [4
 
 ]
+LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 166.
 LaTeX Font Info:    Font shape `OT1/opensans-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 154.
+(Font)              scaled to size 8.0pt on input line 166.
 LaTeX Font Info:    Trying to load font information for TS1+opensans-TLF on inp
-ut line 154.
+ut line 166.
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/opensans\ts1opensans-tl
 f.fd
 File: TS1opensans-TLF.fd 2019/06/24 Font definitions for TS1/opensans-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 154.
+(Font)              scaled to size 8.0pt on input line 166.
  [5
 
 {C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy
 .enc}] [6
 
 ]
-<Images/correlation_plot.png, id=196, 803.0pt x 602.25pt>
+<Images/correlation_plot.png, id=188, 803.0pt x 602.25pt>
 File: Images/correlation_plot.png Graphic file (type png)
 <use Images/correlation_plot.png>
-Package pdftex.def Info: Images/correlation_plot.png  used on input line 178.
+Package pdftex.def Info: Images/correlation_plot.png  used on input line 190.
 (pdftex.def)             Requested size: 273.83728pt x 205.37799pt.
  [7
 
  <./Images/correlation_plot.png (PNG copy)>]
-<Images/histogramas_pacientes.png, id=225, 578.16pt x 385.44pt>
+<Images/histogramas_pacientes.png, id=217, 578.16pt x 385.44pt>
 File: Images/histogramas_pacientes.png Graphic file (type png)
 <use Images/histogramas_pacientes.png>
-Package pdftex.def Info: Images/histogramas_pacientes.png  used on input line 1
-89.
+Package pdftex.def Info: Images/histogramas_pacientes.png  used on input line 2
+01.
 (pdftex.def)             Requested size: 273.83728pt x 182.55658pt.
  [8
 
  <./Images/histogramas_pacientes.png>] [9
 
 ]
-Overfull \hbox (7.2005pt too wide) in paragraph at lines 253--253
- [] 
+<Images/qqplot_mahalanobis.png, id=277, 803.0pt x 602.25pt>
+File: Images/qqplot_mahalanobis.png Graphic file (type png)
+<use Images/qqplot_mahalanobis.png>
+Package pdftex.def Info: Images/qqplot_mahalanobis.png  used on input line 259.
+
+(pdftex.def)             Requested size: 171.14764pt x 128.36009pt.
+
+Overfull \vbox (4.6116pt too high) detected at line 259
  []
 
 [10
 
-] [11
+ <./Images/qqplot_mahalanobis.png>] [11
 
 ] [12
 
 ] [13
 
-] [14
+]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 368.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 368.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 368.
+
+ [14
 
 ] [15
 
 ]
-<Images/fa_parallel_plot.png, id=448, 803.0pt x 602.25pt>
-File: Images/fa_parallel_plot.png Graphic file (type png)
-<use Images/fa_parallel_plot.png>
-Package pdftex.def Info: Images/fa_parallel_plot.png  used on input line 372.
-(pdftex.def)             Requested size: 205.37926pt x 154.03578pt.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 410.
+
  [16
 
- <./Images/fa_parallel_plot.png>] [17
-
 ]
-[18
+<Images/fa_parallel_plot.png, id=473, 803.0pt x 602.25pt>
+File: Images/fa_parallel_plot.png Graphic file (type png)
+<use Images/fa_parallel_plot.png>
+Package pdftex.def Info: Images/fa_parallel_plot.png  used on input line 420.
+(pdftex.def)             Requested size: 205.37926pt x 154.03578pt.
+ [17
+
+ <./Images/fa_parallel_plot.png>] [18
 
 ] [19
 
@@ -1147,97 +1192,107 @@ Package pdftex.def Info: Images/fa_parallel_plot.png  used on input line 372.
 ] [21
 
 ]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 483.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 520.
 
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 483.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 483.
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 520.
 
  [22
 
+] [23
+
 ]
-<Images/silhouette_jerarquico.png, id=643, 803.0pt x 602.25pt>
+<Images/silhouette_jerarquico.png, id=665, 803.0pt x 602.25pt>
 File: Images/silhouette_jerarquico.png Graphic file (type png)
 <use Images/silhouette_jerarquico.png>
-Package pdftex.def Info: Images/silhouette_jerarquico.png  used on input line 4
-89.
+Package pdftex.def Info: Images/silhouette_jerarquico.png  used on input line 5
+37.
 (pdftex.def)             Requested size: 273.83728pt x 205.37799pt.
- [23
-
- <./Images/silhouette_jerarquico.png>]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 505.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 505.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 505.
-
  [24
 
-]
-[25
+ <./Images/silhouette_jerarquico.png>] [25
+
+] [26
 
 ]
-<Images/KMEANS.png, id=727, 607.51968pt x 679.78969pt>
+<Images/KMEANS.png, id=749, 607.51968pt x 679.78969pt>
 File: Images/KMEANS.png Graphic file (type png)
 <use Images/KMEANS.png>
-Package pdftex.def Info: Images/KMEANS.png  used on input line 519.
+Package pdftex.def Info: Images/KMEANS.png  used on input line 567.
 (pdftex.def)             Requested size: 205.37926pt x 229.80809pt.
 
-Overfull \vbox (7.89348pt too high) detected at line 519
+Overfull \vbox (7.89348pt too high) detected at line 567
  []
 
-[26
+[27
 
- <./Images/KMEANS.png>] [27
+ <./Images/KMEANS.png>] [28
 
 ]
-<Images/EM.png, id=784, 629.35126pt x 680.5425pt>
+<Images/EM.png, id=805, 629.35126pt x 680.5425pt>
 File: Images/EM.png Graphic file (type png)
 <use Images/EM.png>
-Package pdftex.def Info: Images/EM.png  used on input line 534.
+Package pdftex.def Info: Images/EM.png  used on input line 582.
 (pdftex.def)             Requested size: 205.37926pt x 222.07712pt.
 
-Overfull \vbox (0.1625pt too high) detected at line 534
+Overfull \vbox (0.1625pt too high) detected at line 582
  []
 
-[28
+[29
 
- <./Images/EM.png>] [29
+ <./Images/EM.png>] [30
 
 ]
-<Images/JERARQUICO.png, id=840, 607.51968pt x 679.78969pt>
+<Images/JERARQUICO.png, id=861, 641.39626pt x 638.385pt>
 File: Images/JERARQUICO.png Graphic file (type png)
 <use Images/JERARQUICO.png>
-Package pdftex.def Info: Images/JERARQUICO.png  used on input line 549.
-(pdftex.def)             Requested size: 205.37926pt x 229.80809pt.
+Package pdftex.def Info: Images/JERARQUICO.png  used on input line 597.
+(pdftex.def)             Requested size: 205.37926pt x 204.414pt.
+ [31
 
-Overfull \vbox (7.89348pt too high) detected at line 549
- []
-
-[30
-
- <./Images/JERARQUICO.png>] [31
+ <./Images/JERARQUICO.png>] [32
 
 ]
-<Images/DBSCAN.png, id=897, 647.41875pt x 680.5425pt>
+<Images/DBSCAN.png, id=918, 647.41875pt x 680.5425pt>
 File: Images/DBSCAN.png Graphic file (type png)
 <use Images/DBSCAN.png>
-Package pdftex.def Info: Images/DBSCAN.png  used on input line 564.
+Package pdftex.def Info: Images/DBSCAN.png  used on input line 612.
 (pdftex.def)             Requested size: 205.37926pt x 215.8881pt.
- [32
+ [33
 
- <./Images/DBSCAN.png>] [33
+ <./Images/DBSCAN.png>]
+File: Images/KMEANS.png Graphic file (type png)
+<use Images/KMEANS.png>
+Package pdftex.def Info: Images/KMEANS.png  used on input line 627.
+(pdftex.def)             Requested size: 85.57382pt x 95.75078pt.
+File: Images/EM.png Graphic file (type png)
+<use Images/EM.png>
+Package pdftex.def Info: Images/EM.png  used on input line 627.
+(pdftex.def)             Requested size: 85.57382pt x 92.53386pt.
+File: Images/JERARQUICO.png Graphic file (type png)
+<use Images/JERARQUICO.png>
+Package pdftex.def Info: Images/JERARQUICO.png  used on input line 627.
+(pdftex.def)             Requested size: 85.57382pt x 85.16519pt.
+File: Images/DBSCAN.png Graphic file (type png)
+<use Images/DBSCAN.png>
+Package pdftex.def Info: Images/DBSCAN.png  used on input line 627.
+(pdftex.def)             Requested size: 85.57382pt x 89.94818pt.
+ [34
 
-] [34
+] [35
 
-]
-[35
+] [36
+
+] [37
+
+] [38
+
+] [39
+
+] [40
+
+] [41
 
 ]
 \tf@nav=\write6
@@ -1258,29 +1313,32 @@ Package rerunfilecheck Info: File `template.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22782 strings out of 474486
- 449105 string characters out of 5743754
+ 22831 strings out of 474486
+ 448299 string characters out of 5743754
  1939542 words of memory out of 5000000
- 44486 multiletter control sequences out of 15000+600000
- 575570 words of font info for 97 fonts, out of 8000000 for 9000
+ 44504 multiletter control sequences out of 15000+600000
+ 585514 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,123p,405b,659s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,123p,405b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/ascender/opensans/O
 penSans-Bold.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/asce
-nder/opensans/OpenSans-Italic.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX
-/fonts/type1/ascender/opensans/OpenSans-Regular.pfb><C:/Users/hamga/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/hamga/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users
-/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><
-C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
-sbx10.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmssi10.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmssi8.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/hamga/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on template.pdf (35 pages, 636607 bytes).
+nder/opensans/OpenSans-Regular.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/hamga/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/hamga/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/hamga/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/User
+s/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb
+><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mss8.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmssbx10.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmssi10.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/hamga/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/hamga/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/hamga/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on template.pdf (41 pages, 975943 bytes).
 PDF statistics:
- 1071 PDF objects out of 1200 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1247 PDF objects out of 1440 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 
