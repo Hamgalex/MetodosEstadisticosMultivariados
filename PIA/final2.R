@@ -1,3 +1,6 @@
+# -*- coding: UTF-8 -*-
+
+# ------------------------ LIBRERIAS ------------------------
 library(readxl)
 library(ggplot2)
 library(corrplot)
@@ -66,9 +69,8 @@ qqplot(valChiCuadrada_scaled, d2_scaled,
 abline(0, 1, col = "red")
 dev.off()
 
-# debido a que dbclust tiene una funcion mvn tenemos que especificarle de que paquete usar para hacer la prueba de multivariada
+# prueba de normalidad multivariada
 resultado <- MVN::mvn(data = as.data.frame(datos_scaled), mvnTest = "mardia", multivariatePlot = FALSE)
-
 
 # vector de promedios y desviacion muestral
 vector_promedios <- colMeans(datos)
@@ -87,7 +89,7 @@ print(bartlett_result)
 pca_result <- prcomp(datos_scaled)
 pca_summary <- summary(pca_result)
 print(pca_summary)
-pca_var <- pca_summary$importance[2,]
+pca_var <- pca_summary$importance[2, ]
 print(pca_var)
 
 png("fa_parallel_plot.png", width = 800, height = 600)
@@ -107,7 +109,7 @@ write.csv(factores_df, "factores_pacientes2.csv", row.names = FALSE)
 data <- as.matrix(factores_df[, 1:3])
 rownames(data) <- nombres_pacientes
 
-# kmeans
+# K-means
 set.seed(123)
 km <- kmeans(data, centers = 3)
 cl_kmeans <- as.integer(km$cluster)
@@ -115,14 +117,14 @@ res_kmeans <- intCriteria(data, cl_kmeans, "C_index")
 c_kmeans <- res_kmeans[[1]]
 factores_df$kmeans_cluster <- as.factor(cl_kmeans)
 
-# em
+# EM
 em <- Mclust(data, G = 3)
 cl_em <- as.integer(em$classification)
 res_em <- intCriteria(data, cl_em, "C_index")
 c_em <- res_em[[1]]
 factores_df$em_cluster <- as.factor(cl_em)
 
-# jerarquico
+# Jerarquico
 distancia <- dist(data)
 jer <- hclust(distancia, method = "complete")
 cluster_jer <- cutree(jer, k = 3)
@@ -134,39 +136,49 @@ factores_df$hc_cluster <- as.factor(cluster_jer)
 db <- dbscan(data, eps = 1.5, minPts = 2)
 valid_db <- db$cluster != 0
 if (length(unique(db$cluster[valid_db])) >= 2) {
-  res_db <- intCriteria(data[valid_db,], db$cluster[valid_db], "C_index")
+  res_db <- intCriteria(data[valid_db, ], db$cluster[valid_db], "C_index")
   c_db <- res_db[[1]]
 } else {
   c_db <- NA
 }
 factores_df$db_cluster <- as.factor(db$cluster)
 
-# comparacion de cindex
+# Comparacion de C-index
 resultados <- data.frame(
   Metodo = c("K-means", "EM", "Jerarquico", "DBSCAN"),
   Cindex = c(c_kmeans, c_em, c_hc, c_db)
 )
 print(resultados)
 
+# Seleccionar mejor metodo
+mejor_metodo <- resultados$Metodo[which.min(resultados$Cindex)]
+cat("Mejor metodo basado en C-index:", mejor_metodo, "\n")
 
-# mejor metodo es kmeans
-cindex_kmeans <- numeric(10)
-models <- vector("list", 10)
-for (i in 1:10) {
-  set.seed(i)
-  km_i <- kmeans(data, centers = 3)
-  models[[i]] <- km_i
-  cl <- as.integer(km_i$cluster)
-  res <- intCriteria(data, cl, "C_index")
-  cindex_kmeans[i] <- res[[1]]
+# Repetir K-means si es el mejor
+if (mejor_metodo == "K-means") {
+  cindex_kmeans <- numeric(10)
+  models <- vector("list", 10)
+  for (i in 1:10) {
+    set.seed(i)
+    km_i <- kmeans(data, centers = 3)
+    models[[i]] <- km_i
+    cl <- as.integer(km_i$cluster)
+    res <- intCriteria(data, cl, "C_index")
+    cindex_kmeans[i] <- res[[1]]
+  }
+  print(cindex_kmeans)
+  best_idx <- which.min(cindex_kmeans)
+  best_kmeans <- models[[best_idx]]
+  factores_df$cluster <- as.factor(best_kmeans$cluster)
+} else if (mejor_metodo == "EM") {
+  factores_df$cluster <- as.factor(cl_em)
+} else if (mejor_metodo == "Jerarquico") {
+  factores_df$cluster <- as.factor(cluster_jer)
+} else {
+  factores_df$cluster <- as.factor(db$cluster)
 }
-print(cindex_kmeans)
-best_idx <- which.min(cindex_kmeans)
-best_kmeans <- models[[best_idx]]
-factores_df$cluster <- as.factor(best_kmeans$cluster)
 
-
-# silhouette del metodo jerarquico
+# Silhouette jerarquico
 silhouette_scores <- numeric(10)
 dist_matrix <- dist(data)
 for (k in 2:10) {
@@ -187,24 +199,39 @@ factores_df_mean <- aggregate(. ~ cluster, data = factores_df[, c("Factor1", "Fa
 print("Medias por grupo (FACTORES):")
 print(factores_df_mean)
 
+# ------------------------ CORRELACIONES POR MODELO ------------------------
+modelos <- c("kmeans", "em", "hc", "db")
+nombres <- c("K-means", "EM", "Jerarquico", "DBSCAN")
 
-# igualdad de medias
+for (i in seq_along(modelos)) {
+  cluster_col <- paste0(modelos[i], "_cluster")
+  cor_matrix_modelo <- cor(factores_df[, c("Factor1", "Factor2", "Factor3")])
+  file_name <- paste0("correlacion_", modelos[i], ".png")
+  png(file_name, width = 800, height = 600)
+  corrplot(cor_matrix_modelo, method = "circle", addCoef.col = "black", order = "original",
+           type = "upper", title = paste("Correlacion entre factores (", nombres[i], ")"), mar = c(0,0,2,0))
+  dev.off()
+}
+
+# ------------------------ PRUEBA DE IGUALDAD DE MEDIAS (MANOVA con wilks) ------------------------
 alpha <- 0.05
-p <- 3
-k <- length(unique(factores_df$cluster))
-N <- nrow(factores_df)
+p <- 3  # Numero de variables (factores)
+k <- length(unique(factores_df$cluster))  # Numero de grupos
+N <- nrow(factores_df)  # Numero total de observaciones
 
 manova_model <- manova(cbind(Factor1, Factor2, Factor3) ~ cluster, data = factores_df)
 
+# Mostrar diferentes tests multivariados
 cat("\nResumen MANOVA:\n")
 print(summary(manova_model, test = "Pillai"))
 print(summary(manova_model, test = "Wilks"))
 print(summary(manova_model, test = "Hotelling-Lawley"))
 print(summary(manova_model, test = "Roy"))
 
+# Calculo manual del estadistico tipo chi-cuadrada
 wilks_lambda <- summary(manova_model, test = "Wilks")$stats[1, 2]
 chi_critico <- qchisq(1 - alpha, df = p * (k - 1))
-bartlett_stat <- -(N - 1 - (p + k) / 2) * log(wilks_lambda)
+bartlett_stat <- - (N - 1 - (p + k) / 2) * log(wilks_lambda)
 
 cat("\nEstadistico de prueba (chi-cuadrada):", bartlett_stat, "\n")
 cat("Valor critico chi-cuadrada:", chi_critico, "\n")

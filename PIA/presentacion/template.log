@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  24 MAR 2025 21:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.26)  24 MAR 2025 23:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1100,18 +1100,18 @@ s/logo_uanl.png> <./Images/logo_fcfm.png>] [2
 
 ]
 LaTeX Font Info:    Font shape `OT1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 166.
+(Font)              scaled to size 8.0pt on input line 170.
 LaTeX Font Info:    Font shape `OT1/opensans-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 166.
+(Font)              scaled to size 8.0pt on input line 170.
 LaTeX Font Info:    Trying to load font information for TS1+opensans-TLF on inp
-ut line 166.
+ut line 170.
 
 (C:\Users\hamga\AppData\Local\Programs\MiKTeX\tex/latex/opensans\ts1opensans-tl
 f.fd
 File: TS1opensans-TLF.fd 2019/06/24 Font definitions for TS1/opensans-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 166.
+(Font)              scaled to size 8.0pt on input line 170.
  [5
 
 {C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/opensans/a_nvvucy
@@ -1121,7 +1121,7 @@ LaTeX Font Info:    Font shape `TS1/opensans-TLF/m/n' will be
 <Images/correlation_plot.png, id=188, 803.0pt x 602.25pt>
 File: Images/correlation_plot.png Graphic file (type png)
 <use Images/correlation_plot.png>
-Package pdftex.def Info: Images/correlation_plot.png  used on input line 190.
+Package pdftex.def Info: Images/correlation_plot.png  used on input line 194.
 (pdftex.def)             Requested size: 273.83728pt x 205.37799pt.
  [7
 
@@ -1130,7 +1130,7 @@ Package pdftex.def Info: Images/correlation_plot.png  used on input line 190.
 File: Images/histogramas_pacientes.png Graphic file (type png)
 <use Images/histogramas_pacientes.png>
 Package pdftex.def Info: Images/histogramas_pacientes.png  used on input line 2
-01.
+05.
 (pdftex.def)             Requested size: 273.83728pt x 182.55658pt.
  [8
 
@@ -1140,11 +1140,11 @@ Package pdftex.def Info: Images/histogramas_pacientes.png  used on input line 2
 <Images/qqplot_mahalanobis.png, id=277, 803.0pt x 602.25pt>
 File: Images/qqplot_mahalanobis.png Graphic file (type png)
 <use Images/qqplot_mahalanobis.png>
-Package pdftex.def Info: Images/qqplot_mahalanobis.png  used on input line 259.
+Package pdftex.def Info: Images/qqplot_mahalanobis.png  used on input line 263.
 
 (pdftex.def)             Requested size: 171.14764pt x 128.36009pt.
 
-Overfull \vbox (4.6116pt too high) detected at line 259
+Overfull \vbox (4.6116pt too high) detected at line 263
  []
 
 [10
@@ -1157,13 +1157,13 @@ Overfull \vbox (4.6116pt too high) detected at line 259
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 368.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 372.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 368.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 372.
 
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 368.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 372.
 
  [14
 
@@ -1171,7 +1171,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <6> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 410.
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 414.
 
  [16
 
@@ -1179,9 +1179,13 @@ LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <5> not available
 <Images/fa_parallel_plot.png, id=473, 803.0pt x 602.25pt>
 File: Images/fa_parallel_plot.png Graphic file (type png)
 <use Images/fa_parallel_plot.png>
-Package pdftex.def Info: Images/fa_parallel_plot.png  used on input line 420.
-(pdftex.def)             Requested size: 205.37926pt x 154.03578pt.
- [17
+Package pdftex.def Info: Images/fa_parallel_plot.png  used on input line 436.
+(pdftex.def)             Requested size: 171.14764pt x 128.36009pt.
+
+Overfull \vbox (60.45758pt too high) detected at line 436
+ []
+
+[17
 
  <./Images/fa_parallel_plot.png>] [18
 
@@ -1191,27 +1195,27 @@ Package pdftex.def Info: Images/fa_parallel_plot.png  used on input line 420.
 
 ] [21
 
-]
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 520.
-
-LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
-(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 520.
-
- [22
-
-] [23
+] [22
 
 ]
-<Images/silhouette_jerarquico.png, id=665, 803.0pt x 602.25pt>
+<Images/silhouette_jerarquico.png, id=638, 803.0pt x 602.25pt>
 File: Images/silhouette_jerarquico.png Graphic file (type png)
 <use Images/silhouette_jerarquico.png>
 Package pdftex.def Info: Images/silhouette_jerarquico.png  used on input line 5
-37.
+46.
 (pdftex.def)             Requested size: 273.83728pt x 205.37799pt.
+ [23
+
+ <./Images/silhouette_jerarquico.png>]
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 564.
+
+LaTeX Font Info:    Font shape `OT1/cmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/cmss/bx/n' tried instead on input line 564.
+
  [24
 
- <./Images/silhouette_jerarquico.png>] [25
+] [25
 
 ] [26
 
@@ -1219,10 +1223,10 @@ Package pdftex.def Info: Images/silhouette_jerarquico.png  used on input line 5
 <Images/KMEANS.png, id=749, 607.51968pt x 679.78969pt>
 File: Images/KMEANS.png Graphic file (type png)
 <use Images/KMEANS.png>
-Package pdftex.def Info: Images/KMEANS.png  used on input line 567.
+Package pdftex.def Info: Images/KMEANS.png  used on input line 593.
 (pdftex.def)             Requested size: 205.37926pt x 229.80809pt.
 
-Overfull \vbox (7.89348pt too high) detected at line 567
+Overfull \vbox (7.89348pt too high) detected at line 593
  []
 
 [27
@@ -1233,10 +1237,10 @@ Overfull \vbox (7.89348pt too high) detected at line 567
 <Images/EM.png, id=805, 629.35126pt x 680.5425pt>
 File: Images/EM.png Graphic file (type png)
 <use Images/EM.png>
-Package pdftex.def Info: Images/EM.png  used on input line 582.
+Package pdftex.def Info: Images/EM.png  used on input line 608.
 (pdftex.def)             Requested size: 205.37926pt x 222.07712pt.
 
-Overfull \vbox (0.1625pt too high) detected at line 582
+Overfull \vbox (0.1625pt too high) detected at line 608
  []
 
 [29
@@ -1247,7 +1251,7 @@ Overfull \vbox (0.1625pt too high) detected at line 582
 <Images/JERARQUICO.png, id=861, 641.39626pt x 638.385pt>
 File: Images/JERARQUICO.png Graphic file (type png)
 <use Images/JERARQUICO.png>
-Package pdftex.def Info: Images/JERARQUICO.png  used on input line 597.
+Package pdftex.def Info: Images/JERARQUICO.png  used on input line 623.
 (pdftex.def)             Requested size: 205.37926pt x 204.414pt.
  [31
 
@@ -1257,26 +1261,26 @@ Package pdftex.def Info: Images/JERARQUICO.png  used on input line 597.
 <Images/DBSCAN.png, id=918, 647.41875pt x 680.5425pt>
 File: Images/DBSCAN.png Graphic file (type png)
 <use Images/DBSCAN.png>
-Package pdftex.def Info: Images/DBSCAN.png  used on input line 612.
+Package pdftex.def Info: Images/DBSCAN.png  used on input line 638.
 (pdftex.def)             Requested size: 205.37926pt x 215.8881pt.
  [33
 
  <./Images/DBSCAN.png>]
 File: Images/KMEANS.png Graphic file (type png)
 <use Images/KMEANS.png>
-Package pdftex.def Info: Images/KMEANS.png  used on input line 627.
+Package pdftex.def Info: Images/KMEANS.png  used on input line 653.
 (pdftex.def)             Requested size: 85.57382pt x 95.75078pt.
 File: Images/EM.png Graphic file (type png)
 <use Images/EM.png>
-Package pdftex.def Info: Images/EM.png  used on input line 627.
+Package pdftex.def Info: Images/EM.png  used on input line 653.
 (pdftex.def)             Requested size: 85.57382pt x 92.53386pt.
 File: Images/JERARQUICO.png Graphic file (type png)
 <use Images/JERARQUICO.png>
-Package pdftex.def Info: Images/JERARQUICO.png  used on input line 627.
+Package pdftex.def Info: Images/JERARQUICO.png  used on input line 653.
 (pdftex.def)             Requested size: 85.57382pt x 85.16519pt.
 File: Images/DBSCAN.png Graphic file (type png)
 <use Images/DBSCAN.png>
-Package pdftex.def Info: Images/DBSCAN.png  used on input line 627.
+Package pdftex.def Info: Images/DBSCAN.png  used on input line 653.
 (pdftex.def)             Requested size: 85.57382pt x 89.94818pt.
  [34
 
@@ -1319,7 +1323,7 @@ Here is how much of TeX's memory you used:
  44504 multiletter control sequences out of 15000+600000
  585514 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,16n,123p,405b,662s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,16n,123p,405b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/ascender/opensans/O
 penSans-Bold.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTeX/fonts/type1/asce
 nder/opensans/OpenSans-Regular.pfb><C:/Users/hamga/AppData/Local/Programs/MiKTe
@@ -1336,7 +1340,7 @@ ts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/hamga/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/hamga/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/hamga/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on template.pdf (41 pages, 975943 bytes).
+Output written on template.pdf (41 pages, 976602 bytes).
 PDF statistics:
  1247 PDF objects out of 1440 (max. 8388607)
  83 named destinations out of 1000 (max. 500000)

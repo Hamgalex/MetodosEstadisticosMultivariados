@@ -101,8 +101,12 @@
         \item Objetivos
         \item Introducción
         \item Análisis descriptivo de los datos
+        \item Análisis de las técnicas multivariadas
+        \begin{itemize}
         \item Análisis Factorial
         \item Análisis de conglomerados 
+        \end{itemize}
+        \item Conclusión
     \end{itemize}
 \end{frame}
 
@@ -410,13 +414,25 @@ PC8 & 4.10\% & 100.00\% \\ \hline
 \end{frame}
 
 
-\begin{frame}{Gráfico de Codo - Determinación del Número de Factores}
-  El gráfico de codo ayuda a identificar cuántos factores extraer. Se utilizó el criterio de Kaiser, que sugiere que se deben extraer solo aquellos factores con un valor propio (eigenvalue) mayor a 1.
-    
-    
-    \begin{center}
-        \includegraphics[width=0.6\textwidth]{fa_parallel_plot.png} % Inserta el archivo generado aquí
-    \end{center}
+\begin{frame}{Gráfico de Codo - Selección del Número de Factores}
+
+\begin{itemize}
+    \item El gráfico muestra los eigenvalues (valores propios) reales y simulados para determinar cuántos factores mantener.
+    \item Se comparan los valores obtenidos con los datos reales (azul) y los simulados aleatoriamente (rojo).
+    \item \textbf{Criterio:} Si el eigenvalue real es mayor al simulado, el factor es significativo.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{fa_parallel_plot.png}
+\end{center}
+
+\vspace{0.2cm}
+
+\textbf{Conclusión:} Los factores 1, 2 y 3 tienen eigenvalues reales mayores que los simulados.  
+\textcolor{blue}{\textbf{Se concluye que 3 factores son adecuados}} para el análisis, ya que explican varianza significativa más allá del azar.
+
 \end{frame}
 
 
@@ -490,17 +506,45 @@ Las variables con las mayores cargas indican una fuerte relación con el factor 
 
 \begin{frame}{Metodología general del análisis de conglomerados}
     \begin{itemize}
-        \item Se aplicarán cuatro algoritmos de clustering:
+        \item Primero, se utilizó el \textbf{índice de Silhouette} con el método jerárquico para estimar el número óptimo de grupos. 
+        
+        \item Luego, se aplicaron cuatro algoritmos de clustering:
         \begin{enumerate}
             \item K-means
             \item Expectation Maximization (EM)
             \item Jerárquico
             \item DBSCAN (basado en densidad)
         \end{enumerate}
-        \item Para cada uno, se reportará la validación interna mediante \textbf{C-index}, ya que no se cuenta con una clasificación real.
-        \item El algoritmo jerárquico incluirá además el dendograma y el diagrama de codo con la medida de Silhouette, para validar el número óptimo de conglomerados.
+        
+        \item Para cada uno, se calculó una medida de \textbf{validación interna} (\textbf{C-index}), ya que no se dispone de una clasificación real.
+        
+        \item Finalmente, se seleccionó el método con el menor C-index como la mejor solución de agrupamiento.
     \end{itemize}
 \end{frame}
+
+
+\begin{frame}{Selección del número de clusters con Silhouette}
+
+\begin{itemize}
+    \item Se aplicó clustering jerárquico y se evaluó el índice de Silhouette promedio para \(k = 2\) hasta \(k = 10\).
+    \item Se graficó el promedio del índice para cada \(k\).
+    \item La \textbf{altura del punto} en la gráfica representa qué tan buena es la separación entre grupos.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\vspace{0.3cm}
+\textbf{Conclusión:} El valor máximo del índice se alcanza en \(\mathbf{k = 3}\), por lo que se concluye que \textbf{3 es el número óptimo de clusters} para este conjunto de datos.
+
+\end{frame}
+
+\begin{frame}{Gráfica de Silhouette para clustering jerárquico}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{silhouette_jerarquico.png}
+\end{center}
+
+\end{frame}
+
 
 \begin{frame}{¿Qué es el C-index?}
     \begin{itemize}
@@ -518,24 +562,6 @@ Las variables con las mayores cargas indican una fuerte relación con el factor 
         \item \textbf{Interpretación:} Cuanto más cercano a 0, mejor la agrupación.
     \end{itemize}
 \end{frame}
-
-
-\begin{frame}{Análisis jerárquico: Selección del número de grupos}
-\begin{itemize}
-    \item Para determinar el número adecuado de conglomerados, se utilizó el \textbf{índice de Silhouette}.
-    \item Este índice evalúa qué tan bien se ajusta cada observación a su grupo comparado con otros grupos.
-    \item Se calcularon los valores promedio del índice de Silhouette para $k$ entre 2 y 10.
-    \item En el siguiente gráfico se observa que el valor máximo se alcanza en $\mathbf{k = 3}$.
-    \item Por lo tanto, se elige dividir los datos en \textbf{3 conglomerados}.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Análisis jerárquico: Selección del número de grupos}
-\begin{center}
-    \includegraphics[width=0.8\textwidth]{silhouette_jerarquico.png}
-\end{center}
-\end{frame}
-
 
 \begin{frame}{Comparación de métodos por C-index}
 \begin{itemize}
