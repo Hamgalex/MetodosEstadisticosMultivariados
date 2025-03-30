@@ -43,19 +43,6 @@ png("histogramas_pacientes.png", width = 1200, height = 800, res = 150)
 grid.arrange(grobs = plots, ncol = 2)
 dev.off()
 
-# tabla de frecuencias para las 8 variables originales
-cat("Tablas de frecuencias por variable original:\n")
-for (var in colnames(datos)) {
-  h <- hist(datos[[var]], breaks = 10, plot = FALSE)
-  tabla_frec <- data.frame(
-    Variable = var,
-    Rango = paste(round(h$breaks[-length(h$breaks)], 2), "-", round(h$breaks[-1], 2)),
-    Frecuencia = h$counts
-  )
-  print(tabla_frec)
-}
-
-
 # pruebas de normalidad univariada
 resultados_normalidad <- list()
 for (var in colnames(datos)) {
@@ -228,31 +215,14 @@ if (bartlett_stat > chi_critico) {
   cat("No se rechaza H0: No hay suficiente evidencia para decir que las medias son distintas.\n")
 }
 
-# ------------------------ ANALISIS DESCRIPTIVO DE FACTORES ------------------------
-cat("Resumen estadístico de los factores:\n")
-print(summary(factores_df[, 1:3]))
+#boxplot por cluster
+library(ggplot2)
+library(reshape2)
 
-# Histogramas con tabla de frecuencias para Factor1
-hist_f1 <- hist(factores_df$Factor1, breaks = 10, plot = FALSE)
-tabla_frec <- data.frame(
-  Rango = paste(round(hist_f1$breaks[-length(hist_f1$breaks)], 2), "-", round(hist_f1$breaks[-1], 2)),
-  Frecuencia = hist_f1$counts
-)
-cat("Tabla de frecuencias para Factor 1:\n")
-print(tabla_frec)
-
-png("histograma_factor1.png", width = 800, height = 600)
-plot(hist_f1, col = "lightblue", main = "Histograma de Factor 1", xlab = "Factor 1")
+factores_long <- melt(factores_df[, c("Factor1", "Factor2", "Factor3", "cluster")], id.vars = "cluster")
+png("boxplots_colores_por_factor.png", width = 900, height = 600)
+ggplot(factores_long, aes(x = cluster, y = value, fill = variable)) +
+  geom_boxplot(position = position_dodge(width = 0.8)) +
+  labs(title = "Boxplots de Factores por Cluster (colores por factor)", x = "Cluster", y = "Valor del factor", fill = "Factor") +
+  theme_minimal()
 dev.off()
-
-
-# ------------------------ NORMALIDAD EN LOS FACTORES ------------------------
-cat("\n\nPrueba de normalidad univariada en los factores (Shapiro-Wilk):\n")
-for (f in colnames(factores_df)[1:3]) {
-  test <- shapiro.test(factores_df[[f]])
-  cat(f, ": p-valor =", test$p.value, "\n")
-}
-
-cat("\nPrueba de normalidad multivariada (Mardia) sobre los factores:\n")
-mvn_factores <- MVN::mvn(data = factores_df[, 1:3], mvnTest = "mardia", multivariatePlot = TRUE)
-print(mvn_factores$multivariateNormality)

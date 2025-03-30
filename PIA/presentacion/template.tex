@@ -708,6 +708,14 @@ DBSCAN & 0.2409209 \\
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Boxplots de Factores por Cluster}
+\begin{center}
+    \includegraphics[width=0.85\textwidth]{boxplots_colores_por_factor.png}
+\end{center}
+
+\end{frame}
+
+
 %--------------------------------------
 \begin{frame}{Prueba de Igualdad de Medias Multivariadas (MANOVA)}
 
@@ -751,19 +759,38 @@ DBSCAN & 0.2409209 \\
 \end{itemize}
 
 \end{frame}
+\begin{frame}{Conclusiones}
+
+\begin{itemize}
+    \item Se aplicaron pruebas de normalidad univariada y multivariada. Aunque algunas variables cumplen con la normalidad, los datos en conjunto no siguen una distribución normal multivariada.
+    
+    \item El análisis factorial identificó tres factores latentes relevantes:
+    \begin{itemize}
+        \item \textbf{Factor 1:} Obesidad y resistencia a la insulina
+        \item \textbf{Factor 2:} Función renal e inflamación
+        \item \textbf{Factor 3:} Metabolismo de la glucosa
+    \end{itemize}
+
+    \item El análisis de conglomerados indicó que \textbf{K-means con 3 clusters} fue el mejor método según el C-index.
+\end{itemize}
+
+\end{frame}
+
 
 \begin{frame}{Conclusiones}
+
 \begin{itemize}
-    
-    \item A través del análisis de factores, fue posible reducir la complejidad de los datos y encontrar tres variables latentes que resumen bien la información original.
+    \item El \textbf{Factor 1} y el \textbf{Factor 2} mostraron ser útiles para separar claramente los grupos formados por K-means.
 
-    \item La técnica de clustering que mejor agrupó a los pacientes fue \textbf{K-means}, con tres grupos bien definidos según el índice de validación interna (C-index).
+    \item La prueba MANOVA confirmó que existen diferencias estadísticamente significativas entre los grupos.
 
-    \item Se encontró evidencia estadística para afirmar que las medias entre grupos son distintas, lo cual respalda la segmentación realizada.
+    \item Esta segmentación puede ser de utilidad para detectar patrones clínicos relevantes en pacientes menores de 15 años.
 
-    \item Algunos factores resultaron útiles para distinguir los grupos formados, lo que puede aportar información para futuras investigaciones médicas o diagnósticas.
+    \item El enfoque multivariado aplicado puede apoyar futuras decisiones médicas, diagnósticas o de seguimiento clínico.
 \end{itemize}
+
 \end{frame}
+
 
 
 \begin{frame}{Referencias}
