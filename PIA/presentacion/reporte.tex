@@ -60,7 +60,7 @@
         \begin{flushright}
         \textbf{Alumno:} Héctor Alejandro Márquez González\\
         \textbf{Matrícula:} 1989936\\
-        \textbf{Profesora:} Dra. Rosa Isela Hernández Zamora\\
+        \textbf{Profesora:} Rosa Isela Hernández Zamora\\
         \textbf{Fecha de entrega:} 25 de marzo del 2025
         \end{flushright}
     \end{center}
@@ -91,26 +91,28 @@ El análisis permite aportar evidencia para segmentaciones clínicas con utilida
 \chapter{Análisis descriptivo del conjunto de datos}
 
 \section{Variables del estudio}
-Se estudiaron las siguientes variables:
+Se estudiaron las siguientes variables clínicas, junto con una breve descripción de su significado:
+
 \begin{itemize}
-    \item IMC
-    \item ALT
-    \item LDL
-    \item Glucosa
-    \item Creatinina
-    \item Triglicéridos
-    \item Insulina
-    \item DHL
+    \item \textbf{IMC:} Índice de Masa Corporal (kg/m²), utilizado para evaluar el estado nutricional.
+    \item \textbf{ALT:} Alanina aminotransferasa (UI/L), enzima que indica daño hepático.
+    \item \textbf{LDL:} Colesterol LDL (mg/dL), conocido como “colesterol malo”, relacionado con riesgo cardiovascular.
+    \item \textbf{Glucosa:} Concentración de glucosa en sangre (mg/dL), indicador del metabolismo de azúcares.
+    \item \textbf{Creatinina:} Nivel de creatinina sérica (mg/dL), utilizado como marcador de función renal.
+    \item \textbf{Triglicéridos (TRI):} Lípidos en sangre (mg/dL), elevados en casos de síndrome metabólico.
+    \item \textbf{Insulina:} Hormona (µU/mL) responsable de regular la glucosa en sangre.
+    \item \textbf{DHL:} Deshidrogenasa láctica (UI/L), enzima asociada a daño tisular o inflamación.
 \end{itemize}
+
 
 \section{Matriz de correlaciones}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{correlation_plot.png}
-    \caption{Gráfica 1. Matriz de correlaciones entre las variables clínicas}
+    \includegraphics[width=0.9\textwidth]{correlation_plot.png}
+    \caption{Matriz de correlaciones entre las variables clínicas}
 \end{figure}
 
-\noindent En la Gráfica 1 se observa que variables como IMC, Insulina y Triglicéridos presentan correlaciones positivas fuertes, lo cual indica relación entre obesidad y resistencia a la insulina.
+\noindent En la Figura 2.1 se observa que variables como IMC, Insulina y Triglicéridos presentan correlaciones positivas fuertes, lo cual indica relación entre obesidad y resistencia a la insulina.
 % Sección: Histogramas y Tablas de Frecuencia
 \section{Histogramas y Tablas de Frecuencia}
 
@@ -140,7 +142,7 @@ Se estudiaron las siguientes variables:
     \end{tabular}
     \caption{Tabla de frecuencias para IMC}
 \end{table}
-\noindent En la Gráfica 2.2 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+\noindent En la Figura 2.2 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
 \subsection{ALT}
 \begin{figure}[H]
     \centering
@@ -167,7 +169,7 @@ Se estudiaron las siguientes variables:
     \end{tabular}
     \caption{Tabla de frecuencias para ALT}
 \end{table}
-\noindent En la Gráfica 2.3 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. Este histograma es parecido a una distribución exponencial.
+\noindent En la Figura 2.3 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. Este histograma es parecido a una distribución exponencial.
 
 \subsection{LDL}
 \begin{figure}[H]
@@ -195,7 +197,7 @@ Se estudiaron las siguientes variables:
     \end{tabular}
     \caption{Tabla de frecuencias para LDL}
 \end{table}
-\noindent En la Gráfica 2.5 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+\noindent En la Figura 2.4 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
 
 \subsection{Glucosa}
 \begin{figure}[H]
@@ -221,7 +223,7 @@ Se estudiaron las siguientes variables:
     \end{tabular}
     \caption{Tabla de frecuencias para Glucosa}
 \end{table}
-\noindent En la Gráfica 2.5 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+\noindent En la Figura 2.5 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
 
 \subsection{Creatinina Serica}
 \begin{figure}[H]
@@ -250,7 +252,7 @@ Se estudiaron las siguientes variables:
     \end{tabular}
     \caption{Tabla de frecuencias para Creatinina Serica}
 \end{table}
-\noindent En la Gráfica 2.6 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. Este histograma es parecido a una distribución exponencial.
+\noindent En la Figura 2.6 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. Este histograma es parecido a una distribución exponencial.
 
 
 \subsection{TRI}
@@ -280,7 +282,7 @@ Se estudiaron las siguientes variables:
     \end{tabular}
     \caption{Tabla de frecuencias para Triglicéridos}
 \end{table}
-\noindent En la Gráfica 2.7 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+\noindent En la Figura 2.7 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
 
 \subsection{Insulina}
 \begin{figure}[H]
@@ -308,7 +310,7 @@ Se estudiaron las siguientes variables:
     \caption{Tabla de frecuencias para Insulina}
 \end{table}
 
-\noindent En la Gráfica 2.8 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. 
+\noindent En la Figura 2.8 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. 
 
 \subsection{DHL}
 \begin{figure}[H]
@@ -340,14 +342,14 @@ Se estudiaron las siguientes variables:
     \end{tabular}
     \caption{Tabla de frecuencias para DHL}
 \end{table}
-\noindent En la Gráfica 2.9 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. 
+\noindent En la Figura 2.9 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. 
 
 
 \newpage
 
 \section{Normalidad univariada (Shapiro-Wilk)}
 Antes de aplicar técnicas multivariadas como análisis factorial o de conglomerados, es importante comprobar si las variables siguen una distribución normal. Para ello, se aplicó la prueba de Shapiro-Wilk a cada variable individual.\newline
-La regla de decisión es: si el \textbf{p-valor $<$ 0.05}, se \textbf{rechaza $H_0$} y se concluye que la variable no sigue una distribución normal.
+La regla de decisión es: si el p-valor $<$ 0.05, se rechaza $H_0$ y se concluye que la variable no sigue una distribución normal.
 
 \textbf{Hipótesis:}
 \begin{itemize}
@@ -371,31 +373,35 @@ Insulina & 0.000287 \\
 DHL & 0.000238 \\
 \bottomrule
 \end{tabular}
-\caption{Tabla 1. Prueba de normalidad univariada por variable}
+\caption{Prueba de normalidad univariada por variable}
 \end{table}
 
-\noindent En la Tabla 1 observamos que IMC, glucosa y triglicéridos no rechazan la hipótesis de normalidad. Las demás variables sí muestran desviación significativa. \\\textbf{Conclusión:} IMC, glucosa y triglicéridos siguen una normal univariada.
-
-\section{Normalidad multivariada}
-Además de verificar la normalidad individual de las variables, es importante conocer si el conjunto de datos cumple con normalidad multivariada, condición importante en varios métodos multivariados. Para ello se aplicó la prueba de Mardia.\newline
-La regla de decisión es: si el \textbf{p-valor $<$ 0.05}, se \textbf{rechaza $H_0$} y se concluye que el conjunto de datos no sigue una distribución normal multivariada.
-
-\textbf{Prueba utilizada:} Prueba de Mardia
+\noindent En el cuadro 2.9 observamos que IMC, glucosa y triglicéridos no rechazan la hipótesis de normalidad. Las demás variables sí la rechazan. Debido a esto: IMC, glucosa y triglicéridos siguen una normal univariada, mientras que las demás no.
+\newpage
+\section{Normalidad Multivariada}
+Para evaluar si los tres factores obtenidos siguen una distribución normal multivariada, se aplicó la prueba de Mardia, que evalúa asimetría (skewness) y curtosis (kurtosis) multivariada.
 
 \textbf{Hipótesis:}
 \begin{itemize}
-    \item $H_0$: Los datos siguen una distribución normal multivariada.
-    \item $H_1$: Los datos no siguen una distribución normal multivariada.
+    \item $H_0$: Los factores siguen una distribución normal multivariada.
+    \item $H_1$: Los factores no siguen una distribución normal multivariada.
 \end{itemize}
 
 \textbf{Resultados:}
-\begin{itemize}
-    \item Asimetría (Skewness): 219.77 con p-valor $ < $ 0.001
-    \item Curtosis (Kurtosis): 3.30 con p-valor = 0.00095
-\end{itemize}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Prueba} & \textbf{Estadístico} & \textbf{p-valor} & \textbf{Resultado} \\
+\hline
+Mardia Skewness & 19.28 & 0.0369 & \textbf{NO} \\
+Mardia Kurtosis & -0.035 & 0.9719 & \textbf{SÍ} \\
+\hline
+\end{tabular}
+\caption{Prueba de normalidad multivariada (Mardia) para los factores}
+\end{table}
 
-\noindent Ambos valores p son menores a 0.05, por lo tanto se rechaza la hipótesis nula. \\
-\textbf{Conclusión:} Los datos no siguen una distribución normal multivariada.
+\noindent Como el p-valor de la asimetría es menor a 0.05, se rechaza la hipótesis nula. Aunque la curtosis es compatible con normalidad, en conjunto se concluye que los factores no siguen una distribución normal multivariada.
 
 \newpage
 
@@ -418,10 +424,188 @@ Insulina & 13.4648 & 6.8496 \\
 DHL & 354.2000 & 168.4154 \\
 \hline
 \end{tabular}
-\caption{Tabla 1. Vector de Promedios y Desviación Muestral para cada variable}
+\caption{Vector de Promedios y Desviación Muestral para cada variable}
 \end{table}
 
-\noindent En la Tabla 1 se observan los promedios y desviaciones muestrales para cada una de las ocho variables clínicas. Estas estadísticas resumen la tendencia central y la variabilidad, y permiten una comparación inicial entre las variables.
+\noindent En el cuadro 2.11 se observan los promedios y desviaciones muestrales para cada una de las ocho variables clínicas. Estas estadísticas nos dejan claro que las unidades de cada una de las variables son de diferentes escalas, esto significa que mas adelantae tendremos la necesidad de escalar los datos.
+\newpage
+\section{Histogramas y Tablas de Frecuencia de Factores}
+En la Sección 3.1 se llevó a cabo un análisis factorial utilizando las ocho variables clínicas originales. Como resultado, se obtuvieron tres factores principales, los cuales representan variables latentes que resumen la información contenida en las variables iniciales. A continuación, se presenta un análisis descriptivo de estos factores con el fin de explorar su comportamiento estadístico y su utilidad para posteriores análisis multivariados.
+
+\subsection{Factor 1}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_Factor1.png}
+    \caption{Histograma de Factor 1}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Límite Inferior} & \textbf{Límite Superior} & \textbf{Frecuencia} \\
+\hline
+-1.5 & -1.0 & 6 \\
+-1.0 & -0.5 & 13 \\
+-0.5 &  0.0 & 10 \\
+ 0.0 &  0.5 & 6 \\
+ 0.5 &  1.0 & 6 \\
+ 1.0 &  1.5 & 3 \\
+ 1.5 &  2.0 & 4 \\
+ 2.0 &  2.5 & 2 \\
+\hline
+\end{tabular}
+\caption{Tabla de frecuencias para Factor 1}
+\end{table}
+
+\noindent En la Figura 2.10 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+
+\subsection{Factor 2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_Factor2.png}
+    \caption{Histograma de Factor 2}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Límite Inferior} & \textbf{Límite Superior} & \textbf{Frecuencia} \\
+\hline
+-2.0 & -1.5 & 2 \\
+-1.5 & -1.0 & 4 \\
+-1.0 & -0.5 & 11 \\
+-0.5 &  0.0 & 12 \\
+ 0.0 &  0.5 & 9 \\
+ 0.5 &  1.0 & 4 \\
+ 1.0 &  1.5 & 3 \\
+ 1.5 &  2.0 & 2 \\
+ 2.0 &  2.5 & 1 \\
+ 2.5 &  3.0 & 2 \\
+\hline
+\end{tabular}
+\caption{Tabla de frecuencias para Factor 2}
+\end{table}
+
+\noindent En la Figura 2.11 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+
+\subsection{Factor 3}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_Factor3.png}
+    \caption{Histograma de Factor 3}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Límite Inferior} & \textbf{Límite Superior} & \textbf{Frecuencia} \\
+\hline
+-3.0 & -2.5 & 1 \\
+-2.5 & -2.0 & 0 \\
+-2.0 & -1.5 & 3 \\
+-1.5 & -1.0 & 4 \\
+-1.0 & -0.5 & 6 \\
+-0.5 &  0.0 & 8 \\
+ 0.0 &  0.5 & 14 \\
+ 0.5 &  1.0 & 8 \\
+ 1.0 &  1.5 & 3 \\
+ 1.5 &  2.0 & 2 \\
+ 2.0 &  2.5 & 1 \\
+\hline
+\end{tabular}
+\caption{Tabla de frecuencias para Factor 3}
+\end{table}
+
+\noindent En la Figura 2.12 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+
+\newpage
+
+\section{Prueba de Normalidad Univariada en Factores}
+
+Para evaluar si los factores latentes extraídos del análisis factorial siguen una distribución normal, se aplicó la prueba de Shapiro-Wilk a cada factor.\\ La regla de desición es: Si el p-valor es menor a 0.05, se rechaza $H_0$ y se concluye que la variable no sigue una distribución normal.
+
+\begin{itemize}
+    \item $H_0$: El factor sigue una distribución normal.
+    \item $H_1$: El factor no sigue una distribución normal.
+\end{itemize}
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Factor} & \textbf{p-valor (Shapiro-Wilk)} \\
+\hline
+Factor 1 & 0.0054 \\
+Factor 2 & 0.0061 \\
+Factor 3 & 0.9721 \\
+\hline
+\end{tabular}
+\caption{Resultados de la prueba de normalidad Shapiro-Wilk para los factores}
+\end{table}
+
+\noindent Como se muestra en el cuadro 2.15, los factores 1 y 2 presentan p-valores menores a 0.05, por lo tanto, se concluye que no siguen una distribución normal. Por otro lado, el Factor 3 sí cumple con la normalidad.
+
+\newpage
+
+
+\section{Normalidad multivariada en los factores}
+
+Para evaluar si los tres factores obtenidos siguen una distribución normal multivariada, se aplicó la prueba de Mardia, que evalúa asimetría (skewness) y curtosis (kurtosis) multivariada.
+
+\textbf{Hipótesis:}
+\begin{itemize}
+    \item $H_0$: Los factores siguen una distribución normal multivariada.
+    \item $H_1$: Los factores no siguen una distribución normal multivariada.
+\end{itemize}
+
+\textbf{Resultados:}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Prueba} & \textbf{Estadístico} & \textbf{p-valor} & \textbf{Resultado} \\
+\hline
+Mardia Skewness & 19.28 & 0.0369 & \textbf{NO} \\
+Mardia Kurtosis & -0.035 & 0.9719 & \textbf{SÍ} \\
+\hline
+\end{tabular}
+\caption{Prueba de normalidad multivariada (Mardia) para los factores}
+\end{table}
+
+\noindent Como el p-valor de la asimetría es menor a 0.05, se rechaza la hipótesis nula. Aunque la curtosis es compatible con normalidad, en conjunto se concluye que los factores no siguen una distribución normal multivariada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{qqplot_mahalanobis_factores.png}
+    \caption{Gráfico QQ con distancia de Mahalanobis aplicado a los factores}
+\end{figure}
+Con el gráfico de cuantiles teóricos respecto a los muestrales podemos observar que no sigue una distribución normal multivariada.
+
+\section{Media y Desviación Estándar de los Factores Latentes}
+
+Después de realizar el análisis factorial con datos estandarizados, se calcularon los promedios y la desviación estándar de cada factor. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Factor} & \textbf{Promedio} & \textbf{Desviación Muestral} \\
+\hline
+Factor 1 & 0.0000 & 1.0000 \\
+Factor 2 & 0.0000 & 1.0000 \\
+Factor 3 & 0.0000 & 1.0000 \\
+\hline
+\end{tabular}
+\caption{Promedio y desviación muestral de los factores latentes}
+\end{table}
+
+\noindent
+Como se muestra en el Cuadro 2.17, los tres factores latentes tienen un promedio igual a 0 y una desviación muestral igual a 1. Esto no es una coincidencia, sino una consecuencia directa del hecho de que el análisis factorial se realizó sobre datos estandarizados. Al trabajar con variables escaladas, las puntuaciones factoriales resultantes también presentan, por construcción, una media cercana a 0 y una desviación estándar cercana a 1.
 
 
 % ================== Análisis Multivariado =====================
@@ -433,7 +617,7 @@ DHL & 354.2000 & 168.4154 \\
 %---------------------------------------------------
 
 \section{Análisis de Factores}
-El análisis de factores tiene como objetivo reducir la dimensionalidad del conjunto de datos y descubrir variables latentes que expliquen la mayor parte de la varianza entre las variables originales. Se aplicó la técnica en las 8 variables clínicas, previo cumplimiento de condiciones estadísticas.
+El análisis de factores tiene como objetivo reducir la dimensionalidad del conjunto de datos y descubrir variables latentes que expliquen la mayor parte de la varianza entre las variables originales. Se aplicó la técnica en las 8 variables clínicas.
 
 \subsection{Prueba de Esfericidad de Bartlett}
 Antes de aplicar el análisis factorial, es necesario verificar si las variables están correlacionadas entre sí.
@@ -452,6 +636,8 @@ Antes de aplicar el análisis factorial, es necesario verificar si las variables
 \end{itemize}
 
 \noindent Como el p-valor es menor a 0.05, se rechaza la hipótesis nula. Es adecuado aplicar análisis factorial.
+
+\newpage
 
 \subsection{Componentes Principales y Varianza Explicada}
 Se realizó un análisis de componentes principales (PCA) para calcular la varianza explicada acumulada por cada componente:
@@ -472,10 +658,10 @@ PC7 & 5.02\% & 95.90\% \\
 PC8 & 4.10\% & 100.00\% \\
 \hline
 \end{tabular}
-\caption{Tabla 3. Varianza explicada por los componentes principales}
+\caption{Varianza explicada por los componentes principales}
 \end{table}
 
-\noindent Se observa que los tres primeros componentes explican más del 63\% de la varianza. Esto sugiere que se pueden utilizar 3 factores en el análisis factorial.
+\noindent Se observa que los tres primeros componentes explican más del 63\% de la varianza. Esto sugiere que se pueden utilizar 3 factores en el análisis factorial. Ahora usaremos el gráfico del codo para analizar la gráfica de análisis paralelo, que nos ayudará a elegir el número de factores de nuestro análisis.
 
 \subsection{Selección del Número de Factores: Gráfico de Codo}
 Se utilizó el gráfico de codo generado por la función \texttt{fa.parallel} para comparar los eigenvalues reales y simulados:
@@ -486,7 +672,7 @@ Se utilizó el gráfico de codo generado por la función \texttt{fa.parallel} pa
     \caption{Gráfico de Codo: Comparación de eigenvalues reales vs simulados}
 \end{figure}
 
-\noindent Los factores 1, 2 y 3 tienen eigenvalues reales superiores a los esperados por simulación aleatoria. Se concluye que tres factores son suficientes.
+\noindent Los factores (línea con triángulos) 1, 2 y 3 tienen eigenvalues reales (línea azul) superiores a los esperados por simulación aleatoria (línea punteada roja). Se concluye que tres factores son suficientes. A continuación, calcularemos nuestra matriz de cargas factoriales después de aplicar una rotación varimax.
 
 \subsection{Matriz de Cargas Factoriales con Rotación Varimax}
 
@@ -506,8 +692,10 @@ Insulina & 0.78 & 0.20 & -0.21 \\
 DHL & 0.26 & -0.69 & 0.25 \\
 \hline
 \end{tabular}
-\caption{Tabla 4. Matriz de cargas factoriales con rotación Varimax}
+\caption{Matriz de cargas factoriales con rotación Varimax}
 \end{table}
+
+Al observar las cargas de cada factor, podemos hacer una interpretación de cada factor y que significará para nuestro análisis, basándonos en la carga.
 
 \subsection{Interpretación de los Factores}
 \begin{itemize}
@@ -516,15 +704,16 @@ DHL & 0.26 & -0.69 & 0.25 \\
     \item \textbf{Factor 3:} Glucosa — Metabolismo de la glucosa.
 \end{itemize}
 
-\noindent Estos factores permiten resumir la información original en tres dimensiones más interpretables desde un punto de vista clínico.
+\noindent Estos factores permiten resumir la información original en tres dimensiones más interpretables desde un punto de vista clínico. También nos sirve debido a que al hacer nuestro análisis de conglomerados, podemos graficar en tres dimensiones.
 
 \newpage
 
 \section{Análisis de Conglomerados}
+El análisis de conglomerados (clustering) es una técnica estadística multivariada utilizada para agrupar observaciones en subconjuntos homogéneos, llamados clusters o conglomerados, de tal manera que los elementos dentro de cada grupo sean lo más similares posible entre sí, y lo más diferentes posible respecto a los elementos de otros grupos. Nosotros usaremos este análisis para separar a los pacientes, basándonos en tres variables: los tres factores que calculamos en el análisis de factores.
 
 \subsection{Metodología General del Análisis de Conglomerados}
 \begin{itemize}
-    \item Primero, se utilizó el \textbf{índice de Silhouette} con el método jerárquico para estimar el número óptimo de grupos.
+    \item Primero, se utilizó el índice de Silhouette con el método jerárquico para estimar el número óptimo de grupos.
     \item Luego, se aplicaron cuatro algoritmos de clustering:
     \begin{enumerate}
         \item K-means
@@ -532,31 +721,32 @@ DHL & 0.26 & -0.69 & 0.25 \\
         \item Jerárquico
         \item DBSCAN (basado en densidad)
     \end{enumerate}
-    \item Para cada uno, se calculó una medida de \textbf{validación interna} (\textbf{C-index}), ya que no se dispone de una clasificación real.
+    \item Para cada uno, se calculó una medida de validación interna (C-index), ya que no se dispone de una clasificación real.
     \item Finalmente, se seleccionó el método con el menor C-index como la mejor solución de agrupamiento.
 \end{itemize}
 
+\newpage
 \subsection{Selección del número óptimo de clusters con Silhouette}
-Se aplicó clustering jerárquico y se evaluó el índice de Silhouette promedio para \(k = 2\) hasta \(k = 10\). La gráfica correspondiente se muestra en la Figura 1.
+Se aplicó clustering jerárquico y se evaluó el índice de Silhouette promedio para \(k = 2\) hasta \(k = 10\). Analizaremos el índice y seleccionaremos el mayor índice.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{silhouette_jerarquico.png}
-    \caption{Figura 1. Índice de Silhouette promedio para distintos valores de \(k\)}
+    \caption{Índice de Silhouette promedio para distintos valores de \(k\)}
 \end{figure}
 
-\noindent El valor máximo se alcanza en \(k = 3\), por lo tanto, se concluye que \textbf{3 es el número óptimo de clusters}.
+\noindent El valor máximo se alcanza en \(k = 3,6,7\), sin embargo, por simplicidad, tomaremos 3. Por lo tanto, se concluye que 3 es el número óptimo de clusters.
 
 \subsection{¿Qué es el C-index?}
-El \textbf{C-index} es una métrica interna de validación para evaluar la calidad de una partición. Se define como:
+El C-index es una métrica interna de validación para evaluar la calidad de una partición. Se define como:
 \[ C = \frac{S - S_{min}}{S_{max} - S_{min}} \]
 Donde:
 \begin{itemize}
     \item $S$ es la suma de las distancias dentro de los clusters.
     \item $S_{min}$ y $S_{max}$ corresponden a las sumas mínimas y máximas posibles entre pares.
 \end{itemize}
-\textbf{Interpretación:} Cuanto más cercano a 0 sea el C-index, mejor es la calidad de la partición.
-
+Cuanto más cercano a 0 sea el C-index, mejor es la calidad de la partición.
+\newpage
 \subsection{Comparación de Métodos de Agrupamiento}
 \begin{itemize}
     \item Se aplicaron cuatro modelos:
@@ -569,6 +759,84 @@ Donde:
     \item Cada modelo fue evaluado usando el C-index.
     \item El método con el \textbf{menor C-index} se seleccionó como el más adecuado.
 \end{itemize}
+\newpage
+\subsection{Comparación de Métodos de Clustering}
+
+A continuación se presentan los resultados obtenidos al aplicar distintos algoritmos de clustering. Cada uno fue evaluado con el \textbf{C-index}, una medida de validación interna que permite comparar la cohesión de los grupos formados.
+
+\subsubsection{K-means}
+\begin{itemize}
+    \item Se aplicó el algoritmo K-means con $k = 3$.
+    \item Se obtuvo un \textbf{C-index de 0.1162249}, el más bajo entre todos los métodos.
+    \item Por lo tanto, se considera la mejor solución de agrupamiento.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{KMEANS.png}
+    \caption{Visualización 3D de agrupamiento con K-means}
+\end{figure}
+\newpage
+\subsubsection{Expectation Maximization (EM)}
+\begin{itemize}
+    \item Se aplicó el algoritmo Expectation Maximization.
+    \item El C-index obtenido fue \textbf{0.2454119}.
+    \item Esta agrupación fue menos compacta en comparación con K-means.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{EM.png}
+    \caption{Visualización 3D de agrupamiento con EM}
+\end{figure}
+\newpage
+\subsubsection{Clustering Jerárquico}
+\begin{itemize}
+    \item Se utilizó el método jerárquico con enlace completo.
+    \item El C-index obtenido fue \textbf{0.1403033}.
+    \item El rendimiento fue mejor que EM, pero inferior a K-means.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{JERARQUICO.png}
+    \caption{Visualización 3D de agrupamiento jerárquico}
+\end{figure}
+\newpage
+\subsubsection{DBSCAN}
+\begin{itemize}
+    \item Se utilizó DBSCAN con $\varepsilon = 1.5$ y \texttt{minPts} = 2.
+    \item Se obtuvo un C-index de \textbf{0.2409209}.
+    \item Resultado similar a EM, con menor cohesión entre grupos.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{DBSCAN.png}
+    \caption{Visualización 3D de agrupamiento con DBSCAN}
+\end{figure}
+\newpage
+\subsubsection{Comparación visual de los métodos}
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{cc}
+        \includegraphics[width=0.5\textwidth]{KMEANS.png} & 
+        \includegraphics[width=0.5\textwidth]{EM.png} \\
+        \includegraphics[width=0.5\textwidth]{JERARQUICO.png} & 
+        \includegraphics[width=0.5\textwidth]{DBSCAN.png} \\
+    \end{tabular}
+    \caption{Comparación visual de agrupamientos con diferentes métodos}
+\end{figure}
+Esta comparación permite observar que un paciente en particular, de nombre Carlos, fue asignado a distintos grupos según el algoritmo de agrupamiento utilizado. 
+
+En el caso de \textbf{K-means}, Carlos pertenece al \textbf{grupo 3}, ubicado hacia la izquierda de la gráfica. 
+
+Con el algoritmo \textbf{Expectation Maximization (EM)}, Carlos se encuentra en el grupo central de la visualización. 
+
+En el método \textbf{Jerárquico}, Carlos aparece en el grupo situado en el fondo de la gráfica. 
+
+Finalmente, con el algoritmo \textbf{DBSCAN}, Carlos pertenece al grupo más numeroso, es decir, aquel que contiene la mayoría de los puntos.
+
 
 \subsection{Resultados del C-index por método}
 \begin{table}[H]
@@ -583,9 +851,9 @@ Jerárquico & 0.1403033 \\
 DBSCAN & 0.2409209 \\
 \hline
 \end{tabular}
-\caption{Tabla 5. C-index por método de agrupamiento}
+\caption{C-index por método de agrupamiento}
 \end{table}
-
+Debido a que kmeans nos dio el mejor C-index, repetiremos el algoritmo diez veces aleatoriamente, esto para ver si podemos minimizar el C-index.
 \subsection{Repetición de K-means para optimización}
 Se repitió el algoritmo K-means 10 veces con diferentes semillas. Los valores de C-index fueron:
 \begin{itemize}
@@ -593,8 +861,12 @@ Se repitió el algoritmo K-means 10 veces con diferentes semillas. Los valores d
     \item 0.1162249, 0.2881972, 0.1162249, 0.1162249, 0.1354802
 \end{itemize}
 Se confirma que el valor mínimo sigue siendo 0.1162249, por lo tanto, la solución inicial fue óptima.
-
+\newpage
 \subsection{Separación de grupos por factores}
+Con el objetivo de analizar si es posible predecir a qué grupo pertenecerá un paciente a partir de sus puntuaciones factoriales, se aplicará un análisis descriptivo simple pero poderoso: el cálculo de los promedios por grupo para cada factor.
+
+Este análisis nos permitirá identificar si ciertos grupos presentan valores promedio más altos o más bajos en determinadas variables latentes, lo cual puede ayudar a caracterizar los perfiles de cada conglomerado y facilitar la clasificación de nuevos pacientes.
+
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|}
@@ -606,18 +878,24 @@ Se confirma que el valor mínimo sigue siendo 0.1162249, por lo tanto, la soluci
 3 & -0.55 & -0.49 &  0.17 \\
 \hline
 \end{tabular}
-\caption{Tabla 6. Promedio de factores por grupo (K-means)}
+\caption{Promedio de factores por grupo (K-means)}
 \end{table}
 
-\noindent El \textbf{Factor 1} y el \textbf{Factor 2} presentan diferencias marcadas entre los grupos, lo que indica que contribuyen a la separación entre los mismos.
+\noindent El \textbf{Factor 1} y el \textbf{Factor 2} presentan diferencias marcadas entre los grupos, lo que indica que contribuyen a la separación entre los mismos. A continuación tendremos una gráfica que nos ayudará a visualizar mas fácilmente esta diferencia entre grupos.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{boxplots_colores_por_factor.png}
-    \caption{Figura 2. Boxplots de factores por grupo (K-means)}
+    \caption{Boxplots de factores por grupo (K-means)}
 \end{figure}
-
+Observamos en la figura 3.8 que el grupo 1 (de la izquierda) tiene un factor 1 promedio mucho mayor a los demás grupos. También el grupo 2 (el de enmedio) tiene un factor 2 en promedio mucho mayor a los otros grupos.
+\newpage
 \subsection{MANOVA: Prueba de Igualdad de Medias Multivariadas}
+
+Antes de evaluar si existen diferencias entre los grupos formados por el algoritmo de K-means, es común verificar la igualdad de las matrices de covarianzas mediante la prueba de Box M. Sin embargo, esta prueba asume normalidad multivariada, y en nuestro caso, dicha condición no se cumple según la prueba de Mardia.
+
+Por lo tanto, continuamos directamente con la prueba de MANOVA, que permite comparar simultáneamente los vectores de medias entre los grupos definidos. Este análisis nos ayudará a determinar si al menos uno de los factores latentes permite discriminar entre los grupos.
+
 \textbf{Hipótesis:}
 \begin{itemize}
     \item $H_0$: Los vectores de medias poblacionales de los 3 grupos son iguales.
@@ -631,11 +909,12 @@ Se confirma que el valor mínimo sigue siendo 0.1162249, por lo tanto, la soluci
     \item Decisión: Como $125.42 > 12.59$, se \textbf{rechaza $H_0$}
 \end{itemize}
 
-\textbf{Conclusión:} Existen diferencias significativas entre los grupos. Al menos un factor discrimina efectivamente entre ellos.
+\textbf{Conclusión:} Los resultados indican que los grupos formados por el algoritmo de K-means presentan diferencias estadísticamente significativas en al menos una de las variables latentes. Esto sugiere que los factores obtenidos en el análisis factorial son útiles para distinguir entre los distintos perfiles de pacientes.
+
 
 \newpage
 % ================== Conclusiones =====================
-\section{Conclusiones Generales}
+\section{Conclusiones}
 
 El presente estudio utilizó técnicas estadísticas multivariadas para analizar información clínica de pacientes menores de 15 años. A continuación, se resumen los hallazgos más relevantes:
 
@@ -650,33 +929,34 @@ El presente estudio utilizó técnicas estadísticas multivariadas para analizar
     \end{itemize}
 
     \item Se aplicaron cuatro algoritmos de agrupamiento (K-means, EM, Jerárquico, DBSCAN). La validación interna mediante el índice C-index determinó que K-means con 3 clusters fue el mejor método.
+    
 
-    \item El análisis de medias por grupo mostró que los factores 1 y 2 ayudan a diferenciar entre los conglomerados.
+
+
+    \item El análisis de medias por grupo mostró que los factores 1 y 2 ayudan a diferenciar a los grupos 1 y 2 respectivamente.
+    
+    \item A partir de estos resultados, se concluye que el algoritmo K-means asignó al paciente Carlos al grupo 3, el cual, según el análisis de los factores, no presenta valores promedio especialmente altos o bajos en comparación con los demás grupos. Esto sugiere que Carlos pertenece a un grupo clínicamente intermedio, sin características clínicas dominantes.
 
     \item La prueba MANOVA confirmó que existen diferencias estadísticamente significativas entre los grupos, lo cual valida la segmentación obtenida por el modelo K-means.
 \end{itemize}
 
 \noindent En conjunto, los métodos aplicados permitieron caracterizar subgrupos clínicos con perfiles diferenciados, lo cual puede ser útil para la toma de decisiones médicas en pacientes pediátricos.
 
-\vspace{0.5cm}
-\noindent \textbf{Recomendaciones:}
-\begin{itemize}
-    \item Realizar un seguimiento longitudinal de los pacientes por grupo para evaluar la evolución clínica.
-    \item Considerar análisis supervisados (como discriminante lineal) si se llega a obtener una clasificación clínica validada.
-    \item Aplicar estas metodologías a un conjunto de datos más grande para validar la estabilidad de los grupos.
-\end{itemize}
-
 \newpage
 \section{Referencias}
 
 \begin{itemize}
     \item Petriz Guzmán, estudiante de Medicina. Datos clínicos recolectados como parte de su práctica profesional en el centro de salud Santa María Guadalupe Tecola, Puebla.
+    
+    \item Hernández Zamora, R. I. (2025). Métodos Estadísticos Multivariados [Clase magistral]. Maestría en Ciencia de Datos, Facultad de Ciencias Físico Matemáticas, Universidad Autónoma de Nuevo León.
 
-    \item Hair, J. F., Black, W. C., Babin, B. J., \& Anderson, R. E. (2014). \textit{Multivariate Data Analysis}. Pearson Education.
 
-    \item Johnson, R. A., \& Wichern, D. W. (2007). \textit{Applied Multivariate Statistical Analysis}. Pearson Prentice Hall.
+    \item R Core Team. (2024). \textit{R: A language and environment for statistical computing} (Versión 4.3). R Foundation for Statistical Computing. https://www.r-project.org/
 
-    \item R Core Team (2024). \textit{R: A Language and Environment for Statistical Computing}. R Foundation for Statistical Computing, Vienna, Austria. URL: \url{https://www.R-project.org/}
+    \item JetBrains. (2024). \textit{PyCharm} (Versión 2024.1) [Entorno de desarrollo integrado]. https://www.jetbrains.com/pycharm/
+
+
+
 \end{itemize}
 
 \end{document}
