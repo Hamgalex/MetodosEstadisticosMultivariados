@@ -41,10 +41,10 @@
 % ================== Portada =====================
 \begin{titlepage}
     \begin{center}
-        \includegraphics[width=0.2\textwidth]{logo_uanl.png}~\hfill~
+        \includegraphics[width=0.35\textwidth]{logo_uanl.png}~\hfill~
         \includegraphics[width=0.2\textwidth]{logo_fcfm.png} \\[1cm]
 
-        {\Large \textbf{Universidad Autónoma de Nuevo León}} \
+        {\Large \textbf{Universidad Autónoma de Nuevo León}} \\
         {\large Facultad de Ciencias Físico Matemáticas} \\[1cm]
 
         \rule{\linewidth}{0.5mm} \
@@ -60,8 +60,8 @@
         \begin{flushright}
         \textbf{Alumno:} Héctor Alejandro Márquez González\\
         \textbf{Matrícula:} 1989936\\
-        \textbf{Profesora:} Rosa Isela Hernández Zamora\\
-        \textbf{Fecha de entrega:} 25 de marzo del 2025
+        \textbf{Profesor:} Rosa Isela Hernández Zamora\\
+        \textbf{Fecha de entrega:} 1 de abril del 2025
         \end{flushright}
     \end{center}
 \end{titlepage}
@@ -394,14 +394,14 @@ Para evaluar si los tres factores obtenidos siguen una distribución normal mult
 \hline
 \textbf{Prueba} & \textbf{Estadístico} & \textbf{p-valor} & \textbf{Resultado} \\
 \hline
-Mardia Skewness & 19.28 & 0.0369 & \textbf{NO} \\
-Mardia Kurtosis & -0.035 & 0.9719 & \textbf{SÍ} \\
+Mardia Skewness & 219.77 & $< 0.001$ & \textbf{NO} \\
+Mardia Kurtosis & 3.30 & $0.00095$ & \textbf{NO}\\
 \hline
 \end{tabular}
 \caption{Prueba de normalidad multivariada (Mardia) para los factores}
 \end{table}
 
-\noindent Como el p-valor de la asimetría es menor a 0.05, se rechaza la hipótesis nula. Aunque la curtosis es compatible con normalidad, en conjunto se concluye que los factores no siguen una distribución normal multivariada.
+\noindent Como el p-valor de la asimetría y curtosis es menor a 0.05, se rechaza la hipótesis nula. Se concluye que los factores no siguen una distribución normal multivariada.
 
 \newpage
 
@@ -427,7 +427,7 @@ DHL & 354.2000 & 168.4154 \\
 \caption{Vector de Promedios y Desviación Muestral para cada variable}
 \end{table}
 
-\noindent En el cuadro 2.11 se observan los promedios y desviaciones muestrales para cada una de las ocho variables clínicas. Estas estadísticas nos dejan claro que las unidades de cada una de las variables son de diferentes escalas, esto significa que mas adelantae tendremos la necesidad de escalar los datos.
+\noindent En el cuadro 2.11 se observan los promedios y desviaciones muestrales para cada una de las ocho variables clínicas. Estas estadísticas nos dejan claro que las unidades de cada una de las variables son de diferentes escalas, esto significa que tendremos la necesidad de escalar los datos.
 \newpage
 \section{Histogramas y Tablas de Frecuencia de Factores}
 En la Sección 3.1 se llevó a cabo un análisis factorial utilizando las ocho variables clínicas originales. Como resultado, se obtuvieron tres factores principales, los cuales representan variables latentes que resumen la información contenida en las variables iniciales. A continuación, se presenta un análisis descriptivo de estos factores con el fin de explorar su comportamiento estadístico y su utilidad para posteriores análisis multivariados.
