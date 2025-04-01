@@ -1,0 +1,682 @@
+\documentclass[12pt]{report}
+
+% ================== Paquetes =====================
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, graphicx, booktabs, longtable, float}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{color}
+\usepackage{pdfpages}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{bm}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{fontspec}       % Para usar fuentes del sistema
+\usepackage{setspace}       % Para controlar el interlineado
+
+% ================== Configuración =====================
+\setmainfont{Arial}         % Establecer Arial como fuente principal
+\linespread{1.15}           % Interlineado de 1.15
+\graphicspath{{Images/}{./}}
+
+
+% ================== Formato de títulos =====================
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter.}{2pc}{}
+\titleformat{\section}[hang]{\Large\bfseries}{\thesection.}{1pc}{}
+
+% ================== Encabezados =====================
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Héctor Márquez}
+\lhead{PIA - Métodos Estadísticos Multivariados}
+\cfoot{\thepage}
+
+% ================== Documento =====================
+\begin{document}
+
+% ================== Portada =====================
+\begin{titlepage}
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{logo_uanl.png}~\hfill~
+        \includegraphics[width=0.2\textwidth]{logo_fcfm.png} \\[1cm]
+
+        {\Large \textbf{Universidad Autónoma de Nuevo León}} \
+        {\large Facultad de Ciencias Físico Matemáticas} \\[1cm]
+
+        \rule{\linewidth}{0.5mm} \
+        {\LARGE \textbf{Análisis de pacientes menores a 15 años}} \\[0.4cm]
+        {\large Centro de Salud Santa María Guadalupe Tecola, Puebla} \\
+        \rule{\linewidth}{0.5mm} \\[1cm]
+
+        \textbf{Reporte de Proyecto Integrador de Aprendizaje (PIA)}\\
+        \textbf{Unidad de Aprendizaje:} Métodos Estadísticos Multivariados \\
+        \textbf{Posgrado:} Maestría en Ciencia de Datos \\
+
+        \vfill
+        \begin{flushright}
+        \textbf{Alumno:} Héctor Alejandro Márquez González\\
+        \textbf{Matrícula:} 1989936\\
+        \textbf{Profesora:} Dra. Rosa Isela Hernández Zamora\\
+        \textbf{Fecha de entrega:} 25 de marzo del 2025
+        \end{flushright}
+    \end{center}
+\end{titlepage}
+
+% ================== Índice =====================
+\tableofcontents
+\newpage
+
+% ================== Introducción =====================
+\chapter{Introducción}
+El presente reporte tiene como objetivo aplicar herramientas de análisis multivariado sobre un conjunto de datos clínicos reales, provenientes del centro de salud Santa María Guadalupe Tecola en Puebla. Se analizarán datos de 50 pacientes menores de 15 años con el fin de explorar patrones, estructuras latentes y posibles agrupamientos clínicos.
+
+El conjunto de datos incluye variables biomédicas como IMC, ALT, LDL, glucosa, creatinina, triglicéridos, insulina y DHL. 
+
+Se utilizarán técnicas multivariadas como el Análisis de Factores y el Análisis de Conglomerados. Estas herramientas permitirán:
+
+\begin{itemize}
+    \item Identificar factores latentes a partir de la matriz de correlaciones.
+    \item Reducir la dimensionalidad conservando la mayor parte de la varianza.
+    \item Agrupar a los pacientes según características clínicas similares.
+    \item Verificar estadísticamente la significancia de las diferencias entre grupos.
+\end{itemize}
+
+El análisis permite aportar evidencia para segmentaciones clínicas con utilidad diagnóstica.
+
+% ================== Análisis Descriptivo =====================
+\chapter{Análisis descriptivo del conjunto de datos}
+
+\section{Variables del estudio}
+Se estudiaron las siguientes variables:
+\begin{itemize}
+    \item IMC
+    \item ALT
+    \item LDL
+    \item Glucosa
+    \item Creatinina
+    \item Triglicéridos
+    \item Insulina
+    \item DHL
+\end{itemize}
+
+\section{Matriz de correlaciones}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{correlation_plot.png}
+    \caption{Gráfica 1. Matriz de correlaciones entre las variables clínicas}
+\end{figure}
+
+\noindent En la Gráfica 1 se observa que variables como IMC, Insulina y Triglicéridos presentan correlaciones positivas fuertes, lo cual indica relación entre obesidad y resistencia a la insulina.
+% Sección: Histogramas y Tablas de Frecuencia
+\section{Histogramas y Tablas de Frecuencia}
+
+\subsection{IMC}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_IMC.png}
+    \caption{Histograma de IMC}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        12 - 14 & 1 \\
+        14 - 16 & 6 \\
+        16 - 18 & 10 \\
+        18 - 20 & 6 \\
+        20 - 22 & 13 \\
+        22 - 24 & 5 \\
+        24 - 26 & 5 \\
+        26 - 28 & 0 \\
+        28 - 30 & 4 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para IMC}
+\end{table}
+\noindent En la Gráfica 2.2 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+\subsection{ALT}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_ALT.png}
+    \caption{Histograma de ALT}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        10 - 20 & 25 \\
+        20 - 30 & 12 \\
+        30 - 40 & 5 \\
+        40 - 50 & 1 \\
+        50 - 60 & 2 \\
+        60 - 70 & 2 \\
+        70 - 80 & 2 \\
+        80 - 90 & 0 \\
+        90 - 100 & 1 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para ALT}
+\end{table}
+\noindent En la Gráfica 2.3 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. Este histograma es parecido a una distribución exponencial.
+
+\subsection{LDL}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_LDL.png}
+    \caption{Histograma de LDL}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        0 - 20 & 2 \\
+        20 - 40 & 2 \\
+        40 - 60 & 7 \\
+        60 - 80 & 19 \\
+        80 - 100 & 14 \\
+        100 - 120 & 4 \\
+        120 - 140 & 1 \\
+        140 - 160 & 0 \\
+        160 - 180 & 1 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para LDL}
+\end{table}
+\noindent En la Gráfica 2.5 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+
+\subsection{Glucosa}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_Gluc.png}
+    \caption{Histograma de Glucosa}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        70 - 75 & 1 \\
+        75 - 80 & 2 \\
+        80 - 85 & 13 \\
+        85 - 90 & 13 \\
+        90 - 95 & 13 \\
+        95 - 100 & 6 \\
+        100 - 105 & 2 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para Glucosa}
+\end{table}
+\noindent En la Gráfica 2.5 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+
+\subsection{Creatinina Serica}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_CreatininaSerica.png}
+    \caption{Histograma de Creatinina Serica}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        0.4 - 0.45 & 7 \\
+        0.45 - 0.5 & 23 \\
+        0.5 - 0.55 & 0 \\
+        0.55 - 0.6 & 12 \\
+        0.6 - 0.65 & 0 \\
+        0.65 - 0.7 & 5 \\
+        0.7 - 0.75 & 0 \\
+        0.75 - 0.8 & 2 \\
+        0.8 - 0.85 & 0 \\
+        0.85 - 0.9 & 1 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para Creatinina Serica}
+\end{table}
+\noindent En la Gráfica 2.6 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. Este histograma es parecido a una distribución exponencial.
+
+
+\subsection{TRI}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_TRI.png}
+    \caption{Histograma de Triglicéridos}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        20 - 40 & 1 \\
+        40 - 60 & 3 \\
+        60 - 80 & 8 \\
+        80 - 100 & 10 \\
+        100 - 120 & 10 \\
+        120 - 140 & 11 \\
+        140 - 160 & 0 \\
+        160 - 180 & 3 \\
+        180 - 200 & 3 \\
+        200 - 220 & 1 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para Triglicéridos}
+\end{table}
+\noindent En la Gráfica 2.7 podemos sospechar de que nuestros datos siguen una distribución normal. Más adelante lo probaremos estadísticamente.
+
+\subsection{Insulina}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_Insulina.png}
+    \caption{Histograma de Insulina}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        0 - 5 & 1 \\
+        5 - 10 & 20 \\
+        10 - 15 & 13 \\
+        15 - 20 & 8 \\
+        20 - 25 & 5 \\
+        25 - 30 & 2 \\
+        30 - 35 & 0 \\
+        35 - 40 & 1 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para Insulina}
+\end{table}
+
+\noindent En la Gráfica 2.8 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. 
+
+\subsection{DHL}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hist_DHL.png}
+    \caption{Histograma de DHL}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Rango} & \textbf{Frecuencia} \\
+        \hline
+        0 - 50 & 6 \\
+        50 - 100 & 0 \\
+        100 - 150 & 0 \\
+        150 - 200 & 3 \\
+        200 - 250 & 3 \\
+        250 - 300 & 3 \\
+        300 - 350 & 1 \\
+        350 - 400 & 6 \\
+        400 - 450 & 17 \\
+        450 - 500 & 6 \\
+        500 - 550 & 0 \\
+        550 - 600 & 3 \\
+        600 - 650 & 2 \\
+        \hline
+    \end{tabular}
+    \caption{Tabla de frecuencias para DHL}
+\end{table}
+\noindent En la Gráfica 2.9 podemos sospechar de que nuestros datos no siguen una distribución normal debido a como se distribuye la tabla de frecuencia. 
+
+
+\newpage
+
+\section{Normalidad univariada (Shapiro-Wilk)}
+Antes de aplicar técnicas multivariadas como análisis factorial o de conglomerados, es importante comprobar si las variables siguen una distribución normal. Para ello, se aplicó la prueba de Shapiro-Wilk a cada variable individual.\newline
+La regla de decisión es: si el \textbf{p-valor $<$ 0.05}, se \textbf{rechaza $H_0$} y se concluye que la variable no sigue una distribución normal.
+
+\textbf{Hipótesis:}
+\begin{itemize}
+    \item $H_0$: La variable sigue una distribución normal.
+    \item $H_1$: La variable no sigue una distribución normal.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Variable} & \textbf{p-valor} \\
+\midrule
+IMC & 0.0814 \\
+ALT & $< 0.0001$ \\
+LDL & 0.0108 \\
+Glucosa & 0.6602 \\
+Creatinina & $< 0.0001$ \\
+Triglicéridos & 0.0987 \\
+Insulina & 0.000287 \\
+DHL & 0.000238 \\
+\bottomrule
+\end{tabular}
+\caption{Tabla 1. Prueba de normalidad univariada por variable}
+\end{table}
+
+\noindent En la Tabla 1 observamos que IMC, glucosa y triglicéridos no rechazan la hipótesis de normalidad. Las demás variables sí muestran desviación significativa. \\\textbf{Conclusión:} IMC, glucosa y triglicéridos siguen una normal univariada.
+
+\section{Normalidad multivariada}
+Además de verificar la normalidad individual de las variables, es importante conocer si el conjunto de datos cumple con normalidad multivariada, condición importante en varios métodos multivariados. Para ello se aplicó la prueba de Mardia.\newline
+La regla de decisión es: si el \textbf{p-valor $<$ 0.05}, se \textbf{rechaza $H_0$} y se concluye que el conjunto de datos no sigue una distribución normal multivariada.
+
+\textbf{Prueba utilizada:} Prueba de Mardia
+
+\textbf{Hipótesis:}
+\begin{itemize}
+    \item $H_0$: Los datos siguen una distribución normal multivariada.
+    \item $H_1$: Los datos no siguen una distribución normal multivariada.
+\end{itemize}
+
+\textbf{Resultados:}
+\begin{itemize}
+    \item Asimetría (Skewness): 219.77 con p-valor $ < $ 0.001
+    \item Curtosis (Kurtosis): 3.30 con p-valor = 0.00095
+\end{itemize}
+
+\noindent Ambos valores p son menores a 0.05, por lo tanto se rechaza la hipótesis nula. \\
+\textbf{Conclusión:} Los datos no siguen una distribución normal multivariada.
+
+\newpage
+
+\section{Vector de Promedios y Desviación Muestral}
+Antes de aplicar técnicas multivariadas, es útil calcular las medidas de tendencia central y dispersión para comprender el comportamiento general de las variables.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Variable} & \textbf{Promedio} & \textbf{Desviación Muestral} \\
+\hline
+IMC & 20.3320 & 3.9617 \\
+ALT & 27.5880 & 19.1643 \\
+LDL & 74.6680 & 28.3022 \\
+Gluc & 89.0800 & 6.5085 \\
+CreatininaSerica & 0.5500 & 0.1111 \\
+TRI & 111.1000 & 39.4328 \\
+Insulina & 13.4648 & 6.8496 \\
+DHL & 354.2000 & 168.4154 \\
+\hline
+\end{tabular}
+\caption{Tabla 1. Vector de Promedios y Desviación Muestral para cada variable}
+\end{table}
+
+\noindent En la Tabla 1 se observan los promedios y desviaciones muestrales para cada una de las ocho variables clínicas. Estas estadísticas resumen la tendencia central y la variabilidad, y permiten una comparación inicial entre las variables.
+
+
+% ================== Análisis Multivariado =====================
+\chapter{Análisis multivariado: Factores y Conglomerados}
+
+%---------------------------------------------------
+%---------------------------------------------------
+% ANALISIS DE FACTORES
+%---------------------------------------------------
+
+\section{Análisis de Factores}
+El análisis de factores tiene como objetivo reducir la dimensionalidad del conjunto de datos y descubrir variables latentes que expliquen la mayor parte de la varianza entre las variables originales. Se aplicó la técnica en las 8 variables clínicas, previo cumplimiento de condiciones estadísticas.
+
+\subsection{Prueba de Esfericidad de Bartlett}
+Antes de aplicar el análisis factorial, es necesario verificar si las variables están correlacionadas entre sí.
+
+\textbf{Hipótesis:}
+\begin{itemize}
+    \item $H_0$: $\Sigma = \sigma^2 \mathbf{I}$ (la matriz de correlaciones es una identidad, no hay correlación entre variables)
+    \item $H_1$: $\Sigma \neq \sigma^2 \mathbf{I}$ (existen correlaciones significativas)
+\end{itemize}
+
+\textbf{Resultados:}
+\begin{itemize}
+    \item Estadístico chi-cuadrado: 72.13
+    \item Valor p: 9.33 $\times 10^{-6}$
+    \item Grados de libertad: 28
+\end{itemize}
+
+\noindent Como el p-valor es menor a 0.05, se rechaza la hipótesis nula. Es adecuado aplicar análisis factorial.
+
+\subsection{Componentes Principales y Varianza Explicada}
+Se realizó un análisis de componentes principales (PCA) para calcular la varianza explicada acumulada por cada componente:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Componente} & \textbf{Varianza} & \textbf{Acumulada} \\
+\hline
+PC1 & 29.76\% & 29.76\% \\
+PC2 & 18.27\% & 48.03\% \\
+PC3 & 15.62\% & 63.65\% \\
+PC4 & 11.04\% & 74.69\% \\
+PC5 & 9.59\% & 84.28\% \\
+PC6 & 6.61\% & 90.89\% \\
+PC7 & 5.02\% & 95.90\% \\
+PC8 & 4.10\% & 100.00\% \\
+\hline
+\end{tabular}
+\caption{Tabla 3. Varianza explicada por los componentes principales}
+\end{table}
+
+\noindent Se observa que los tres primeros componentes explican más del 63\% de la varianza. Esto sugiere que se pueden utilizar 3 factores en el análisis factorial.
+
+\subsection{Selección del Número de Factores: Gráfico de Codo}
+Se utilizó el gráfico de codo generado por la función \texttt{fa.parallel} para comparar los eigenvalues reales y simulados:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fa_parallel_plot.png}
+    \caption{Gráfico de Codo: Comparación de eigenvalues reales vs simulados}
+\end{figure}
+
+\noindent Los factores 1, 2 y 3 tienen eigenvalues reales superiores a los esperados por simulación aleatoria. Se concluye que tres factores son suficientes.
+
+\subsection{Matriz de Cargas Factoriales con Rotación Varimax}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Variable} & \textbf{Factor 1} & \textbf{Factor 2} & \textbf{Factor 3} \\
+\hline
+IMC & 0.70 & 0.49 & 0.26 \\
+ALT & 0.70 & -0.18 & 0.34 \\
+LDL & 0.08 & 0.26 & -0.58 \\
+Gluc & 0.05 & 0.24 & 0.80 \\
+Creatinina Serica & 0.13 & 0.72 & 0.10 \\
+TRI & 0.80 & -0.20 & -0.14 \\
+Insulina & 0.78 & 0.20 & -0.21 \\
+DHL & 0.26 & -0.69 & 0.25 \\
+\hline
+\end{tabular}
+\caption{Tabla 4. Matriz de cargas factoriales con rotación Varimax}
+\end{table}
+
+\subsection{Interpretación de los Factores}
+\begin{itemize}
+    \item \textbf{Factor 1:} IMC, TRI e Insulina — Obesidad y resistencia a la insulina.
+    \item \textbf{Factor 2:} Creatinina y DHL — Función renal e inflamación.
+    \item \textbf{Factor 3:} Glucosa — Metabolismo de la glucosa.
+\end{itemize}
+
+\noindent Estos factores permiten resumir la información original en tres dimensiones más interpretables desde un punto de vista clínico.
+
+\newpage
+
+\section{Análisis de Conglomerados}
+
+\subsection{Metodología General del Análisis de Conglomerados}
+\begin{itemize}
+    \item Primero, se utilizó el \textbf{índice de Silhouette} con el método jerárquico para estimar el número óptimo de grupos.
+    \item Luego, se aplicaron cuatro algoritmos de clustering:
+    \begin{enumerate}
+        \item K-means
+        \item Expectation Maximization (EM)
+        \item Jerárquico
+        \item DBSCAN (basado en densidad)
+    \end{enumerate}
+    \item Para cada uno, se calculó una medida de \textbf{validación interna} (\textbf{C-index}), ya que no se dispone de una clasificación real.
+    \item Finalmente, se seleccionó el método con el menor C-index como la mejor solución de agrupamiento.
+\end{itemize}
+
+\subsection{Selección del número óptimo de clusters con Silhouette}
+Se aplicó clustering jerárquico y se evaluó el índice de Silhouette promedio para \(k = 2\) hasta \(k = 10\). La gráfica correspondiente se muestra en la Figura 1.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{silhouette_jerarquico.png}
+    \caption{Figura 1. Índice de Silhouette promedio para distintos valores de \(k\)}
+\end{figure}
+
+\noindent El valor máximo se alcanza en \(k = 3\), por lo tanto, se concluye que \textbf{3 es el número óptimo de clusters}.
+
+\subsection{¿Qué es el C-index?}
+El \textbf{C-index} es una métrica interna de validación para evaluar la calidad de una partición. Se define como:
+\[ C = \frac{S - S_{min}}{S_{max} - S_{min}} \]
+Donde:
+\begin{itemize}
+    \item $S$ es la suma de las distancias dentro de los clusters.
+    \item $S_{min}$ y $S_{max}$ corresponden a las sumas mínimas y máximas posibles entre pares.
+\end{itemize}
+\textbf{Interpretación:} Cuanto más cercano a 0 sea el C-index, mejor es la calidad de la partición.
+
+\subsection{Comparación de Métodos de Agrupamiento}
+\begin{itemize}
+    \item Se aplicaron cuatro modelos:
+    \begin{itemize}
+        \item K-means
+        \item Expectation Maximization (EM)
+        \item Jerárquico
+        \item DBSCAN
+    \end{itemize}
+    \item Cada modelo fue evaluado usando el C-index.
+    \item El método con el \textbf{menor C-index} se seleccionó como el más adecuado.
+\end{itemize}
+
+\subsection{Resultados del C-index por método}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Método} & \textbf{C-index} \\
+\hline
+K-means & 0.1162249 \\
+EM & 0.2454119 \\
+Jerárquico & 0.1403033 \\
+DBSCAN & 0.2409209 \\
+\hline
+\end{tabular}
+\caption{Tabla 5. C-index por método de agrupamiento}
+\end{table}
+
+\subsection{Repetición de K-means para optimización}
+Se repitió el algoritmo K-means 10 veces con diferentes semillas. Los valores de C-index fueron:
+\begin{itemize}
+    \item 0.1354802, 0.1162249, 0.1162249, 0.1354802, 0.1354802
+    \item 0.1162249, 0.2881972, 0.1162249, 0.1162249, 0.1354802
+\end{itemize}
+Se confirma que el valor mínimo sigue siendo 0.1162249, por lo tanto, la solución inicial fue óptima.
+
+\subsection{Separación de grupos por factores}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Grupo} & \textbf{Factor 1} & \textbf{Factor 2} & \textbf{Factor 3} \\
+\hline
+1 & 1.18 & -0.20 & -0.92 \\
+2 & 0.10 &  1.60 &  0.63 \\
+3 & -0.55 & -0.49 &  0.17 \\
+\hline
+\end{tabular}
+\caption{Tabla 6. Promedio de factores por grupo (K-means)}
+\end{table}
+
+\noindent El \textbf{Factor 1} y el \textbf{Factor 2} presentan diferencias marcadas entre los grupos, lo que indica que contribuyen a la separación entre los mismos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{boxplots_colores_por_factor.png}
+    \caption{Figura 2. Boxplots de factores por grupo (K-means)}
+\end{figure}
+
+\subsection{MANOVA: Prueba de Igualdad de Medias Multivariadas}
+\textbf{Hipótesis:}
+\begin{itemize}
+    \item $H_0$: Los vectores de medias poblacionales de los 3 grupos son iguales.
+    \item $H_1$: Al menos un vector de medias difiere.
+\end{itemize}
+
+\textbf{Resultados:}
+\begin{itemize}
+    \item Estadístico calculado: $\chi^2 = 125.42$
+    \item Valor crítico: $\chi^2_{0.05, 6} = 12.59$
+    \item Decisión: Como $125.42 > 12.59$, se \textbf{rechaza $H_0$}
+\end{itemize}
+
+\textbf{Conclusión:} Existen diferencias significativas entre los grupos. Al menos un factor discrimina efectivamente entre ellos.
+
+\newpage
+% ================== Conclusiones =====================
+\section{Conclusiones Generales}
+
+El presente estudio utilizó técnicas estadísticas multivariadas para analizar información clínica de pacientes menores de 15 años. A continuación, se resumen los hallazgos más relevantes:
+
+\begin{itemize}
+    \item Las pruebas de normalidad univariada mostraron que algunas variables presentan una distribución compatible con la normalidad, mientras que otras no. En conjunto, los datos no siguen una distribución normal multivariada según la prueba de Mardia.
+
+    \item El análisis factorial permitió reducir la dimensionalidad del conjunto de datos, identificando tres factores latentes clínicamente interpretables:
+    \begin{itemize}
+        \item \textbf{Factor 1:} Relacionado con obesidad y resistencia a la insulina (IMC, TRI, Insulina).
+        \item \textbf{Factor 2:} Asociado con función renal e inflamación (Creatinina, DHL).
+        \item \textbf{Factor 3:} Asociado con el metabolismo de la glucosa (Glucosa).
+    \end{itemize}
+
+    \item Se aplicaron cuatro algoritmos de agrupamiento (K-means, EM, Jerárquico, DBSCAN). La validación interna mediante el índice C-index determinó que K-means con 3 clusters fue el mejor método.
+
+    \item El análisis de medias por grupo mostró que los factores 1 y 2 ayudan a diferenciar entre los conglomerados.
+
+    \item La prueba MANOVA confirmó que existen diferencias estadísticamente significativas entre los grupos, lo cual valida la segmentación obtenida por el modelo K-means.
+\end{itemize}
+
+\noindent En conjunto, los métodos aplicados permitieron caracterizar subgrupos clínicos con perfiles diferenciados, lo cual puede ser útil para la toma de decisiones médicas en pacientes pediátricos.
+
+\vspace{0.5cm}
+\noindent \textbf{Recomendaciones:}
+\begin{itemize}
+    \item Realizar un seguimiento longitudinal de los pacientes por grupo para evaluar la evolución clínica.
+    \item Considerar análisis supervisados (como discriminante lineal) si se llega a obtener una clasificación clínica validada.
+    \item Aplicar estas metodologías a un conjunto de datos más grande para validar la estabilidad de los grupos.
+\end{itemize}
+
+\newpage
+\section{Referencias}
+
+\begin{itemize}
+    \item Petriz Guzmán, estudiante de Medicina. Datos clínicos recolectados como parte de su práctica profesional en el centro de salud Santa María Guadalupe Tecola, Puebla.
+
+    \item Hair, J. F., Black, W. C., Babin, B. J., \& Anderson, R. E. (2014). \textit{Multivariate Data Analysis}. Pearson Education.
+
+    \item Johnson, R. A., \& Wichern, D. W. (2007). \textit{Applied Multivariate Statistical Analysis}. Pearson Prentice Hall.
+
+    \item R Core Team (2024). \textit{R: A Language and Environment for Statistical Computing}. R Foundation for Statistical Computing, Vienna, Austria. URL: \url{https://www.R-project.org/}
+\end{itemize}
+
+\end{document}
